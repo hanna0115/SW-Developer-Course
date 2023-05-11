@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두번째 페이지</title>
+</head>
+<!-- 간단한 작업만 필요할 경우 CSS파일 열지 않고 style태그로 꾸밀 수 있음 -->
+<style>
+  p {
+    border: 1px solid red;
+  }
+  a {
+    border:  1px solid blue;
+  }
+  .red-txt {
+    color: red;
+  }
+
+  #para1 {
+    background-color: aquamarine;
+  }
+  /* class와 id의 차이점 */
+  /* 
+  1. 클래스는 중복이 가능하지만, 아이디는 중복해선 안된다.
+  2. 아이디는 자바스크립트를 사용할 때 쓴다.(클래스를 주로 사용하되, 이동할 경우만 아이디를 쓴다.)
+  3. css에서 아이디를 사용할 때는 앞에 #을 붙인다.
+  4. css에서 클래스를 사용할 때는 앞에 .을 붙인다.
+   */
+</style>
+
+<body>
+  <h1>
+    <a href="./2-1.a_link.html">첫번째 페이지로 돌아가기</a>
+  </h1>
+
+  <div>
+    <p><a href="#para1">첫번째 문단으로 이동하기</a></p>
+    <p><a href="#para2">두번째 문단으로 이동하기</a></p>
+    <p><a href="#para3">세번째 문단으로 이동하기</a></p>
+  </div>
+
+  <img src="../images/네이버.png" alt="네이버">
+  <div class="one">
+    <h1 id="para1" class="red-txt">첫번째 문단</h1>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit, ducimus accusamus consequuntur quas ad. Asperiores quisquam similique quas esse distinctio suscipit provident praesentium nam a, sint laudantium id rem.</h1>
+    <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo architecto asperiores sequi sit, facilis placeat magnam minima adipisci officia dolores laboriosam, exercitationem earum modi aliquam quos, eveniet corporis illo odio!</h2>
+    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam voluptates dicta ad voluptate! Sit sequi, quo debitis esse, praesentium soluta voluptatem, minus aliquid consequatur accusamus laboriosam fugiat repellendus eum quas!</h3>
+    <img src="../images/네이버.png" alt="네이버">
+  </div>
+  <div class="two">
+    <h1 id="para2" class="red-txt">두번째 문단</h1>
+    <img src="../images/전화.png" alt="전화">
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat omnis qui eius molestiae esse molestias quis natus culpa provident, sunt inventore, fuga optio ad nostrum dignissimos numquam laudantium, repellat vel.</h1>
+    <img src="../images/유튜브.jpg" alt="유튜브">
+  </div>
+  <div class="three">
+    <h1 id="para3" class="red-txt">세번째 문단</h1>
+    <img src="../images/네이버.png" alt="네이버">
+    <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam laborum voluptate exercitationem facilis praesentium numquam! Eveniet sint sapiente, expedita dolor voluptates repudiandae corporis, perspiciatis debitis aperiam magnam et, ab modi?</h1>
+    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum facilis illo ratione minima, vitae quo autem, corrupti adipisci facere laudantium numquam deleniti tempore molestias quos modi eveniet commodi ea nisi.</h2>
+    <img src="../images/구글.png" alt="구글">
+  </div>
+</body>
+</html>

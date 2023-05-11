@@ -1,0 +1,20 @@
+/* 폰트를 두껍게 하려면 700(따로 단위 없이 숫자만) 또는 bold */
+.b-weight {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.delete {
+  text-decoration: line-through;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bgc {
+  background-color: yellowgreen;
+}

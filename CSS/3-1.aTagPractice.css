@@ -1,0 +1,38 @@
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+img {
+  width: 200px;
+}
+
+/* 레이아웃이나 자주사용하는 색 등은 css 상단에 놓고
+ 사용되어야할 때 이 클래스명 붙여줌. */
+.txt-green {
+  color: green;
+}
+
+.box {
+  width: 300px;
+  border-radius: 10px;
+  padding: 20px;
+  /* text-align의 기본값은 left(따로 설정하지 않을 경우) */
+  /* text-align의 속성으로 이미지도 정렬할 수 있다
+    img태그 자체한테 text-align: center; 그 부모요소한테 적용
+   */
+  text-align: center;
+  margin: 20px auto;
+}
+
+.google {
+  border: 2px solid red;
+}
+
+.txt-bold {
+  font-weight: 700;
+}
+
+.naver {
+  border: 2px solid green;
+}
