@@ -1,5 +1,49 @@
 /* * : 모든 태그들 */
 /* 태그들은 기본적으로 자기가 가지고 있는 속성 있음(마진 등) */
-* {
-  margin: 0;
+
+
+body {
+  background-color: #000;
+}
+
+.wrapper {
+  margin-top: 200px;
+  text-align: center;
+}
+
+img {
+  width: 400px;
+}
+
+.box {
+  width: 500px;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 5px auto;
+  padding: 10px;
+}
+
+.newscreen {
+  font-weight: 700;
+}
+
+.box2 {
+  width: 500px;
+  background-color: #fff;
+  border-radius: 40px;
+  margin: 10px auto;
+  padding: 15px;
+}
+
+.google2 {
+  width: 400px;
+  margin: 100px auto;
+}
+
+.f-bold {
+  font-weight: 700;
+}
+
+.f-underline {
+  text-decoration: underline;
 }
