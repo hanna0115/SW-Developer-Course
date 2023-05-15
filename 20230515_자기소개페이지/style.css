@@ -1,0 +1,87 @@
+/* 거의 항상 선언하고 시작? */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+body {
+  background-color: #1e1e1e;
+}
+
+.wrapper {
+  margin: 30px;
+  border: 1px solid #868686;
+  border-radius: 10px;
+  background-color: #282828;
+  text-align: center;
+}
+
+.mac-btn-list {
+    /* 정렬? float(요즘 거의 이용 안함) flex(요즘 거의 이거 씀) */
+    /* 1. 내가 정렬하고 싶은 아이템의 부모 요소에게
+      display : flex 속성을 준다
+    */
+    /* display, position 이 두 가지 속성은 무조건 다른 속성들보다 위에 직성하는 게 좋다.
+    그 다음 속성은 보통 width, height
+    비슷한 것끼리 붙어있게 작성하면 보기 편함.
+     */
+  display: flex;
+  background-color: #151515;
+  /* 높이값을 주는 방법: height 또는 padding 이용 */
+  padding: 10px 0;
+  /* 1. 좌측 상단
+     2. 우측 상단
+     3. 우측 하단
+     4. 좌측 하단 */
+   border-radius: 10px 10px 0 0;
+   border-bottom: 1px solid #000;
+}
+
+.mac-btn-item {
+  width: 13px;
+  height: 13px;
+  margin-left: 6px;
+  /* 둥글게 만들려면 보통 가로세로의 반 정도 또는 50% */
+  border-radius: 50%;
+}
+
+.red {
+  background-color: #db4932;
+}
+
+.yellow {
+  background-color: #ffc34a;
+}
+
+.green {
+  background-color: #59c24b;
+}
+
+.gnb-list {
+  display: flex;
+  /* justify-content 기본값 : flex-start(좌측정렬)
+     가운데 정렬 : justify-content: center;
+     우측 정렬 : justify-content: flex-end;
+   */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gnb-item {
+  margin-right: 30px;
+}
+
+/* gnb-item이라는 클래스를 가진 애들 중에서
+   마지막 요소를 선택한 것 */
+.gnb-item:last-child {
+  margin-right: 0;
+}
