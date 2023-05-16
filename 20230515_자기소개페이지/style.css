@@ -50,7 +50,7 @@ body {
   width: 13px;
   height: 13px;
   margin-left: 6px;
-  /* 둥글게 만들려면 보통 가로세로의 반 정도 또는 50% */
+  /* 둥글게 만들려면 보통 가로세로의 반 정도 또는 50%(계산하기 힘드니까) */
   border-radius: 50%;
 }
 
@@ -78,10 +78,34 @@ body {
 
 .gnb-item {
   margin-right: 30px;
+  font-weight: bold;
 }
 
 /* gnb-item이라는 클래스를 가진 애들 중에서
    마지막 요소를 선택한 것 */
 .gnb-item:last-child {
   margin-right: 0;
+}
+
+.my-name {
+  margin-top: 30px;
+  color: #fff;
+}
+
+/* info-section이라는 클래스 안에 있는 img 태그에게만
+  지정된 스타일 적용 */
+ .info-section img {
+  width: 300px;
+  height: 300px;
+  /* 보통 개발자들 하나에 마진 둘다 주지 않고 각각 마진탑으로 줌? 나중에  */
+  margin-top: 30px;
+  border-radius: 50%;
+  /* 1. cover(가로와 세로 선 둘 다 닿을 때까지 비율을 유지하며 확대됨)
+    : 내용이 비율을 유지하면서 정의된 가로 x 세로 사이즈를
+    가득 채울 때까지 확대된다
+    2. contain(가로 또는 세로 선 둘 중 하나에 닿을 때까지 비율을 유지하며 확대됨)
+    : 내용이 비율을 유지하면서 정의된 가로 x 세로 안에서
+    최대한으로 확대된다
+  */
+  object-fit: contain;
 }
