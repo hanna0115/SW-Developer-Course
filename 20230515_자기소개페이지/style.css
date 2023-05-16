@@ -97,7 +97,7 @@ body {
  .info-section img {
   width: 300px;
   height: 300px;
-  /* 보통 개발자들 하나에 마진 둘다 주지 않고 각각 마진탑으로 줌? 나중에  */
+  /* 보통 개발자들 하나에 마진 둘다 주지 않고 각각 마진탑으로 줌? 나중에 검색으로 한번에 수정 가능? */
   margin-top: 30px;
   border-radius: 50%;
   /* 1. cover(가로와 세로 선 둘 다 닿을 때까지 비율을 유지하며 확대됨)
@@ -107,5 +107,25 @@ body {
     : 내용이 비율을 유지하면서 정의된 가로 x 세로 안에서
     최대한으로 확대된다
   */
-  object-fit: contain;
+  object-fit: cover;
+}
+
+.contact-list {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.contact-list h3 {
+  margin-right: 40px;
+  color: #fff;
+}
+
+.contact-item {
+  padding-right: 20px;
+}
+
+.contact-item:last-child {
+  padding-right: 0;
 }
