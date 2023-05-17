@@ -100,3 +100,51 @@
   display: flex;
   justify-content: center;
 }
+
+.flex {
+  display: flex;
+  /* 기본값이 flex-start */
+  /* 가로(주)축을 정렬하는 속성 */
+  justify-content: center;
+  /* 세로축을 정렬하는 속성 */
+  align-items: center;
+  /* 박스가 떨어지는 방향 기본값 : row */
+  /* 
+    flex-direction : row일 경우
+    : 가로축이 주축 /
+    수평정렬 사용하고 싶을 때 - justif-content(주축)
+    수직정렬을 사용하고 싶을 때 - align-items
+  */
+  /* 
+    flex-direction : column일 경우
+    : 세로축이 주축
+    수평정렬 - align-items
+    수직정렬 - justif-content(주축)
+    */
+  flex-direction: row;
+  height: 700px;
+  border: 2px solid #000;
+}
+
+.flex div {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* order
+  부모의 display가 flex인 자식 요소들에게
+  order라는 속성으로 화면에 보이는 순서를 바꿀 수 있다
+  *기본값은 0이고, 숫자가 작은 순서대로 화면에 출력(음수도 가능)
+   order값이 같을 경우에는 작성된 순서대로 출력
+*/
+.first {
+  order: 3;
+}
+
+.second {
+  order: 2;
+}
+
+.third {
+  order: -1;
+}
