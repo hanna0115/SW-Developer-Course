@@ -9,6 +9,7 @@
   height: 100px;
 }
 
+/* left-box, right-box를 하나의 box라는 class를 가진 div 만듦 */
 .box div {
   float: left;
   height: 500px;
