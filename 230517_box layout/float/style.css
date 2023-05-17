@@ -1,0 +1,32 @@
+.layout {
+  width: 800px;
+  margin: 0 auto;
+  font-size: 24px;
+}
+
+.header {
+  background-color: aquamarine;
+  height: 100px;
+}
+
+.box div {
+  float: left;
+  height: 500px;
+}
+
+.left-box {
+  background-color: cornflowerblue;
+  width: 150px;
+ 
+}
+
+.right-box {
+  background-color: coral;
+  width: 650px;
+}
+
+.footer {
+  clear: both;
+  background-color: lightgreen;
+  height: 150px;
+}
