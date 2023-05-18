@@ -1,0 +1,131 @@
+/* 거의 항상 선언하고 시작? */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+body {
+  background-color: #1e1e1e;
+}
+
+.wrapper {
+  margin: 30px;
+  border: 1px solid #868686;
+  border-radius: 10px;
+  background-color: #282828;
+  text-align: center;
+}
+
+.mac-btn-list {
+    /* 정렬? float(요즘 거의 이용 안함) flex(요즘 거의 이거 씀) */
+    /* 1. 내가 정렬하고 싶은 아이템의 부모 요소에게
+      display : flex 속성을 준다
+    */
+    /* display, position 이 두 가지 속성은 무조건 다른 속성들보다 위에 직성하는 게 좋다.
+    그 다음 속성은 보통 width, height
+    비슷한 것끼리 붙어있게 작성하면 보기 편함.
+     */
+  display: flex;
+  background-color: #151515;
+  /* 높이값을 주는 방법: height 또는 padding 이용 */
+  padding: 10px 0;
+  /* 1. 좌측 상단
+     2. 우측 상단
+     3. 우측 하단
+     4. 좌측 하단 */
+   border-radius: 10px 10px 0 0;
+   border-bottom: 1px solid #000;
+}
+
+.mac-btn-item {
+  width: 13px;
+  height: 13px;
+  margin-left: 6px;
+  /* 둥글게 만들려면 보통 가로세로의 반 정도 또는 50%(계산하기 힘드니까) */
+  border-radius: 50%;
+}
+
+.red {
+  background-color: #db4932;
+}
+
+.yellow {
+  background-color: #ffc34a;
+}
+
+.green {
+  background-color: #59c24b;
+}
+
+.gnb-list {
+  display: flex;
+  /* justify-content 기본값 : flex-start(좌측정렬)
+     가운데 정렬 : justify-content: center;
+     우측 정렬 : justify-content: flex-end;
+   */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gnb-item {
+  margin-right: 30px;
+  font-weight: bold;
+}
+
+/* gnb-item이라는 클래스를 가진 애들 중에서
+   마지막 요소를 선택한 것 */
+.gnb-item:last-child {
+  margin-right: 0;
+}
+
+.my-name {
+  margin-top: 30px;
+  color: #fff;
+}
+
+/* info-section이라는 클래스 안에 있는 img 태그에게만
+  지정된 스타일 적용 */
+ .info-section img {
+  width: 300px;
+  height: 300px;
+  /* 보통 개발자들 하나에 마진 둘다 주지 않고 각각 마진탑으로 줌? 나중에 검색으로 한번에 수정 가능? */
+  margin-top: 30px;
+  border-radius: 50%;
+  /* 1. cover(가로와 세로 선 둘 다 닿을 때까지 비율을 유지하며 확대됨)
+    : 내용이 비율을 유지하면서 정의된 가로 x 세로 사이즈를
+    가득 채울 때까지 확대된다
+    2. contain(가로 또는 세로 선 둘 중 하나에 닿을 때까지 비율을 유지하며 확대됨)
+    : 내용이 비율을 유지하면서 정의된 가로 x 세로 안에서
+    최대한으로 확대된다
+  */
+  object-fit: cover;
+}
+
+.contact-list {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.contact-list h3 {
+  margin-right: 40px;
+  color: #fff;
+}
+
+.contact-item {
+  padding-right: 20px;
+}
+
+.contact-item:last-child {
+  padding-right: 0;
+}
