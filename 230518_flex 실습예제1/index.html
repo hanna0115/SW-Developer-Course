@@ -8,11 +8,27 @@
   <meta name="keywords" content="display, CSS, flex">
   <meta name="author" content="hannah">
   <title>Flex 실습예제1</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style1.css">
 </head>
 <body>
   <div class="wrapper">
-    
+    <!-- header 태그 안에는 반드시 hn 태그가 하나 이상 포함 되어야 한다. -->
+    <header>
+      <nav>
+        <!-- img로 바로 로고를 넣지 않는 이유: 로고 가장 중요, 위의 주석에 쓰인 이유가 있음 -->
+        <h1 class="logo">
+          <a href="./index.html">
+            <img src="./images/applelogo.png" alt="logo">
+          </a>
+        </h1>
+
+        <ul class="gnb-list">
+          <li class="gnb-item"><a href="./Menu1.html">menu1</a></li>
+          <li class="gnb-item"><a href="./Menu2.html">menu2</a></li>
+          <li class="gnb-item"><a href="./Menu3.html">menu3</a></li>
+        </ul>
+      </nav>
+    </header>
   </div>
 </body>
 </html>
