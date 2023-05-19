@@ -34,7 +34,7 @@ nav {
 
 .gnb-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 260px;
 }
 
@@ -158,4 +158,24 @@ nav {
 
 .post-box-item p {
   margin-top: 30px;
+}
+
+footer {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #333;
+}
+
+.contact-list {
+  display: flex;
+  justify-content: space-between;
+  width: 260px;
+}
+
+.contact-item a {
+  color: #fff;
 }
