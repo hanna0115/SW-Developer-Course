@@ -13,8 +13,10 @@ a {
 }
 
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   padding: 15px 30px;
@@ -22,7 +24,7 @@ nav {
 }
 
 .logo img {
-  width: 40px;
+  width: 50px;
 }
 
 .gnb-list {
@@ -130,7 +132,7 @@ nav {
   background-image: url(../images/스누피2.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain ;
+  background-size: 500px 500px;
   background-attachment: fixed;
 }
 
