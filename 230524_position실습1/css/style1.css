@@ -47,7 +47,18 @@ header nav {
 
 .gnb-item a {
   padding: 20px;
+  transition: color 500ms;
 }
+
+.gnb-item a:hover {
+  color: dodgerblue;
+}
+
+/* nav에 호버 했을 때 gnb-item 이라는 클래스 안에 있는 a 태그들한테
+   중괄호 안에 스타일을 적용(여기서는 빨간색으로 바껴라) */
+/* nav:hover .gnb-item a {
+  color: red;
+} */
 
 .background {
   display: flex;
@@ -146,12 +157,19 @@ footer {
   padding-right: 20px;
 }
 
+.icon-item a:hover i {
+  color: dodgerblue;
+  /* scale: 크기 rotete: 돌리기 */
+  transform: scale(1.2);
+}
+
 .icon-item:last-child a {
   padding-right: 0;
 }
 
 .icon-item i {
   font-size: 24px;
+  transition: all 500ms;
 }
 
 .top-btn{
@@ -183,4 +201,10 @@ footer {
   display: inline-block;
   padding: 10px 0;
   color: #888;
+  transition: all 500ms;
+}
+
+.side-menu-item a:hover {
+  color: dodgerblue;
+  text-decoration: underline;
 }
