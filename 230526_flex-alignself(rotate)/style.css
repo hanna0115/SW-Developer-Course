@@ -41,6 +41,9 @@ body {
   background-color: red;
 }
 
+.red:hover ~.green {
+  transform: scale(2);
+}
 
 .yellow {
   align-self: center;
