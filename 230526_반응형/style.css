@@ -53,3 +53,31 @@ header, footer {
     background-position: center top;
   }
 }
+
+@media screen and (max-width: 768px) {
+  header, footer {
+    padding: 15px 0;
+    background-color: darkblue;
+  }
+
+  .back-img {
+    background-image: url('./images/Disney\ Castle2.jpg');
+  }
+
+  .box-list {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+  
+  .box-list div {
+    width: 90%;
+    height: 150px;
+    margin-top: 20px;
+    border: 1px solid purple;
+  }
+
+  .box-list div:first-child {
+    margin-top: 0;
+  }
+}
