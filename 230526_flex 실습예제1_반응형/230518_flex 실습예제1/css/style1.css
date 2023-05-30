@@ -236,23 +236,49 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-  nav {
-    padding: 5px 20px;
+  .logo img {
+    width: 30px;
+  }
+  
+  .gnb-list {
+    width: 220px;
   }
   
   .background {
-    height: 400px;
+    height: 300px;
   }
 
   .back-txt {
-    height: 400px;
+    height: 300px;
   }
+
+  .back-title {
+    font-size: 20px;
+  }
+
+  .back-content {
+    font-size: 14px;
+  }
+
+  .back-btn {
+    padding: 8px 16px;
+    border-radius: 10px;
+  }
+
+  .first-box {
+    margin-top: -20px;
+  }
+
   .first-box div {
     width: 80%;
-    padding: 60px 20px;
   }
 
   .post-box-item {
     padding: 60px 20px;
+    box-shadow: none;
+  }
+
+  footer {
+    margin-top: 60px;
   }
 }
