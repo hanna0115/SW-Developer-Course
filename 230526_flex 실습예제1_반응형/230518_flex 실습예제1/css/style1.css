@@ -256,16 +256,10 @@ footer {
   }
   .first-box div {
     width: 80%;
-  margin: 0 auto;
-  padding: 40px 20px;
-  text-align: center;
-  color: #fff;
-  background-color: #000;
-  border-radius: 20px;
+    padding: 60px 20px;
   }
 
-  .first-box div {
-    padding: 80px 20px;
+  .post-box-item {
+    padding: 60px 20px;
   }
-
 }
