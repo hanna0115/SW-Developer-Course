@@ -194,32 +194,27 @@ footer {
 }
 
 @media screen and (max-width: 1200px) {
-  nav {
-    padding: 10px 30px;
-  }
-  
   .background {
-    height: 500px;
+    height: 400px;
   }
 
   .back-txt {
-    height: 500px;
+    height: 400px;
   }
 
   .back-title {
-    font-size: 30px;
+    font-size: 28px;
   }
   
   .back-content {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .first-box {
-    margin-top: -20px;
+    margin-top: -40px;
   }
 
   .post-box-list {
-    display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
@@ -229,7 +224,6 @@ footer {
     width: 80%;
     margin-right: 0;
     margin-top: 30px;
-    box-shadow: none;
   }
 
   .post-box-item:first-child {
@@ -237,8 +231,7 @@ footer {
   }
 
   footer {
-    margin-top: 50px;
-    background-color: #333;
+    margin-top: 80px;
   }
 }
 
