@@ -1,3 +1,328 @@
 * {
+  margin: 0;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 15px;
+}
+
+.logo img {
+  width: 50px;
+}
+
+.gnb-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gnb-list li:last-child {
+  display: none;
+}
+
+.gnb-item {
+  padding: 10px;
+}
+
+.gnb-item a {
+  color: #000;
+  font-weight: 700;
+}
+
+.gnb-item a:hover {
+  color: rgb(235, 27, 27);
+}
+
+.snb-list {
+  display: none;
+}
+
+.lnb-list {
+  position: sticky;
+  top: 0;
+  display: flex;
+  padding: 10px;
+  border-top: 2px solid rgb(255, 213, 23);
+  background-color: rgb(235, 27, 27);
+}
+
+.lnb-item {
+  padding: 10px;
+}
+
+.lnb-item a {
+  color: #fff;
+}
+
+.back-img {
+  height: 600px;
+  background-image: url(./images/back.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto 30px auto;
+}
+
+.box > div {
+  max-width: 400px;
+  margin-right: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px #888;
+}
+
+.box > div:hover {
+  opacity: 0.7;
+}
+
+.box > div:last-child {
+  margin-right: 0;
+}
+
+
+.box img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.box p {
+  padding: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.first-box {
+  margin-top: 60px;
+}
+
+.snb-list2 {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-top: 2px solid rgb(255, 213, 23);
+  background-color: #fff;
+}
+
+.snb-item2 {
+  padding: 20px;
+}
+
+.snb-item2 img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.snb-item2 p {
+  color: #000;
+}
+
+.global-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: rgb(235, 27, 27);
+}
+
+.fnb-list {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+}
+
+.fnb-list li {
+  padding: 5px 0;
+  color: #fff;
+}
+
+.fnb-list1 li:first-child {
+  color: rgb(255, 213, 23);
+}
+
+.icon-list {
+  display: flex;
+}
+
+.icon-item {
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.icon-item:hover {
+  background-color: rgb(235, 27, 27);
+}
+
+.icon-item a {
+  font-size: 30px;
+  color: rgb(235, 27, 27);
+}
+
+.icon-item a:hover {
+  color: #fff;
+}
+
+@media screen and (max-width : 1200px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+  }
+  
+  .D-mode {
+    display: none;
+  }
+
+  .gnb-list li:last-child {
+    display: block;
+  }
+
+  .gnb-item a {
+    font-size: 25px;
+  }
+
+  .lnb-list {
+    justify-content: center;
+  }
+  
+  .lnb-item {
+    padding: 10px;
+  }
+  
+  .back-img {
+    height: 300px;
+  }
+
+  .box {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 20px auto;
+  }
+  
+  .box > div {
+    max-width: 90%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .box > div:last-child {
+    margin-bottom: 0;
+  }
+  
+  .box img {
+    height: 150px;
+  }
+  
+  .first-box {
+    margin-top: 40px;
+  }
+
+  .third-box {
+    margin-bottom: 40px;
+  }
+
+  .snb-list2 {
+    justify-content: space-between;
+  }
+  
+  .snb-item2 {
+    width: 70%;
+    padding: 10px;
+  }
+  
+  .snb-item2 img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .global-footer {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .fnb-list {
+    width: 95%
+  }
+  
+  .fnb-list2 li {
+    text-align: right;
+  }
+  
+  .icon-list {
+    margin-top: 20px;
+  }
+
+  .icon-item {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+  
+  .icon-item a{
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width : 768px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+  }
+  
+  .logo img {
+    width: 40px;
+  }
+
+  .gnb-item a {
+    font-size: 20px;
+  }
+
+  .lnb-list {
+    justify-content: space-around;
+    padding: 10px 100px;
+  }
+
+  .back-img {
+    height: 250px;
+  }
+
+  .box {
+    width: 90%;
+  }
+  
+  .box > div {
+    max-width: 100%;
+  }
+
+  .fnb-list {
+    display: block;
+  }
+ 
 }
