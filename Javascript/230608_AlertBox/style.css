@@ -1,0 +1,46 @@
+.alert-box {
+  display: none;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: skyblue;
+  box-sizing: border-box;
+}
+
+/* * {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  display: none;
+}
+
+.Alert-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: skyblue;
+}
+
+.box.open {
+  display: block;
+}
+
+.Alert-box p {
+  color: #fff;
+}
+
+#close-btn {
+  padding: 3px;
+  font-weight: 700;
+}
+
+#open-btn {
+  padding: 3px;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-left: 5px;
+} */
