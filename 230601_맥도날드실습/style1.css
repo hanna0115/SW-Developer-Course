@@ -321,7 +321,7 @@ footer {
     margin-top: 0;
   }
 
-  .food-box-list:first-child {
+  .food-box > .food-box-list:first-child > .food-box-item:first-child {
     margin-top: 0;
   }
   
