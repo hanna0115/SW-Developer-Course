@@ -46,7 +46,7 @@
         </ul>
 
         <div class="input-box">
-          <input type="text" class="lm-only">
+          <input type="text" class="lg-only" placeholder="스토어 검색">
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
 
@@ -54,16 +54,18 @@
           <div class="user-img">
             <img src="./images/user.jpeg" alt="user-img">
           </div>
-          <div class="cart-shopping">
+          <div class="cart-shopping md-only">
             <a href="">
               <i class="fa-solid fa-cart-shopping"></i>
             </a>
           </div>
-          <div class="logout">
+          <div class="lg-only">장바구니</div>
+          <div class="logout md-only">
             <a href="">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </a>
           </div>
+          <div class="lg-only">로그아웃</div>
         </div>
       </nav>
     </header>
@@ -86,16 +88,19 @@
     <aside class="sidebar sm-only">
       <h2 class="visually-hidden">사이드바 메뉴</h2>
       <div class="user-info">
-        <img src="./images/user.jpeg" alt="">
-        <p>레고레고레고레고레고</p>
+        <img src="./images/user.jpeg" alt="user-img">
+        <p>레고레고레고레고레고레고</p>
       </div>
+
+      <hr>
+
       <div class="drawer-menu1">
-        <ul class="lego-shopping-list">
-          <p>
-            <i class="fa-solid fa-cart-shopping"></i>
-            레고 제품 쇼핑
-            <i class="fa-solid fa-chevron-down"></i>
-          </p>
+        <div class="title">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <h3>레고 제품 쇼핑</h3>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <ul class="lego-shopping-list list">
           <li class="lego-shopping-item"><a href="">시리즈별 세트</a></li>
           <li class="lego-shopping-item"><a href="">연령별</a></li>
           <li class="lego-shopping-item"><a href="">가격별</a></li>
@@ -107,13 +112,15 @@
         </ul>
       </div>
 
+      <hr>
+
       <div class="drawer-menu2">
-        <ul class="lego-brand-intro-list">
-          <p>
-            <i class="fa-regular fa-face-smile"></i>
-            레고 브랜드 소개
-            <i class="fa-solid fa-chevron-down"></i>
-          </p>
+        <div class="title">
+          <i class="fa-regular fa-face-smile"></i>
+          <h3>레고 브랜드 소개</h3>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <ul class="lego-brand-intro-list list">
           <li class="lego-brand-intro-item"><a href="">기업가치</a></li>
           <li class="lego-brand-intro-item"><a href="">레고 앱</a></li>
           <li class="lego-brand-intro-item"><a href="">레고 매거진</a></li>
@@ -123,20 +130,21 @@
         </ul>
       </div>
 
+      <hr>
+
       <div class="drawer-menu3">
-        <ul class="customer-support-list">
-          <p>
-            <i class="fa-solid fa-circle-info"></i>
-            고객지원
-            <i class="fa-solid fa-chevron-down"></i>
-          </p>
+        <div class="title">
+          <i class="fa-solid fa-circle-info"></i>
+          <h3>고객지원</h3>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <ul class="customer-support-list list">
           <li class="customer-support-itme"><a href="">주문 현황 확인</a></li>
           <li class="customer-support-itme"><a href="">배송 및 반품</a></li>
           <li class="customer-support-itme"><a href="">스토어 검색</a></li>
           <li class="customer-support-itme"><a href="">조립설명서 검색</a></li>
           <li class="customer-support-itme"><a href="">일반적인 질문</a></li>
         </ul>
-
       </div>
     </aside>
 
