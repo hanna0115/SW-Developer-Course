@@ -44,3 +44,26 @@ nav {
 .input-box i {
   font-size: 30px;
 }
+
+.lnb-list {
+  display: flex;
+  padding: 15px;
+}
+
+.lnb-item {
+  padding: 0 10px;
+
+}
+
+.lnb-item a {
+  color: #000;
+  font-weight: 700;
+}
+
+.background {
+  height: 400px;
+  background-image: url('./images/lego.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
