@@ -3,3 +3,44 @@
   padding: 0;
   font-family: 'Ubuntu', sans-serif;
 }
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+.sm-hidden {
+  display: none;
+}
+
+.lm-only {
+  display: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  background-color:  rgb(255, 204, 0);
+}
+
+.gnb-icon-btn {
+  font-size: 30px;
+  color: rgb(222, 0, 0);
+}
+
+.logo img {
+  width: 100px;
+}
+
+.input-box i {
+  font-size: 30px;
+}
