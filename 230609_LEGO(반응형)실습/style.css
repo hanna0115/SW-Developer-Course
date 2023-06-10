@@ -24,12 +24,16 @@ a {
   display: none;
 }
 
+.md-only {
+  display: none;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px 15px;
-  background-color:  rgb(255, 204, 0);
+  background-color: rgb(255, 204, 0);
 }
 
 .gnb-icon-btn {
@@ -52,7 +56,6 @@ nav {
 
 .lnb-item {
   padding: 0 10px;
-
 }
 
 .lnb-item a {
@@ -161,7 +164,11 @@ hr {
   }
   
   .sm-hidden {
-    display: flex;
+    display: block;
+  }
+  
+  .md-only {
+    display: block;
   }
   
   nav {
@@ -173,6 +180,7 @@ hr {
   }
 
   .gnb-list {
+    display: flex;
     flex-grow: 1;
     margin-left: 30px;
   }
@@ -184,14 +192,14 @@ hr {
   }
 
   .input-box {
-    margin-right: 30px;
+    margin-right: 40px;
   }
 
   .user-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 130px;
+    width: 140px;
   }
 
   .user-img img {
@@ -199,7 +207,8 @@ hr {
     border-radius: 50%;
   }
 
-  .user-menu div a {
+  .right-icon a {
+    margin: 3px;
     font-size: 30px;
     color: #000;
   }
@@ -210,18 +219,23 @@ hr {
 }
 
 @media screen and (min-width: 1200px) {
-  .input-box {
-    position: relative;
-    width: 120px;
-    margin-right: 50px;
-  }
-  
   .lg-only {
     display: block;
   }
 
+  .md-only {
+    display: none;
+  }
+  
+  .input-box {
+    position: relative;
+    width: 150px;
+    margin-right: 70px;
+  }
+  
   .input-box input {
     width: 100%;
+    height: 25px;
     border: 1px solid #bbb;
     border-radius: 3px;
     padding: 5px 0 5px 30px;
@@ -230,17 +244,24 @@ hr {
 
   .input-box i {
     position: absolute;
-    top: 0;
+    top: 8px;
+    left: 5px;
     font-size: 20px;
-    color: #bbb;
-  }
- 
-  .md-only {
-    display: none;
+    color: #888;
   }
 
   .user-menu {
     width: 200px;
+  }
+
+  .right-txt {
+    display: flex;
+  }
+
+  .right-txt a {
+    padding: 0 5px;
+    font-weight: 700;
+    color: #000;
   }
 
   .background {
