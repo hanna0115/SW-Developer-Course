@@ -1,0 +1,93 @@
+.apple::after {
+  content: "다람쥐";
+  color: red;
+}
+
+.apple::before {
+  /* inline 요소 */
+  content: "ㅎㅎㅎ";
+  display: block;
+  background-color: red;
+  width: 200px;
+  height: 50px;
+}
+
+#bill {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+#bill td, #bill th {
+  border: 1px solid #000;
+  /* em 자기 부모 크기 대비해 몇 배 */
+  /* rem 기본으로 탑재된 크기(기준)의 몇 배 */
+  /* 기준 1em : 100% */
+  /* 2em : 2배 */
+  padding: 0.3em 1em;
+}
+
+#bill th {
+  background-color: #eee;
+}
+
+/* 아이디가 bill인 녀석의 자속 중에서 각각 둘째인 녀석들의 뒷부분 */
+#bill td:nth-of-type(2)::after {
+  content: "원";
+  margin-left: 0.3em;
+  font-size: 0.8em;
+  color: #555;
+}
+
+#modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+#modalwin {
+  background-color: #fff;
+  /* calc 사용시 연산자 양 옆 무조건 띄어쓰기 */
+  width: calc(100% - 20px);
+  max-width: 450px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+  box-shadow: 3px 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+#modalcl {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* before, after 사용시 content 반드시 필요 */
+#modalcl::before,
+#modalcl::after {
+  content: "";
+  display: block;
+  width: 35px;
+  height: 2px;
+  background-color: red;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+#modalcl::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#modalcl::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
