@@ -71,7 +71,7 @@
   position: relative;
 }
 
-/* before, after 사용시 content 반드시 필요 */
+/* before, after 사용시 content (비어있더라도) 반드시 필요 */
 #modalcl::before,
 #modalcl::after {
   content: "";
@@ -82,6 +82,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
+  transition: all 0.4s;
 }
 
 #modalcl::before {
@@ -90,4 +91,19 @@
 
 #modalcl::after {
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* #modalcl에 마우스를 올렸을 때 그녀석의 before와 after */
+#modalcl:hover::before {
+  transform: translate(-50%, -50%) rotate(0deg);
+  margin-top: -5px;
+  width: 20px;
+  height: 5px;
+}
+
+#modalcl:hover::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+  margin-top: 5px;
+  width: 20px;
+  height: 5px;
 }
