@@ -94,14 +94,17 @@ nav {
   align-items: center;
   margin-bottom: 30px;
   padding: 0 10px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 .user-info img {
   width: 40px;
   margin-right: 5px;
+}
+
+.user-info p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 hr {
