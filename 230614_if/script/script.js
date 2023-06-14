@@ -51,3 +51,33 @@ if(score >= 60){
     hakjum = "F"
   }
   alert(hakjum);
+
+
+//[and 조건을 위한 연습 : 졸업 가능?]
+var english = 68; // 어학점수 60점 이상
+var credit = 120; // 120학점 이상
+var engineer = true; // 취득시:true 미취득시:false
+if(english >= 60 && credit >= 120 && engineer){
+  alert("축하합니다. 드디어 졸업입니다.")
+}else{
+  alert("졸업조건을 만족하지 못했습니다.")
+}
+
+// 외국인의 경우 어학점수는 반영하지 않음.
+var fore = false; // 내국인:false 외국인:true
+var english = 68; // 어학점수 60점 이상
+var credit = 120; // 120학점 이상
+var engineer = true; // 취득시:true 미취득시:false
+if(fore){
+  if(){
+    alert("축하합니다. 드디어 졸업입니다.")
+  }else{
+    alert("졸업조건을 만족하지 못했습니다.")
+  }
+}else{
+  if(english >= 60 && credit >= 120 && engineer){
+    alert("축하합니다. 드디어 졸업입니다.")
+  }else{
+    alert("졸업조건을 만족하지 못했습니다.")
+  }
+}
