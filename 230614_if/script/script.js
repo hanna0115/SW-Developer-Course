@@ -250,3 +250,28 @@ for(i=1; i<=9; i++){
   }
 }
 alert(result);
+
+
+// [break]
+// "1 2 3 4 5 / 6 7 8 9 10"
+var result = "";
+for(i=1; i<=10; i++){
+  if(i>=6){
+    break; // 6에서 중지 -> 1 2 3 4 5
+  }else{
+    result = result + i + " ";
+  }
+}
+alert(result);
+
+// [continue]
+// 1 2  4 5  7 8  10 11  13 14 ... 98 100 -> 1부터 100까지 3의 배수 빼기
+var result = "";
+for(i=1; i<=100; i++){
+  if(i%3 == 0){ // 3으로 나눈 나머지가 0이면 3의 배수
+    continue
+  }else{
+    result = result + i + " ";
+  }
+}
+alert(result);
