@@ -53,7 +53,7 @@ if(score >= 60){
   alert(hakjum);
 
 
-//[and 조건을 위한 연습 : 졸업 가능?]
+//[and, or 조건을 위한 연습 : 졸업 가능?]
 var english = 68; // 어학점수 60점 이상
 var credit = 120; // 120학점 이상
 var engineer = true; // 취득시:true 미취득시:false
@@ -69,7 +69,29 @@ var english = 68; // 어학점수 60점 이상
 var credit = 120; // 120학점 이상
 var engineer = true; // 취득시:true 미취득시:false
 if(fore){
-  if(){
+  // 외국인 졸업사정
+  if(credit >= 120 && engineer){
+    alert("축하합니다. 드디어 졸업입니다.")
+  }else{
+    alert("졸업조건을 만족하지 못했습니다.")
+  }
+}else{
+  // 내국인 졸업사정
+  if(english >= 60 && credit >= 120 && engineer){
+    alert("축하합니다. 드디어 졸업입니다.")
+  }else{
+    alert("졸업조건을 만족하지 못했습니다.")
+  }
+}
+
+// 외국인의 경우 어학은 영어, 국어 중 하나의 점수가 60점 이상
+var fore = true; // 내국인:false 외국인:true
+var english = 90; // 영어 60점 이상
+var korean = 58; // 국어점수 60점 이상
+var credit = 120; // 120학점 이상
+var engineer = true; // 취득시:true 미취득시:false
+if(fore){
+  if((english >= 60 || korean >= 60) && credit >= 120 && engineer){
     alert("축하합니다. 드디어 졸업입니다.")
   }else{
     alert("졸업조건을 만족하지 못했습니다.")
@@ -80,4 +102,58 @@ if(fore){
   }else{
     alert("졸업조건을 만족하지 못했습니다.")
   }
+}
+
+
+// [부동산 알아보기]
+// 새 직장을 얻어서 직장 근처에 집을 얻고 싶다.
+
+// 직장으로부터 반경 10키로 이내에 있는 집을 가지고 싶다. (필수)
+// 주말마다 여가생활을 해야하니 주차가 가능한 집이었으면 좋겠다. (필수)
+// 엘리베이터가 반드시 있었으면 좋겠다. (필수)
+// 전용면적이 20평 이상이거나 주변에 상가가 반경 1키로 이내에 있었으면 좋겠다. (필수)
+
+
+var house = [
+  {
+    company: 14,
+    parking: true,
+    elev: false,
+    aera: 21,
+    shop: 0.8
+  },
+  {
+    company: 9,
+    parking: true,
+    elev: true,
+    aera: 24,
+    shop: 1.5
+  },
+  {
+    company: 2,
+    parking: true,
+    elev: false,
+    aera: 22,
+    shop: 0.2
+  },
+  {
+    company: 8,
+    parking: true,
+    elev: true,
+    aera: 21,
+    shop: 0.5
+  },
+  {
+    company: 12,
+    parking: true,
+    elev: true,
+    aera: 22,
+    shop: 0.3
+  }
+];
+
+if(house[3].company <= 10 && house[3].parking && house[3].elev && (house[3].aera >= 20 || house[3].shop <= 1)){
+  alert("계약 가능");
+}else{
+  alert("계약 불가능");
 }
