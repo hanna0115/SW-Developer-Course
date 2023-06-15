@@ -217,3 +217,36 @@ for(i=10 ; i>=5 ; i--){
   }
 }
 alert(t);
+
+
+// 이중 for문
+// 피라미드 쌓기
+// ㅁ
+// ㅁㅁ
+// ㅁㅁㅁ
+// ㅁㅁㅁㅁ
+// ㅁㅁㅁㅁㅁ
+var pyramid = "";
+for(i=1; i<=5; i++){
+  var chng = "";
+  for(j=1; j<=i; j++){
+    chng = chng + "ㅁ";
+  }
+  pyramid = pyramid + chng + "\n";
+}
+alert(pyramid);
+
+// 101 102 103 104 105 106 식으로 호실번호를 만들어야 한다.
+// 전체 층은 9층이며
+// 각 층에는 10개의 가구가 존재한다.
+var result = [];
+for(i=1; i<=9; i++){
+  for(j=1; j<=10; j++){
+    if(j<10){
+      result.push(i+"0"+j);
+    }else{
+      result.push(""+i+j);
+    }
+  }
+}
+alert(result);
