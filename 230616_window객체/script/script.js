@@ -8,8 +8,6 @@ setTimeout(function(){
   alert("인사가 늦었습니다. 안녕하세요.")
 }, 3000); // 3초 뒤에 alert 나옴
 
-location.href="http://naver.com"; // redirect(리다이렉트): 이 주소로 강제로 이동
-
 // setInterval(해야할일, 지연시간); 무한대, 정해진 시간마다
 setInterval(function(){
   document.body.innerHTML = document.body.innerHTML + "A";
@@ -53,3 +51,24 @@ function addzero2(num){
 }
 
 window.setInterval(chktime, 1);
+
+
+// // element 객체 'length'(개수)
+// document.getElementsByTagName("span").length; // span태그들 몇개니?
+var arr = [1, 5, 5, 6, 9, "a", true];
+alert( arr.length ); // 배열 알맹이 수 // 7
+var text = "Hello world!";
+alert(text.length); // 글자 수 // 12
+alert(text.split(" ").length); // 단어개수 알아보기(띄어쓰기 부분에서 폭파) // 2
+
+
+// style 속성 변경
+document.getElementById("si").style.fontSize = "2em"
+
+
+// location
+location.href="http://naver.com"; // redirect(리다이렉트): 이 주소로 강제로 이동(비추)
+// 새로고침버튼 만들기
+document.getElementById("saero").onclick = function(){
+  location.reload();
+}
