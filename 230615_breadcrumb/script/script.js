@@ -26,8 +26,8 @@ for(i=0; i<filename.length; i++){ // filename 배열 개수
 }
 
 if(depth1 != undefined && depth2 != undefined){ // 둘 다 undefined가 아닌 경우에 어떤 것을 하겠다.
-  var bc_1 = "&gt; <a>" + menuname1[depth1] + "</a>";
-  var bc_2 = "&gt; <a href='" + "'>" + menuname2[depth1][depth2]+ "</a>";
+  var bc_1 = "<span class='caret-right'></span> <a>" + menuname1[depth1] + "</a>";
+  var bc_2 = "<span class='caret-right'></span> <a href='" + currentname + "'>" + menuname2[depth1][depth2]+ "</a>";
   document.getElementById("bc_1").innerHTML = bc_1;
   document.getElementById("bc_2").innerHTML = bc_2;
 }
