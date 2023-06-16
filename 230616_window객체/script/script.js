@@ -72,3 +72,58 @@ location.href="http://naver.com"; // redirect(리다이렉트): 이 주소로 �
 document.getElementById("saero").onclick = function(){
   location.reload();
 }
+
+
+// 계산기 만들기 : 숫자와 관련된 전역 메소드 'Number' 
+var a = window.prompt("더하기 할 첫번째 값을 입력하시오."); // 입력한 숫자 문자열
+var b = window.prompt("더하기 할 두번째 값을 입력하시오.");
+a = Number(a);
+b = Number(a);
+
+window.alert(a+b);
+
+// 7나누기3의 몫
+alert(parseInt(7/3));
+// 7나누기3의 나머지
+alert(7%3);
+
+
+// 최소, 최대값을 지정하고 그 사이의 임의의 정수를 추출하는 함수
+function rand(min, max){
+  return Math.floor(Math.random()*(max-min+1) + min);
+}
+alert( rand(min,max) );
+alert( rand(1,6) );
+// 설명
+alert(Math.random()); // 0~1 사이의 무작위 실수 나옴
+alert(Math.random()*6); // 0~6 사이의 무작위 실수 나옴
+// 최소값이 3, 최대값이 6
+alert( Math.random()*(6-3+1) + 3 ); // +1하는 이유: +1하지 않았을 때 6나올 확률 0이기 때문에
+alert( Math.floor(Math.random()*(6-3+1) + 3) ); // 정수나오게 하기 위해 버림함.
+
+// 배경색 바꾸기
+document.body.style.backgroundColor = "rgb("+rand(0, 255)+", "+rand(0, 255)+", "+rand(0, 255)+")";
+// 블루계열만 나오게
+document.body.style.backgroundColor = "rgb("+rand(0, 100)+", "+rand(0, 100)+", "+rand(100, 255)+")";
+
+
+// Date 객체
+var now = new Date();
+var month = now.getMonth();
+var day = now.getDay(); //
+alert( month + ", " + day ); // 6월, 금요일 -> 5,5 // 6월: 5번째, 금요일: 5번째(일요일부터 시작)
+
+function addzero(num){
+  if(num < 10){
+    return "0"+num;
+  }else{
+    return num;
+  }
+}
+var now = new Date();
+var year = now.getFullYear();
+var month = addzero(now.getMonth()+1);
+var date = addzero(now.getDate());
+var day = now.getDay(); //
+var daytext = ["일", "월", "화", "수", "목", "금", "토"];
+alert( year + "-" +month + "-" +date+" "+daytext[day]+"요일" );
