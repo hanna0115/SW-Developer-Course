@@ -1,0 +1,117 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  width: 100%;
+  height: 100%;
+}
+
+/* app */
+#app{
+  width: 100vw;
+  height: 100vh;
+  background-color: aliceblue;
+}
+
+.container{}
+
+/* page */
+.container .page{
+  /* fixed 상태를 가진 형제들끼리는
+     가장 마지막 요소가 가장 위로 올라온다 */
+  position: fixed;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-position: center center;
+  visibility: hidden;
+  opacity: 0;
+  color: #fff;
+}
+.container .page:nth-child(1){
+  background-image: url(./static/jeju1.jpg);
+}
+.container .page:nth-child(2){
+  background-image: url(./static/jeju2.jpg);
+}
+.container .page:nth-child(3){
+  background-image: url(./static/seoul1.jpg);
+}
+.container .page:nth-child(4){
+  background-image: url(./static/seoul2.jpg);
+}
+.container .page.active{
+  visibility: visible;
+  opacity: 1;
+}
+
+/* content */
+.container .page .content{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 5rem;
+  opacity: 0;
+  z-index: 1;
+}
+.container .page::after{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content:'';
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient((방향), start, end); */
+  background: linear-gradient(180deg, transparent, black);
+}
+.container .page.active .content{
+  opacity: 0;
+  /* 0.5s는 지연시간 0.5초 후에 나타남 */
+  animation: slideUp 1s linear 0.5s forwards;
+}
+
+/* navigation */
+.nav{
+  /* 화면 정중앙에 정렬 */
+  /* top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%); */
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  display: flex;
+  overflow: hidden;
+}
+.nav .button{
+  border: 0;
+  padding: 1rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+.nav .button:active{
+  background-color: #16165f;
+  color: white;
+}
+.nav .button.active{
+  background-color: blue;
+  color: white;
+}
+
+@keyframes slideUp {
+  0%{
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
