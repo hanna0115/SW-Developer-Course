@@ -1,6 +1,6 @@
 /* 전역변수 - 전체 영역에서 쓰이는 변수 */
 :root{
-  --size: 4px;
+  --size: 36px;
 }
 
 *{
@@ -18,12 +18,12 @@ html,body{
   width: 100vw;
   height: 100vh;
   background-color: hsl(200, 50%, 30%);
+  position: relative;
 }
 
 #pointer{
   /* 지역변수 전역변수보다 우선 */
-  --size: 36px;
-
+  /* --size: 36px; */
   position: fixed;
   top: 0;
   left: 0;
@@ -35,6 +35,7 @@ html,body{
 }
 
 #pointer::after{
+  --size: 4px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -46,7 +47,10 @@ html,body{
   content: '';
 }
 
-#bubble{
+#app .bubble{
+  position: fixed;
+  top: 0;
+  left: 0;
   display: block;
   width: var(--size);
   height: var(--size);
@@ -55,9 +59,9 @@ html,body{
   opacity: 0;
 }
 
-#pointer:active #bubble{
-  opacity: 0;
-  animation: bubble 1s ease-in-out forwards;
+#app .bubble.active{
+  opacity: 1;
+  animation: bubble 300ms ease-in-out forwards;
 }
 
 @keyframes bubble {
@@ -65,8 +69,11 @@ html,body{
     opacity: 0;
     transform: scale(0);
   }
+  50%{
+    opacity: 0.5;
+  }
   100%{
-    opacity: 1;
+    opacity: 0;
     transform: scale(1.2);
   }
 }

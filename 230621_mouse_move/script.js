@@ -1,3 +1,6 @@
+// app
+const app = document.getElementById('app')
+
 window.addEventListener('mousemove', (event) => {
   const pointer = document.getElementById('pointer')
   // console.log('마우스 좌표 X값: '+ event.clientX, '마우스 좌표 Y값: '+ event.clientY)
@@ -25,4 +28,24 @@ window.addEventListener('mousemove', (event) => {
 
   // offsetWidth,offsetHeight는 border 사이즈도 포함해서 가져온다.
   // console.log(pointer.offsetWidth)
+})
+
+let posX; // undefined, position X
+let posY; // undefined, position Y
+// 클릭할 때마다 생성
+window.addEventListener('click', (event) => {
+  const bubble = document.createElement('span')
+  posX = event.clientX
+  posY = event.clientY
+  bubble.classList.add('bubble')
+  bubble.classList.add('active')
+  app.appendChild(bubble)
+
+  bubble.style.top = posY - (bubble.offsetHeight/2) + 'px'
+  bubble.style.left = posX - (bubble.offsetWidth/2) + 'px'
+  
+  setTimeout(() => {
+    bubble.remove()
+  },1000)
+  console.log(bubble)
 })
