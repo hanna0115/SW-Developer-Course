@@ -19,6 +19,15 @@ container.forEach(item => {
   // bar 그래프의 width 값으로 퍼센트 표현
   bar.style.width = dataNumber + '%';
   // console.log(bar.dataset.number)
+
+  let index = 0;
+  let interval;
+  interval = setInterval(() => {
+    index++
+    if(index < dataNumber){
+      bar.style.width = index + '%'
+    }
+  }, 50)
 })
 
 
