@@ -32,18 +32,31 @@ window.addEventListener('mousemove', (event) => {
 
 let posX; // undefined, position X
 let posY; // undefined, position Y
+
 // 클릭할 때마다 생성
 window.addEventListener('click', (event) => {
+  // createElement를 이용해 span 태그 생성
   const bubble = document.createElement('span')
+  // 클릭했을 때 position 결정
+  // 클릭했을 때 positionX 좌표
   posX = event.clientX
+  // 클릭했을 때 positionY 좌표
   posY = event.clientY
+
+  // bubble 클래스 추가
   bubble.classList.add('bubble')
+
+  // active- 애니메이션 담당하고 있는 클래스 추가
   bubble.classList.add('active')
+
+  // 기준이 되는 부모요소에 bubble을 추가
   app.appendChild(bubble)
 
+  // 클릭할 때마다 bubble 요소의 좌표를 잡아준다.
   bubble.style.top = posY - (bubble.offsetHeight/2) + 'px'
   bubble.style.left = posX - (bubble.offsetWidth/2) + 'px'
   
+  // 일정시간(1000ms -> 1초)마다 bubble 삭제
   setTimeout(() => {
     bubble.remove()
   },1000)

@@ -8,14 +8,15 @@ const title = document.getElementById('title')
 // })
 
 // 매개변수 -> 구분자
+// slpit : 구분자를 기준으로 문자열을 나눠 배열로 만들어 준다.
 const chars = title.innerText.split('')
 
-// 1. html에 있는 title 안의 (원래 있던) 문자열 삭제(다음 forEach문에서 생성될거니까)
+// 1. html에 있는 h1#title 안의 (원래 있던) 문자열 전체 삭제(다음 forEach문에서 생성될거니까, ''빈문자 삽입)
 title.innerText = '';
 
 // 2. span 태그에 담아서 title 안에 자바스크립트로 생성한 문자열 삽입
 chars.forEach((char, index) => {
-  // span element 생성
+  // createElement : 태그를 만들 때 쓰는 메소드 - 여기서는 span 태그를 만든다
   const span = document.createElement('span')
   // class 'char' 추가
   span.classList.add('char')
