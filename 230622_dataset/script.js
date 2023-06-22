@@ -24,8 +24,9 @@ container.forEach(item => {
   let interval;
   interval = setInterval(() => {
     index++
-    if(index < dataNumber){
+    if(index <= dataNumber){
       bar.style.width = index + '%'
+      number.textContent = index
     }
   }, 50)
 })
