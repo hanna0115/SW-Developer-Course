@@ -20,15 +20,24 @@ container.forEach(item => {
   bar.style.width = dataNumber + '%';
   // console.log(bar.dataset.number)
 
+  // index : 증가하기 위해 준비된 값
   let index = 0;
+  // interval : setInterval을 담기 위한 변수
   let interval;
+
+  // interval 에 setInterval 할당
+  // setInterval은 정해진 시간마다 반복하는 메소드
   interval = setInterval(() => {
+    // index + 1 씩 증가
     index++
+    // dataNumber 보다 작거나 같을 때까지 반복
     if(index <= dataNumber){
+      // bar의 길이에 index % 할당
       bar.style.width = index + '%'
+      // number에 index 할당
       number.textContent = index
     }
-  }, 50)
+  }, 50) // 0.050초마다 반복
 })
 
 
