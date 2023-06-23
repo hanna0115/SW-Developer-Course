@@ -10,7 +10,10 @@
   <main id="app">
     <div class="list-container">
       <header id="header">
-        <h1>Todo List</h1>
+        <h1>
+          <iconify-icon width="48px" height="48px" icon="gg:list" style="color: red;"></iconify-icon>
+          Todo List
+        </h1>
         <div class="input-wrapper">
           <input id="add-todo" type="text" placeholder="할 일을 입력해주세요">
           <button id="add-button">추가</button>
@@ -19,11 +22,12 @@
       <ul id="list">
         <li class="list-item">
           오늘 해야할 일
-          <button class="list-delete">delete</button>
+          <button class="list-delete">&#x2716</button>
         </li>
       </ul>
     </div>
   </main>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script src="./script.js"></script>
 </body>
 </html>
