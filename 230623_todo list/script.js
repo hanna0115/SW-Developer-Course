@@ -21,7 +21,7 @@ input.addEventListener('keydown', (event) => {
   }
 })
 
-addBtn.addEventListener('click', () => addList)
+addBtn.addEventListener('click', () => addList())
 
 list.addEventListener('click', (event) => {
   if(event.target.tagName === 'LI'){
