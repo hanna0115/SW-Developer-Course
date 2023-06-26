@@ -1,0 +1,21 @@
+// BEM
+// block : block list
+// Element : item, button
+// Modifier : active, disable
+
+// list 파일 호출
+@import "list.scss";
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  width: 100%;
+  height: 100%;
+}
+
+#app{
+  padding: 1rem;
+}
