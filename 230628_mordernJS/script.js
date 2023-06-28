@@ -51,6 +51,7 @@ class Pokemon {
 class Trainer extends Pokemon{
   // 초기화, trainerName 기본값 = '지우'
   constructor(trainerName = '지우') {
+    // extends 쓰면 꼭 써줘야함.
     super()
     this.name = trainerName
   }
@@ -58,14 +59,19 @@ class Trainer extends Pokemon{
   showTrainerName (){
     console.log(this.name)
   }
+  another(){
+    // 내부 메소드를 끌어다 쓰는 방법
+    this.showTrainerName()
+  }
 }
 
 const trainer = new Trainer('웅이')
 // 클래스.name 재할당
 // trainer.name = '피카츄'
 // console.log(trainer.name) // 피카츄(가장 마지막에 할당한 것)
-trainer.showTrainerName()
-trainer.showPokemonName()
+trainer.showTrainerName() // 웅이
+trainer.showPokemonName() // 피카츄
+trainer.another() // 웅이
 
 
 // [스프레드 연산자(...)] : 배열, 객체에서 사용 가능, ...(점 세개 꼭 지키기)
@@ -94,6 +100,11 @@ const newTrainer = {
   age: 20
 }
 console.log(newTrainer)
+// {
+//   name: '지우',
+//   pokemon: '피카츄'
+//   age: 20
+// }
 
 const char = {
   enLength: 26,
@@ -105,6 +116,7 @@ const num = {
   alpabet: "characters"
 }
 console.log(num)
+
 
 // [rest 연산자]
 // args = arguments(인수)
@@ -174,6 +186,7 @@ const { nickname, age } = {
   age : 16
 }
 console.log(nickname, age)
+
 
 // [map 배열 메소드]
 // forEach / Map의 차이
