@@ -138,3 +138,39 @@ const filterPokemon = (...args) => {
   return args.filter(mon => mon === '피카츄')
 }
 console.log(filterPokemon(...pokemon))
+
+
+// [구조분해 :  Destructuring]
+// structure = 구조
+// de = 분해
+
+// 배열 구조분해
+const [a, b] = [1, 2]
+console.log(a) // 1
+console.log(b) // 2
+
+// const pokemon = ['피카츄', '고라파덕', '이상해씨']
+// c, d, e 변수 3개에 구조분해 해서 담기
+// console.log(c,d,e) 결과 출력
+const [c, d, e] = pokemon
+console.log(c,d,e)
+// const newMons = [pokemon, '파이리']
+// console.log(newMons)
+// // [['피카츄', '고라파덕', '이상해씨'], '파이리'] -> 배열 전체 가져옴
+
+// const [first, second] = pokemon
+// console.log(first,second) // 피카츄 고라파덕
+
+// // 공백으로 처리한 부분은 skip(건너뛴다)
+// const [first, ,second] = pokemon
+// console.log(first,second) // 피카츄 이상해씨
+
+// const [first, , ,second] = pokemon
+// console.log(first,second) // 피카츄 undifined
+
+// 객체 구조분해
+const { nickname, age } = {
+  nickname : '홍길동',
+  age : 16
+}
+console.log(nickname, age)
