@@ -105,3 +105,36 @@ const num = {
   alpabet: "characters"
 }
 console.log(num)
+
+// [rest 연산자]
+// args = arguments(인수)
+
+// 매개변수 이름 다르게 설정해도 가능
+const filterNumber = (...args) => {
+  return numbers.filter(number => {
+    // 조건을 두가지 걸러낼 때
+    // OR
+    if(number === 1 || number === 3){
+      return number
+    }
+  })
+}
+console.log(filterNumber(1,3,6,7,8)) // [1, 3]
+
+// filterAlphabet
+// a, b, c, d 인수들을 필터링 해서
+// alphabet === 'a'만 배열로 결과를 만들기
+const filterAlphabet = (...args) => {
+  return args.filter(alphabet => alphabet === 'a')
+}
+console.log(filterAlphabet('a','b','c','d'))
+// ['a'] : filter 메소드는 결과는 배열로 만들어 준다.
+
+// const pokemon = ['피카츄', '고라파덕', '이상해씨']
+// 변수명 : filterPokemon
+// 조건 : '피카츄'만 출력
+// 결과 : ['피카츄']
+const filterPokemon = (...args) => {
+  return args.filter(mon => mon === '피카츄')
+}
+console.log(filterPokemon(...pokemon))
