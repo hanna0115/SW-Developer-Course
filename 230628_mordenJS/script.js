@@ -174,3 +174,18 @@ const { nickname, age } = {
   age : 16
 }
 console.log(nickname, age)
+
+// [map 배열 메소드]
+// forEach / Map의 차이
+// map은 결과를 새로운 배열로 반환해준다.
+// const numbers = [1, 2, 3]
+const doubleNumbers = numbers.map(num => num * 2)
+console.log(doubleNumbers) // [2, 4, 6]
+
+
+// const pokemon = ['피카츄', '고라파덕', '이상해씨']
+// map을 활용해서 문자열 더하기
+// '너로 정했다'
+// 변수명 namedPokemon
+const namedPokemon = pokemon.map(item => item + ' 너로 정했다')
+console.log(namedPokemon)
