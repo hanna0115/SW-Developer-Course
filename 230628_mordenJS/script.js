@@ -67,3 +67,41 @@ const trainer = new Trainer('웅이')
 trainer.showTrainerName()
 trainer.showPokemonName()
 
+
+// [스프레드 연산자(...)] : 배열, 객체에서 사용 가능, ...(점 세개 꼭 지키기)
+// 스프레드 연산자 - 배열에서 사용
+const pokemon = ['피카츄', '고라파덕', '이상해씨']
+// 스프레드 연산자 사용해 파이리 추가
+const newPoke = [...pokemon, '파이리']
+// 기존 방법
+// const newPoke = []
+// pokemons.forEach(pokemon => newPoke.push(pokemon))
+// newPoke.push('파이리')
+console.log(newPoke)
+
+const numbers = [1, 2, 3]
+// 4,5를 추가해서 newnumbers 배열 새로 생성
+const newnumbers = [...numbers, 4, 5]
+console.log(newnumbers)
+
+// 스프레드 연산자 - 객체에서 사용
+const pokemonTrainer = {
+  name: '지우',
+  pokemon: '피카츄'
+}
+const newTrainer = {
+  ...pokemonTrainer,
+  age: 20
+}
+console.log(newTrainer)
+
+const char = {
+  enLength: 26,
+}
+// char의 내용을 복사해서
+// aopahbet : "characters" 속성 추가하기
+const num = {
+  ...char,
+  alpabet: "characters"
+}
+console.log(num)
