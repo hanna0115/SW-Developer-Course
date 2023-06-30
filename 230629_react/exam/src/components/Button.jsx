@@ -12,8 +12,18 @@
 // --------------------------
 // { name, color, size }
 // --------------------------
-export default function Button({name, color, size}) {
+
+import style from"./Button.module.css"
+export default function Button({name, primary, secondary}) {
+  // 3항 연산자 - if문 간단하게 (조건 ? 참일 때 실행할 것 : 거짓일 때 실행할 것)
+  const isPrimary = primary ? style.primary : ''
+  const isSecondary = secondary ? style.secondary : ''
+  // if(primary) {
+  //   return style.primary
+  // }else {
+  //   return ''
+  // }
   return (
-    <button style={{color:color, fontSize:size}}>{name}</button>
+    <button className={[style.button, isPrimary, isSecondary].join(" ")}>{name}</button>
   )
 }

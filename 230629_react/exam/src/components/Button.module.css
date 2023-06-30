@@ -1,0 +1,16 @@
+.button{
+  display: flex;
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  background-color: transparent;
+}
+
+.button.primary{
+  background-color: blue;
+  color: aliceblue;
+}
+
+.button.secondary{
+  background-color: orange;
+  color: #000;
+}
