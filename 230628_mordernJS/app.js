@@ -32,7 +32,7 @@
 // console.log(multiply(3)) // 6
 
 
-// // 두개 이상 꺼내올 때 {} 사용
+// // 두개 이상 꺼내올 때 {} 사용(export defalut가 아닐 때)
 // import {add, multiply} from './util.js'
 // console.log(add(2)) // 4
 // console.log(multiply(3)) // 6
