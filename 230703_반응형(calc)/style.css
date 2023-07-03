@@ -29,6 +29,12 @@ a {
   border-radius: 10px;
 }
 
+/* 아래 calc를 100px로 바꾸거나 80px로 그대로 두고 flex-wrap주거나 */
+.meun_box_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .menu_box {
   display: inline-block;
   width: calc((100% - 80px) / 4);
@@ -83,4 +89,22 @@ a {
 .count {
   font-size: 14px;
   color: #666;
+}
+
+@media screen and (max-width: 1200px) {
+  .menu_box {
+    width: calc((100% - 60px) / 3);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu_box {
+    width: calc((100% - 40px) / 2);
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .menu_box {
+    width: calc(100% - 20px);
+  }
 }
