@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <p class="hello">안녕</p>
+    <p class="hello">안녕</p>
+    <p class="hello">안녕</p>
+  </div>
+  <script>
+    // javascript / jQuery HTML 안 글자 '안녕' -> 'hello'
+
+    // javascript
+    // const p = document.querySelectorAll('.hello')
+    // p.forEach(function (item) {
+    //   item.textContent = "hello"
+    // })
+    // document.querySelectorAll('.hello')[0].innerHTML = 'hello';
+    // document.querySelectorAll('.hello')[1].innerHTML = 'hello';
+    // document.querySelectorAll('.hello')[2].innerHTML = 'hello';
+    // let hello = document.querySelectorAll('.hello');
+    // hello.forEach(function(changeColor){
+    //   changeColor.style.color = 'orange';
+    // })
+
+    // JQuery
+    // const P = $('.hello')
+    // P.text('hello');
+    $('.hello').html('jQuery!');
+    $('.hello').css('color', 'red');
+
+    // document.write
+    let names = ['예진', '지은', '한나', '서우']
+    names.forEach(function(name){
+      document.write(`<h1>${name}</h1>`);
+      document.write('<h2>' + name + '</h2>');
+    })
+  
+  </script>
+</body>
+</html>
