@@ -5,10 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Github Dropdown menu</title>
   <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="wrapper">
+    <div class="profile-img">
+      <img id="profile" src="https://avatars.githubusercontent.com/u/132882278?v=4" alt="profile-img">
+    </div>
 
+    <div class="dropdown-menu">
+      <ul class="account">
+        <li><a href="">Signed in as <strong>hanna0115</strong></a></li>
+      </ul>
+      <ul class="dropdown-list">
+        <li><a href="">Your profile</a></li>
+        <li><a href="">Your repositories</a></li>
+        <li><a href="">Your projects</a></li>
+        <li><a href="">Your stars</a></li>
+        <li><a href="">Your gists</a></li>
+        <li><a href="">Your Sponsors</a></li>
+      </ul>
+      <ul class="dropdown-list">
+        <li><a href="">Upgrade</a></li>
+        <li><a href="">Try Enterprise</a></li>
+        <li><a href="">Help</a></li>
+        <li><a href="">Settings</a></li>
+      </ul>
+      <ul class="dropdown-list">
+        <li><a href="">Sign out</a></li>
+      </ul>
+    </div>
   </div>
   <script src="./script.js"></script>
 </body>
