@@ -1,14 +1,10 @@
-// const profileImg = $('.profile-img');
-// const dropdownMenu = $('.dropdown-menu');
+// dropdown-btn을 클릭했을 때 dropdown-menu한테 active class add
+// dropdown-menu가 active를 가지고 있을 때 클릭하면 active class remove
+// toggle
 
-// profileImg.on('click', () => {
-//   dropdownMenu.toggleClass('is-open');
-// });
+let dropdownBtn = document.querySelector('.dropdown-btn');
+let dropdownMenu = document.querySelector('.dropdown-menu');
 
-
-const profileImg = document.querySelector('.profile-img');
-const dropdownMenu = document.querySelector('.dropdown-menu');
-
-profileImg.addEventListener('click', () => {
-  dropdownMenu.classList.toggle('is-open')
+dropdownBtn.addEventListener('click', function(){
+  dropdownMenu.classList.toggle('active');
 })
