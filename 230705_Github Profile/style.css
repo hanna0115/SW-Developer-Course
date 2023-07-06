@@ -48,7 +48,7 @@ li {
   position: absolute;
   right: 0;
   display: none;
-  width: 200px;
+  width: 220px;
   border-radius: 4px;
   background-color: #fff;
   transition: transform 200ms ease-in-out;
