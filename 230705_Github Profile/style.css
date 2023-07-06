@@ -21,17 +21,17 @@ body {
   position: fixed;
   top: 2rem;
   right: 2rem;
-  transition: opacity 300ms ease-in-out;
-}
-
-.profile-img img:hover {
-  opacity: 0.5;
 }
 
 .profile-img img {
   width: 50px;
   background-color: #fff;
   border-radius: 50%;
+  transition: opacity 300ms ease-in-out;
+}
+
+.profile-img img:hover {
+  opacity: 0.5;
 }
 
 .dropdown-menu {
@@ -80,20 +80,14 @@ strong:hover {
   border-top: 1px solid #ddd;
 }
 
-.dropdown-list li,.account li {
-  padding: 10px 0;
-  transition: 300ms ease-in-out;
-}
-
 .dropdown-list li a, .account li a {
-  padding-left: 20px;
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px;
   transition: 300ms ease-in-out;
-}
-
-.dropdown-list li:hover {
-  background-color: blue;
 }
 
 .dropdown-list li:hover a {
   color: #fff;
+  background-color: blue;
 }
