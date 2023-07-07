@@ -18,8 +18,8 @@ li {
   /* viewport width * 3(이미지 수) */
   width: 300vw;
   height: 600px;
-  /* transform: translateX(-100vw);
-  transition: transform 1s; */
+  /* transform: translateX(0vw); */
+  transition: transform 1s;
 }
 
 .slide-list li  {
@@ -46,6 +46,7 @@ li {
   border-radius: 5px;
   color: #fff;
   background-color: #888;
+  cursor: pointer;
 }
 
 .btn-group button:last-child {
