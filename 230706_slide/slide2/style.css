@@ -9,6 +9,7 @@ li {
 }
 
 .slide-wrapper {
+  position: relative;
   width: 100vw;
   overflow: hidden;
 }
@@ -34,18 +35,19 @@ li {
 }
 
 .btn-group {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .btn-group button {
+  width: 15px;
+  height: 15px;
   margin-right: 5px;
-  padding: 10px;
   border: none;
-  border-radius: 5px;
-  color: #fff;
-  background-color: #888;
+  border-radius: 50%;
+  background-color: #fff;
   cursor: pointer;
 }
 
