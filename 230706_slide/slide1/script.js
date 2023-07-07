@@ -1,5 +1,4 @@
 const slideList = document.querySelector('.slide-list');
-const btn = document.querySelectorAll('.btn')
 const btn1 = document.querySelector('.btn1');
 const btn2 = document.querySelector('.btn2');
 const btn3 = document.querySelector('.btn3');
