@@ -261,6 +261,61 @@ footer {
   margin-top: 10px;
 }
 
+.modal {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 470px;
+  z-index: 9999;
+  background-color: #fff;
+  border: 3px solid darkblue;
+}
+
+.popup {
+  padding: 25px;
+}
+
+.close-btn {
+  float: right;
+  font-size: 20px;
+  border: none;
+  background-color: #fff;
+}
+
+.popup h2 {
+  clear: right;
+  margin-top: 40px;
+  color: darkblue;
+}
+
+.popup img {
+  display: block;
+  width: 400px;
+  margin: 30px auto;
+}
+
+.detail-btn {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+  padding: 15px 0;
+  border: none;
+  color: #fff;
+  background-color: cornflowerblue;
+}
+
+.check {
+  padding: 10px 15px;
+  border-top: 1px solid #999;
+  background-color: #eee;
+}
+
+.check span {
+  color: #888;
+  font-size: 14px;
+}
+
 @media screen and (max-width: 1200px) {
   .lg-hidden {
     display: block;
