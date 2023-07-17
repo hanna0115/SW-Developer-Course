@@ -18,3 +18,10 @@ nav.addEventListener('mouseleave', function(){
 
 
 // 서브메뉴 인덱스 값 찾아서 같은 인덱스 값 가지고 있는 메인메뉴에게 .on 클래스 주기
+$('.sub-menu-list').hover(function(){
+  let i = $(this).index();
+  $('.main-menu-list').find('li').eq(i).addClass('on');
+}, function(){
+  let i = $(this).index();
+  $('.main-menu-list').find('li').eq(i).removeClass('on');
+})
