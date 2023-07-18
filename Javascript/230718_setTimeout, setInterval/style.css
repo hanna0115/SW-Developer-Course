@@ -1,4 +1,8 @@
 .count {
   padding: 20px;
-  background-color: rgb(232, 133, 245);
+  background-color: #ddd;
+}
+
+.count.is-active {
+  display: none;
 }
