@@ -13,6 +13,11 @@ li {
   list-style: none;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+}
+
 .lg-hidden {
   display: none;
 }
@@ -261,7 +266,7 @@ footer {
   margin-top: 10px;
 }
 
-.modal {
+/* .modal {
   position: absolute;
   top: 50px;
   left: 50%;
@@ -276,7 +281,7 @@ footer {
   padding: 25px;
 }
 
-.close-btn {
+.popup .close-btn {
   float: right;
   font-size: 20px;
   border: none;
@@ -302,7 +307,11 @@ footer {
   padding: 15px 0;
   border: none;
   color: #fff;
-  background-color: cornflowerblue;
+  background-color: darkcyan;
+}
+
+.detail-btn:hover {
+  background-color: rgb(0, 90, 90);
 }
 
 .check {
@@ -313,6 +322,66 @@ footer {
 
 .check span {
   color: #888;
+  font-size: 14px;
+} */
+
+.popup {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 480px;
+  transform: translateX(-50%);
+  z-index: 300;
+  border: 3px solid darkblue;
+  background-color: #fff;
+}
+
+.popup-top {
+  padding: 30px;
+}
+
+.popup .close-btn {
+  text-align: right;
+}
+
+.close-btn button {
+  font-size: 24px;
+}
+
+.popup h2 {
+  margin-top: 20px;
+  color: darkblue;
+}
+
+.popup img {
+  margin-top: 20px;
+}
+
+.content-btn {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.content-btn button {
+  padding: 14px 80px;
+  color: #fff;
+  background-color: #5baa96;
+  transition: background-color 300ms;
+}
+
+.content-btn button:hover {
+  cursor: pointer;
+  background-color: #4c9381;
+}
+
+.popup-check {
+  padding: 12px 20px;
+  border-top: 1px solid #ccc;
+  background-color: #f5f5f5;
+}
+
+.popup-check span {
+  color: #666;
   font-size: 14px;
 }
 
