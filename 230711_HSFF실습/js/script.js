@@ -8,12 +8,12 @@ $('.gnb-list > li').hover(function(){
 })
 
 // button click시 img slide
-let buttons = document.querySelectorAll('.btn-group button');
-let slideList = document.querySelector('.slide-list');
+const buttons = document.querySelectorAll('.btn-group button');
+const slideList = document.querySelector('.slide-list');
 
-buttons.forEach(function(btn, index){
-  btn.addEventListener('click', () => {
+buttons.forEach((btn, index)=>{
+  btn.addEventListener('click', ()=>{
     console.log(btn)
-    slideList.style.transform = `translateX(-${index}00vw)`;
+    slideList.style.transform = `translateX(-${index}00vw)`
   })
 })

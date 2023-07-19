@@ -38,11 +38,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 15px;
+  padding: 5px 30px;
 }
 
 .gnb-nav {
-  width: 750px;
+  width: 500px;
 }
 
 .gnb-list {
@@ -70,13 +70,17 @@ header {
   position: absolute;
   display: none;
   top: 46px;
-  width: 100%;
+  left: -50%;
+  width: 200px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
 
 .sub::before {
   position: absolute;
   top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
   content: '';
   border: 5px solid navy;
 }
@@ -87,14 +91,13 @@ header {
   background-color: #fff;
 }
 
-.lm-hidden {
+.lg-hidden {
   display: none;
 }
 
 main {
   position: relative;
   overflow: hidden;
-  z-index: -1;
 }
 
 .slide-wrapper {
@@ -105,7 +108,6 @@ main {
   display: flex;
   width: 300vw;
   height: 600px;
-  transform: translateX(-200vw);
   transition: transform 1s;
 }
 
@@ -125,13 +127,15 @@ main {
   width: 100vw;
   display: flex;
   justify-content: center;
-  padding: 15px 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 0;
+  border-top: 1px solid #888;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .btn-group button {
   border: none;
   color: #fff;
+  font-size: 14px;
   background-color: transparent;
 }
 
@@ -151,12 +155,15 @@ main {
 
 .HSFF-link-list {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   background-color: #414244;
+  padding: 0 40px;
 }
 
 .HSFF-link-list li {
   padding: 15px;
+  border-left: 1px solid #888;
 }
 
 .HSFF-link-list li a {
@@ -171,17 +178,24 @@ main {
 .HSFF-link-list li:last-child {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  flex-grow: 2;
   color: #888;
 }
 
-.HSFF-link-list li:last-child h4 {
-  padding: 0 10px;
+.HSFF-link-list li:last-child span {
+  padding-right: 15px;
 }
 
-.HSFF-link-list li:last-child h2 {
+.HSFF-link-list li:last-child span:nth-child(2) {
+  font-size: 24px;
   color: #fff;
 }
 
+.HSFF-link-list li:last-child span:last-child {
+  font-size: 14px;
+  padding-right: 0;
+}
 
 .HSFF-info-wrapper {
   padding: 30px;
@@ -199,6 +213,7 @@ main {
 
 .HSFF-info-list li, p {
   color: #888;
+  font-size: 14px;
 }
 
 .HSFF-info-list li::after {
@@ -209,4 +224,37 @@ main {
 
 .HSFF-info-list li:last-child::after {
   content: '';
+}
+
+@media screen and (max-width : 1200px) {
+  .lg-only {
+    display: none;
+  }
+
+  .lg-hidden {
+    display: block;
+  }
+
+  .sub-menu-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: #fff;
+  }
+
+  .sidebar-nav {
+    padding: 30px;
+  }
+
+  .sidebar-nav button {
+    border: none;
+    background-color: transparent;
+  }
 }
