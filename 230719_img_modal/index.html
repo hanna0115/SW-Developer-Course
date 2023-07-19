@@ -5,9 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Img modal</title>
   <link rel="stylesheet" href="./style.css">
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="wrapper"></div>
+  <div class="wrapper">
+    <ul class="modal-list">
+      <li class="modal-open">모달열기</li>
+      <li>
+        <img src="./images/img1.jpg" alt="모달 이미지1">
+      </li>
+      <li>
+        <img src="./images/img2.jpg" alt="모달 이미지2">
+      </li>
+      <li>
+        <img src="./images/img3.jpg" alt="모달 이미지3">
+      </li>
+      <li>
+        <img src="./images/img4.jpg" alt="모달 이미지4">
+      </li>
+      <li>
+        <img src="./images/img5.jpg" alt="모달 이미지5">
+      </li>
+    </ul>
+
+    <div class="modal-open-click">
+      <div class="modal-open-top">
+        <h3>모달 타이틀<h3>
+        <button>X</button>
+      </div>
+      <div class="modal-open-bottom">
+        <img src="./images/img1.jpg" alt="모달 이미지1">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, debitis nam aliquid ipsa doloremque nobis nesciunt quidem ab facilis natus aut corporis optio velit mollitia illum dolor veniam ipsam labore.</p>
+      </div>
+    </div>
+
+    <div class="modal-img-click">
+      <div class="img-close-btn">
+        <button>X</button>
+      </div>
+      <img src="" alt="">
+    </div>
+
+    <div class="overlay"></div>
+  </div>
   <script src="./js/sctipt.js"></script>
 </body>
 </html>
