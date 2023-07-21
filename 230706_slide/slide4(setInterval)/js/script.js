@@ -40,6 +40,21 @@ function sliding(dir){
 
   $('#dots div').removeClass('is-active');
   $('#dots div').eq(cur).addClass('is-active')
+  // console.log(dir)
 }
 
-sliding(0);
+sliding(0)
+
+// 이전 슬라이드로 가야하니까 음수값을 매개변수로 전달
+$('#prev').click(function(){sliding(-1)});
+// 다음 슬라이드로 가야하니까 음수값을 매개변수로 전달
+$('#next').click(function(){sliding(1)});
+
+let auto = setInterval(sliding, 5000, 1);
+
+// dots div을 클릭했을 때 해당 슬라이드로 이동
+$('#dots div').click(function(){
+  cur = 0;
+  let num = $(this).index()
+  sliding(num)
+})
