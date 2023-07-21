@@ -10,31 +10,29 @@
 </head>
 <body>
   <div class="wrapper">
-    <ul class="slide-wrapper">
-      <li class="slide-list">
-        <img src="./images/img_visual1.jpg" alt="슬라이드 이미지1">
+    <div class="slide-list">
+      <div class="slide-item">
+        <img src="./images/img_visual1.jpg" alt="식자재 유통의 베스트 솔루션">
         <p>식자재 유통의 베스트<br>솔루션</p>
-      </li>
-      <li class="slide-list">
-        <img src="./images/img_visual2.jpg" alt="슬라이드 이미지2">
+      </div>
+      <div class="slide-item">
+        <img src="./images/img_visual2.jpg" alt="신선하고 차별화된 식자재 Provider">
         <p>신선하고 차별화된 식자재<br>Provider</p>
-      </li>
-      <li class="slide-list">
-        <img src="./images/img_visual3.jpg" alt="슬라이드 이미지3">
+      </div>
+      <div class="slide-item">
+        <img src="./images/img_visual3.jpg" alt="고객의 성공을 위해 함께하는 파트너">
         <p>고객의 성공을 위해<br>함께하는 파트너</p>
-      </li>
-    </ul>
-
-    <div class="circle-button-list">
-      <button type="button"></button>
-      <button type="button"></button>
-      <button type="button"></button>
+      </div>
     </div>
 
-    <div class="chevron-button-list">
-      <button type="button" class="prev"><i class="fa-solid fa-chevron-left"></i></button>
-      <button type="button" class="next"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
+    <button id="prev" type="button">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button id="next" type="button">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div id="dots"></div>
   </div>
   <script src="./js/script.js"></script>
 </body>
