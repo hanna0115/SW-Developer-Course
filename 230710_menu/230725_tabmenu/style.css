@@ -9,32 +9,32 @@ li {
 }
 
 .wrapper {
-  padding: 50px;
+  padding:50px;
 }
 
-.tap-list {
+.tab-list {
   display: flex;
   border-bottom: 1px solid #ccc;
 }
 
-.tap-item {
+.tab-item {
   padding: 10px 20px;
   color: #888;
   margin-bottom: -1px;
 }
 
-.tap-item.blue {
+.tab-item.blue {
   border-top: 4px solid darkcyan;
   border-right: 1px solid #ccc;
   border-left: 1px solid #ccc;
   border-bottom: 1px solid #fff;
 }
 
-.tap-content {
+.tab-content {
   display: none;
   padding: 10px;
 }
 
-.tap-content.show {
+.tab-content.show {
   display: block;
 }
