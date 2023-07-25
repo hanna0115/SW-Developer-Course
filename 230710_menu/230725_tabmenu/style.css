@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+.wrapper {
+  padding: 50px;
+}
+
+.tap-list {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.tap-item {
+  padding: 10px 20px;
+  color: #888;
+  margin-bottom: -1px;
+}
+
+.tap-item.blue {
+  border-top: 4px solid darkcyan;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
+}
+
+.tap-content {
+  display: none;
+  padding: 10px;
+}
+
+.tap-content.show {
+  display: block;
+}
