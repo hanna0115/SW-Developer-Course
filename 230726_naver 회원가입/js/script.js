@@ -13,3 +13,23 @@ $('label').on('click', function(e){
     $(this).children('input[type="checkbox"]').removeAttr('checked');
   }
 })
+
+// .total을 체크하면 .agree 전부 체크
+// .total을 언체크하면 .agree 전부 언체크
+
+// .total .checkbox-img가 .checked 클래스를 가지고 있다면
+// .agree 안 .checkbox-img에 checked class add
+// .agree 안 input checkbox를 checked true
+
+// .total.checkbox-img가 .checked 클래스를 가지고 있지 않다면
+// .agree 안 .checkbox-img가 .checked 클래스 remove
+// .agree 안 input checkbox를 checked false
+$('.total label').on('click', function(){
+  if($(this).children('.checkbox-img').hasClass('checked')) {
+    $('.agree').find('.checkbox-img').addClass('checked');
+    $('.agree').find('input[type="checkbox"]').attr('checked', true);
+  } else {
+    $('.agree').find('.checkbox-img').removeClass('checked');
+    $('.agree').find('input[type="checkbox"]').removeAttr('checked');
+  }
+})
