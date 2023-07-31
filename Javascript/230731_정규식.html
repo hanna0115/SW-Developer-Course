@@ -43,7 +43,11 @@
 
     // a 또는 b가 있는지 검사
     let g = /a|b/;
-    console.log(g.test('랄ㄹ라'))
+    // console.log(g.test('랄ㄹ라')) // false
+
+    // 숫자로 시작하는 글자 검사
+    let h = /^[0-9]/;
+    console.log(h.test('nnki2')) // false
   </script>
 </body>
 </html>
