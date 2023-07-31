@@ -10,7 +10,161 @@
 </head>
 <body>
   <div class="wrapper">
-    
+    <header>
+      <h1 class="logo">
+        <a href="https://www.naver.com/">
+          <img src="./images/m_naver_logo_20191126.png" alt="네이버 로고">
+        </a>
+      </h1>
+    </header>
+
+    <section>
+      <form action="">
+        <div class="user-info user-id">
+          <label for="">
+            <strong>아이디</strong>
+            <div class="inputbox">
+              <input type="text" name="userid">
+              <div>@naver.com</div>
+            </div>
+            <p>멋진 아이디네요!</p>
+          </label>
+        </div>
+
+        <div class="user-info user-pw">
+          <label for="">
+            <strong>비밀번호</strong>
+            <div class="inputbox">
+              <input type="text" name="userpw">
+              <div>
+                <img src="./images/m_icon_pw_step_01.png" alt="비밀번호 확인">
+              </div>
+            </div>
+            <p>필수 정보입니다.</p>
+          </label>
+        </div>
+
+        <div class="user-info user-pw">
+          <label for="">
+            <strong>비밀번호 재확인</strong>
+            <div class="inputbox">
+              <input type="text" name="userrepw">
+              <div>
+                <img src="./images/m_icon_pw_step_02.png" alt="비밀번호 확인">
+              </div>
+            </div>
+            <p>필수 정보입니다.</p>
+          </label>
+        </div>
+
+        <div class="user-info user-name">
+          <label for="">
+            <strong>이름</strong>
+            <div class="inputbox">
+              <input type="text" name="username">
+            </div>
+            <p>필수 정보입니다.</p>
+          </label>
+        </div>
+
+        <div class="user-info user-bir">
+          <label for="">
+            <strong>생년월일</strong>
+            <div class="inputbox">
+              <input type="text" name="year" placeholder="년(4자)">
+              <select name="" id="">
+                <option value="">월</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+              </select>
+              <input type="text" name="day" placeholder="일">
+            </div>
+            <p>필수 정보입니다.</p>
+          </label>
+        </div>
+
+        <div class="user-info user-gender">
+          <label for="">
+            <div class="inputbox">
+              <strong>성별</strong>
+              <div>
+                <input type="radio" name="gender">
+                <span>남자</span>
+              </div>
+              <div>
+                <input type="radio" name="gender">
+                <span>여자</span>
+              </div>
+              <div>
+                <input type="radio" name="gender">
+                <span>선택안함</span>
+              </div>
+            </div>
+            <p>필수 정보입니다.</p>
+          </label>
+        </div>
+
+        <div class="user-info user-email">
+          <label for="">
+            <strong>본인 확인 이메일(선택)</strong>
+            <div class="inputbox">
+              <input type="text" placeholder="선택입력">
+            </div>
+          </label>
+        </div>
+
+        <div class="user-info user-phone">
+          <label for="">
+            <strong>휴대전화</strong>
+            <div class="inputbox">
+              <select name="" id="">
+                <option value="233">가나 +233</option>
+                <option value="30">그리스 +30</option>
+                <option value="82" selected>대한민국 +82</option>
+                <option value="49">독일 +49</option>
+                <option value="960">몰디브 +960</option>
+                <option value="1">미국/캐나다 +1</option>
+                <option value="254">케나 +254</option>
+              </select>
+              <div class="phone-num">
+                <input type="text" placeholder="전화번호 입력">
+                <button type="button">인증번호 받기</button>
+              </div>
+              <input type="text" placeholder="인증번호 입력하세요">
+            </div>
+            <p>필수 정보입니다.</p>
+          </label>
+        </div>
+
+        <div class="user-info user-zipcode">
+          <label for="">
+            <strong>주소</strong>
+            <div class="inputbox">
+              <div class="zip-code">
+                <input type="text" placeholder="우편번호">
+                <button type="button">우편번호 찾기</button>
+              </div>
+              <input type="text" placeholder="도로명주소">
+              <input type="text" placeholder="지번주소">
+              <input type="text" placeholder="상세주소">
+              <input type="text" placeholder="참고항목">
+            </div>
+          </label>
+        </div>
+
+        <button type="submit">가입하기</button>
+      </form>
+    </section>
   </div>
   <script src="./js/join.js"></script>
 </body>
