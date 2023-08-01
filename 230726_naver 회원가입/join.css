@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: none;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -18,20 +18,175 @@ section {
   margin: 0 auto;
 }
 
-.user-info {
-  position: relative;
+form {
   margin: 10px;
 }
 
-.user-info input {
+.user-info {
+  margin:  10px 0;
+}
+
+.user-info .inputbox {
+  position: relative;
+  margin-top: 5px;
+}
+
+.user-info .inputbox input {
   width: 100%;
   height: 40px;
-  margin-top: 5px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.user-info .inputbox input:focus {
+  border: 1px solid transparent;
+  outline: 1px solid #03c75a;
+}
+
+.user-info p {
+  padding: 5px 0;
+  font-size: 14px;
+  visibility: hidden;
+}
+
+
+.user-id .inputbox div,
+.user-pw .inputbox div {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  color: #999;
+}
+
+.user-pw .inputbox div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-pw .inputbox div span {
+  margin-right: 5px;
+  visibility: hidden;
+}
+
+.user-pw .inputbox div img {
+  width: 25px;
+}
+
+.user-bir .inputbox {
+  display: flex;
+  align-items: center;
+}
+
+.user-bir .inputbox select {
+  width: 100%;
+  height: 40px;
+  margin: 0 10px;
   border: 1px solid #ccc;
 }
 
-.user-id .inputbox div {
+.user-gender .inputbox {
+  display: flex;
+}
+
+.user-gender .inputbox div {
+  width: calc(100% / 3);
+  margin-right: 10px;
+}
+
+.user-gender .inputbox div:last-child {
+  margin-right: 0;
+}
+
+.user-gender .inputbox div input {
+  display: none;
+}
+
+.user-gender .inputbox div span {
+  display: block;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+
+.user-gender .inputbox div span.radiochk {
+  background-color: #03c75a;
+  color: #fff;
+  font-weight: 700;
+}
+
+.user-phone .inputbox select {
+  width: 100%;
+  height: 42px;
+  border: 1px solid #ccc;
+}
+
+.user-phone .inputbox .phone-num {
+  display: flex;
+  margin: 10px 0;
+}
+
+.user-phone .inputbox .phone-num button,
+.user-zipcode .inputbox .zip-code button {
+  width: 150px;
+  margin-left: 5px;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #03c75a;
+}
+
+.discord {
   position: absolute;
-  top: 50%;
-  right: 10px;
+  bottom: 12px;
+  right: 25px;
+  color: red;
+  font-size: 14px;
+  visibility: hidden;
+}
+
+.discord::before,
+.discord::after {
+  position: absolute;
+  content: '';
+  top: 2px;
+  right: -10px;
+  width: 2px;
+  height: 17px;
+  background-color: red;
+}
+
+.discord::before {
+  transform: rotate(45deg);
+}
+
+.discord::after {
+  transform: rotate(-45deg);
+}
+
+.user-zipcode .inputbox .zip-code {
+  display: flex;
+}
+
+.user-zipcode .inputbox input {
+  margin-top: 10px;
+}
+
+.user-zipcode .inputbox input:first-child {
+  margin-top: 0;
+}
+
+.submit {
+  width: 100%;
+  height: 40px;
+  margin-top: 40px;
+  border: none;
+  font-weight: 700;
+  color: #fff;
+  background-color: #03c75a;
 }

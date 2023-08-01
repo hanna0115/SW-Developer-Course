@@ -31,12 +31,13 @@
           </label>
         </div>
 
-        <div class="user-info user-pw">
+        <div class="user-info user-pw pw-chk">
           <label for="">
             <strong>비밀번호</strong>
             <div class="inputbox">
               <input type="text" name="userpw">
               <div>
+                <span>사용불가</span>
                 <img src="./images/m_icon_pw_step_01.png" alt="비밀번호 확인">
               </div>
             </div>
@@ -44,7 +45,7 @@
           </label>
         </div>
 
-        <div class="user-info user-pw">
+        <div class="user-info user-pw pw-rechk">
           <label for="">
             <strong>비밀번호 재확인</strong>
             <div class="inputbox">
@@ -71,23 +72,23 @@
           <label for="">
             <strong>생년월일</strong>
             <div class="inputbox">
-              <input type="text" name="year" placeholder="년(4자)">
+              <input type="text" class="year" name="year" placeholder="년(4자)">
               <select name="" id="">
-                <option value="">월</option>
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
-                <option value="">6</option>
-                <option value="">7</option>
-                <option value="">8</option>
-                <option value="">9</option>
-                <option value="">10</option>
-                <option value="">11</option>
-                <option value="">12</option>
+                <option value="0">월</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
-              <input type="text" name="day" placeholder="일">
+              <input type="text" class="day" name="day" placeholder="일">
             </div>
             <p>필수 정보입니다.</p>
           </label>
@@ -95,17 +96,17 @@
 
         <div class="user-info user-gender">
           <label for="">
+            <strong>성별</strong>
             <div class="inputbox">
-              <strong>성별</strong>
-              <div>
+              <div class="gender-select">
                 <input type="radio" name="gender">
                 <span>남자</span>
               </div>
-              <div>
+              <div class="gender-select">
                 <input type="radio" name="gender">
                 <span>여자</span>
               </div>
-              <div>
+              <div class="gender-select">
                 <input type="radio" name="gender">
                 <span>선택안함</span>
               </div>
@@ -120,6 +121,7 @@
             <div class="inputbox">
               <input type="text" placeholder="선택입력">
             </div>
+            <p>이메일 주소를 다시 확인해주세요.</p>
           </label>
         </div>
 
@@ -141,6 +143,7 @@
                 <button type="button">인증번호 받기</button>
               </div>
               <input type="text" placeholder="인증번호 입력하세요">
+              <span class="discord">불일치</span>
             </div>
             <p>필수 정보입니다.</p>
           </label>
@@ -162,7 +165,7 @@
           </label>
         </div>
 
-        <button type="submit">가입하기</button>
+        <button type="submit" class="submit">가입하기</button>
       </form>
     </section>
   </div>
