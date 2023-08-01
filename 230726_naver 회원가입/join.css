@@ -44,6 +44,11 @@ form {
   outline: 1px solid #03c75a;
 }
 
+.user-info .border-red #veritext {
+  outline: 1px solid red;
+  border: 1px solid red;
+}
+
 .user-info p {
   padding: 5px 0;
   font-size: 14px;

@@ -28,12 +28,12 @@ $('.pw-chk input').focusout(function(){
     $('.pw-chk p').text('8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.');
     $('.pw-chk p').css('color', 'red');
     $('.pw-chk span').css({'visibility':'visible', 'color':'red'});
-    $('.pw-chk .inputbox img').attr('src', './images/m_icon_pw_step_10.png')
+    $('.pw-chk .inputbox img').attr('src', './images/m_icon_pw_step_10.png');
   } else {
-    $('.pw-chk p').css('visibility', 'hidden')
-    $('.pw-chk span').text('안전')
+    $('.pw-chk p').css('visibility', 'hidden');
+    $('.pw-chk span').text('안전');
     $('.pw-chk span').css({'visibility':'visible', 'color':'#03c75a'});
-    $('.pw-chk .inputbox img').attr('src', './images/m_icon_pw_step_04.png')
+    $('.pw-chk .inputbox img').attr('src', './images/m_icon_pw_step_04.png');
   }
 })
 
@@ -51,7 +51,7 @@ $('.pw-rechk input').focusout(function(){
     $('.pw-rechk p').css({'visibility':'visible', 'color':'red'});
   } else {
     $('.pw-rechk p').css('visibility', 'hidden');
-    $('.pw-rechk .inputbox img').attr('src', './images/m_icon_pw_step_07.png')
+    $('.pw-rechk .inputbox img').attr('src', './images/m_icon_pw_step_07.png');
   }
 })
 
@@ -92,7 +92,7 @@ $('.gender-select').on('click', function(){
   $('.user-gender input').removeAttr('checked');
 
   $(this).children('span').addClass('radiochk');
-  $(this).children('input').attr('checked', true)
+  $(this).children('input').attr('checked', true);
 })
 
 
@@ -113,12 +113,53 @@ $('.user-email input').focusout(function(){
 
 // 휴대전화
 $('.user-phone .phone-num input').focusout(function(){
-  let numTxt = $(this).val();
+  let verifi = $(this).val();
 
-  if(numTxt == 0) {
+  if(verifi == 0) {
     $('.user-phone p').css({'visibility':'visible', 'color':'red'});
   } else {
     // 자바스크립트 정규표현식으로 입력값 체크
-    let verifi = verifi.replace(/[^0-9]/g, '');
+    verifi = verifi.replace(/[^0-9]/g, '');
+  }
+
+  let veri1;
+  if (verifi.length < 10 || verifi.length > 11) {
+    veri1 = false;
+  } else {
+    veri1 = true;
+  }
+
+  var veri2;
+  if (!isNaN(verifi)) {
+    veri2 = true;
+  } else {
+    veri2 = false;
+  }
+
+  if(veri1 && veri2) {
+    $('.user-phone p').html('<p>인증번호를 발송했습니다.(유효시간 30분)<br>인증번호가 오지 않으면 입력하신 정보가 정확한지 확인하여 주세요.<br>이미 가입된 번호이거나, 가상전화번호는 인증번호를 받을 수 없습니다.</p>');
+    $('.user-phone p').css({'visibility':'visible', 'color':'#03c75a'});
+    $('#veritext').removeAttr('disabled');
+  } else {
+    $('.user-phone p').text('형식에 맞지 않는 번호입니다.');
+    $('.user-phone p').css({'visibility':'visible', 'color':'red'});
+    $('#veritext').attr('disabled', true);
+  }
+})
+
+$('#veritext').focusout(function(){
+  let veriTxt = $(this).val();
+
+  if(veriTxt == 1234) {
+    $('.discord').css('visibility', 'hidden');
+    $('.user-phone p').text('인증되었습니다.');
+    $('.user-phone p').css({'visibility':'visible', 'color':'#03c75a'});
+    $(this).parents('.inputbox').removeClass('border-red');
+  } else {
+    $('.discord').css('visibility', 'visible');
+    $('.user-phone p').text('인증번호를 다시 확인해주세요.');
+    $('.user-phone p').css({'visibility':'visible', 'color':'red'});
+    $(this).closest('.inputbox').addClass('border-red');
+    console.log($(this).parents('.inputbox'))
   }
 })
