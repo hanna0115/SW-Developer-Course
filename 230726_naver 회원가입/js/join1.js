@@ -141,7 +141,6 @@ $('#year, #month, #date').focusout(function(){
   let birth = new Date(year, month, date);
   console.log(birth);
   birth = birth.getTime();
-  console.log(birth);
 
   if(year.length != 4) {
     $('.birth .warn').html('<span class="text-red">태어난 년도 4자리를 정확하게 입력하세요.</span>');
@@ -160,4 +159,21 @@ $('#year, #month, #date').focusout(function(){
     bithveri = true;
     $('.birth .warn').empty();
   }
+})
+
+
+// 성별
+// .gender .inputbox를 클릭했을 때
+// .gender 모든 .inputbox에 .btn-primary class remove
+// .gender .inputbox 안 모든 input radio에 checked false
+// 클릭된 자신에게만 .btn-primary class add
+// 클릭된 자신에게만 input radio에 checked true
+// genderveri = true;
+$('.gender .inputbox').on('click', function(){
+  $('.gender .inputbox').removeClass('btn-primary');
+  // prop => jQuery에서 radio 버튼을 제어할 때 사용
+  $('.gender .inputbox input[type="radio"]').prop('checked', false);
+  $(this).addClass('btn-primary');
+  $(this).children('input[type="radio"]').prop('checked', true);
+  genderveri = true;
 })
