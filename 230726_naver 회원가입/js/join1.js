@@ -1,19 +1,34 @@
-// input focusin 되면 부모 .inputbox에 border-act class add
+// 모든 input 태그에 focusin 되면 부모인 .inputbox에 border-act class add
 $('input').focusin(function(){
   $(this).parent('.inputbox').addClass('border-act');
 })
 
-// input에 focusout되면 부모 .inputbox에 border-act class remove
+// 모든 input 태그에 focusout되면 부모인 .inputbox border-act class remove
 $('input').focusout(function(){
   $(this).parent('.inputbox').removeClass('border-act')
 })
 
+// 필수항목인 모든 변수에 false 값 할당 후
+// 각 해당 조건을 충족 했을 때 true값으로 변경한다.
+// 마지막에 필수항목에 해당하는 변수가 모두 true라면 submit
+// 아니라면 제출되지 못하게 막는다.
+// Javascript(폴더) ->  230719_복합연산자.html 파일 참고
 let idveri = pwveri = pwchkveri = nameveri = bithveri = genderveri = phoneveri = addressveri = false;
+// 메일은 필수가 아니라 선택사항 이므로 true
 let mailveri = true;
 
+
 // 아이디
-// .userid input에 focusout 됐을 때 입력된 값의 길이가 0이라면(조건)
-// .userid warn에 내용을 작성(실행문)
+// .userid input에 focusout 됐을 때 
+// input value 값의 길이(length)가 0이라면(조건)
+// .userid .warn에 text-red class '필수 정보입니다.'
+
+// else if(!정규식.test(userID)) 
+// .userid .warn에 text-red class '5~8자의 영문 소문자, 숫자만 사용 가능합니다.'
+
+// else (위 두 조건에 해당하지 않을 때) 0이 아니고 정규식에 맞게 잘 작성됐을 때
+// idveri = true;
+// .userid .warn에 text-green class '멋진 아이디네요!'
 $('.userid input').focusout(function(){
   let userid = $(this).val();
   // 최소 5글자 ~ 최대 8글자 사이 영문 소문자 + 숫자 포함
@@ -31,8 +46,19 @@ $('.userid input').focusout(function(){
 
 
 // 비밀번호
-// .userpw input에 focusout 됐을 때 입력된 값이 0이라면(조건)
-// .userpw warn에 내용을 작성(실행문)
+// .userpw input에 focusout 됐을 때 
+// input value 값 길이(length)가 0이라면(조건)
+// .userpw .warn에 text-red class '필수 정보입니다.'
+
+// else if (!정규식.test(userPw))
+// .userpw .warn에 text-red class '8~20자 영문 대 소문자, 숫자, 특수문자를 사용하세요.'
+// .userpw .inputbox p에 text-red class '사용불가' (.inputbox 우측 텍스트)
+// .userpw .inputbox img attr src 변경 / img - 10
+
+// else (0이 아니고, 정규식에 맞게 작성 했을 때)
+// pwveri = true;
+// .userpw .inputbox p에 text-green class '안전' (.inputbox 우측 텍스트)
+// .userpw .inputbox img attr src 변경 / img - 04
 $('.userpw input').focusout(function(){
   let userpw = $(this).val();
   // 8~20자 사이 영문 대소문자, 숫자 , 특수문자 포함
@@ -57,17 +83,18 @@ $('.userpw input').focusout(function(){
 
 // 비밀번호 재확인
 // .userpw-chk input에 focusout 됐을 때 입력된 값이 0이라면(조건)
-// .userpw-chk .warn에 빨간색 글자로 필수 정보입니다. (실행문1)
-// 우측 아이콘 이미지를 원래대로 변경 (실행문2)
+// .userpw-chk .warn에 text-red class '필수 정보 입니다.' 
+// 우측 아이콘 이미지를 원래대로 변경 / img - 02 
 
-// .userpw input값이랑 .userpw-chk input값이 같은가?(조건2)
-// pwchkveri에 true
-// .warn에 뜨는 경고메세지 화면에서 사라지게 한다.
-// 우측 아이콘 이미지를 바꿔준다.
+// .userpw-chk input.val(), .userpw input.val() 두 값이 같은가?(조건2)
+// pwchkveri = true
+// .userpw-chk .warn에 들어있는 경고 메세지를 empty()로 비운다. 
+// 우측 아이콘 이미지를 바꿔준다. / img - 07
 
-// 그렇지 않다면 else (0이 아니고, 일치하지 않을 때)
-// .userpw-chk .warn에 비밀번호가 일치하지 않습니다. (text-red)
-// 우측 아이콘 이미지를 원래대로 변경(02)
+// 그렇지 않다면 else (위 두 조건에 해당하지 않을 때) 0이 아니고 두 값이 일치하지 않을 때
+// .userpw-chk .warn에 text-red class 
+// '비밀번호가 일치하지 않습니다.' 
+// 우측 아이콘 이미지를 원래대로 변경 / img - 02
 $('.userpw-chk input'). focusout(function(){
   let userpwChk = $(this).val();
 
@@ -86,14 +113,15 @@ $('.userpw-chk input'). focusout(function(){
 
 
 // 이름
-// .username input에 focusout 됐을 때 입력된 값이 0이라면(조건)
-//.warn에 text-red 필수 정보입니다.
-// else if
-// 정규식 한글 최소 2~5글자
-// .warn에 text-red 한글로 2~5글자 사이로 작성하세요.
-// else
-// .warn에 들어있는 경고메세지 지워준다.
+// .username input에 focusout 됐을 때 .username input value length가 0이라면(조건)
+// .username .warn에 text-red class '필수 정보 입니다.'
+
+// else if (정규식.test())
+// .username .warn에 text-red class '2~5글자 사이의 한글로 입력하세요.'
+
+// else (0이 아니고, 정규식에 맞게 잘 입력 했을 때)
 // nameveri = true;
+// .username .warn에 들어있는 경고 메세지를 empty()로 비운다. 
 $('.username input').focusout(function(){
   let username = $('.username input').val();
   let nameExp = /^[가-힣]{2,5}$/;
@@ -111,20 +139,30 @@ $('.username input').focusout(function(){
 
 // 생년월일
 // #year, #month, #date에 focusout 됐을 때
-// #year의 value length가 4글자가 아니라면(조건1)
+// #year.val()의 length가 4글자가 아니라면(조건1)
 // .birth .warn에 text-red class '태어난 년도 4자리를 정확하게 입력하세요.'
 
-// #month의 length가 0이라면(조건2)
-// .birth .warn에 text-red class '태어난 월을 선택하세요.'
+// #month.val()의 length가 0이라면 (조건2)
+// .birth .warn text-red class '태어난 월을 선택하세요.'
 
-// #date의 length가 0이라면(조건3)
-// .birth .warn에 text-red class '태어난 일(날짜) 2자리를 정확하게 입력하세요.'
+// #date.val()의 length가 0이라면 || #date.val이 31보다 크다 || #date.val이 0보다 작거나 같다 (조건3)
+// .birth .warn text-red class '태어난 일(날짜) 2자리를 정확하게 입력하세요.'
 
-// 년, 월, 일 값이 숫자가 아니라면(조건4)
-// .birth .warn에 text-red class '생년월일을 다시 확인해주세요.'
+// 년,월,일 값이 숫자가 아니라면 isNaN(is Not a Number) (조건4)
+// .birth .warn text-red class '생년월일을 다시 확인해주세요.'
 
-// 올 해 기준으로 나이가 100 초과라면(조건5)
-// .birth .warn에 text-red class '정말이세요?'
+// 올 해 기준으로 나이가 100 초과라면 (조건5)
+// 2023(now) - 1988(year - 사용자가 입력한 년도 네자리) = 35
+// now - year > 100
+// .birth .warn text-red class '정말이세요?'
+
+// UTC를 기준으로 now와 birth를 비교했을 때 birth 값이 더 클 경우
+// now = UTC 기준으로 부터 now까지 경과한 값
+// birth = UTC 기준으로 부터 birth까지 경과한 값
+
+// else (위 조건들에 모두 해당하지 않는다면)
+// bitrhveri = true;
+// .birth .warn에 들어있는 경고 메세지를 empty()로 비운다. 
 $('#year, #month, #date').focusout(function(){
   let year = $('#year').val();
   let month = $('#month').val();
@@ -163,9 +201,12 @@ $('#year, #month, #date').focusout(function(){
 
 
 // 성별
-// .gender .inputbox를 클릭했을 때
+// .gender .inputbox를 클릭 했을 때
+// 우선 모두 제거 후 클릭된 대상에게만 class 및 속성 추가
+
 // .gender 모든 .inputbox에 .btn-primary class remove
-// .gender .inputbox 안 모든 input radio에 checked false
+// .gender .inputbox안 모든 input radio에 checked false
+
 // 클릭된 자신에게만 .btn-primary class add
 // 클릭된 자신에게만 input radio에 checked true
 // genderveri = true;
@@ -181,10 +222,14 @@ $('.gender .inputbox').on('click', function(){
 
 // 본인 확인 이메일
 // .usermail input에 focusout 됐을 때
-// 필수사항이 아니라 선택사항이니까 기본적으로 mailveri = true;
-// 사용자가 값을 입력하지 않았을 경우 그대로 유지
-// 값을 입력했는데 정규식에 맞지 않게 입력 => false
-// .usermail .warn '이메일 주소를 다시 확인해주세요.'
+// 필수사항이 아니라 선택사항 이니까 기본적으로 mailveri = true;
+// 사용자가 값을 입력하지 않았을 경우 mailveri = true 유지
+
+// 값을 입력 했는데 정규식에 맞지 않게 입력했다면 => mailveri = false 
+// .usermail .warn text-red class '이메일 주소를 다시 확인해주세요.'
+
+// else (위 두 조건에 다 해당하지 않을 경우)
+// .usermail .warn에 들어있는 경고 메세지를 empty()로 비운다.
 $('.usermail input').focusout(function(){
   let mail = $(this).val();
   // 대소문자, 숫자로 시작 가능 @ 다음에 . 까지 나와야 함(naver.com 이런식으로)
