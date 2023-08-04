@@ -300,4 +300,29 @@ $('#veribtn').on('click', function(){
     $('#veritext').attr('disabled', true);
     $('#veritext').parent('.inputbox').addClass('disinput');
   }
+
+  // 인증번호 일치 여부 조건
+  // #veritext에 focusout 됐을 때
+  // 입력된 인증번호가 "1234"와 같다면(조건1)
+  // .phone .warn에 '인증 되었습니다.'
+  // this의 형제요소인 div를 비워서 span 태그가 보이지 않게 한다.
+  // this의 부모인 .inputbox에 border-red class remove
+  // phoneveri = true;
+
+  // else
+  // .phone .warn에 text-red class '인증번호를 다시 확인해주세요.'
+  // this의 형제요소인 div에 span 태그로 불일치, disagree(X) 요소를 보여준다.
+  // this의 부모인 .inputbox에 border-red class add
+  $('#veritext').focusout(function(){
+    if($(this).val() == "1234") {
+      phoneveri = true;
+      $('.phone .warn').html('<span class="text-green">인증 되었습니다.</span>');
+      $(this).next('div').empty();
+      $(this).parent('.inputbox').removeClass('border-red');
+    } else {
+      $('.phone .warn').html('<span class="text-red">인증번호를 다시 확인해주세요.</span>');
+      $(this).next('div').html('<span class="text-red">불일치</span><span class="disagree"></span>');
+      $(this).parent('.inputbox').addClass('border-red');
+    }
+  })
 })
