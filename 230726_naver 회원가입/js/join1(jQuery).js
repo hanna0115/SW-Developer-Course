@@ -177,7 +177,6 @@ $('#year, #month, #date').focusout(function(){
   
   // 사용자가 입력한 year, month, date 값으로 Date 객체 생성
   let birth = new Date(year, month, date);
-  console.log(birth);
   birth = birth.getTime();
 
   if(year.length != 4) {
@@ -334,6 +333,7 @@ $('#veribtn').on('click', function(){
 // API란? Application Programming Interface
 // 프론트엔드(클라이언트)와 백엔드(서버)가 요청과 응답을 주고 받을 수 있도록 만들어진 체계
 function sample6_execDaumPostcode() {
+  addressveri = true;
   new daum.Postcode({
       oncomplete: function(data) {
           // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -380,3 +380,19 @@ function sample6_execDaumPostcode() {
       }
   }).open();
 }
+
+// #joinbtn을 click했을 때 필수 요소가 모두 true라면(조건)
+// join-form submit()
+
+// else (필수요소가 하나라도 true가 아니라면)
+// e.preventDefault() 전송을 막는다.
+// 모든 input에 강제로 focusout 이벤트를 발생시킨다.
+$('#joinbtn').on('click', function(e){
+  if(idveri && pwveri && pwchkveri && nameveri && bithveri && genderveri && phoneveri && addressveri && mailveri) {
+    $('#join-form').submit();
+  } else {
+    e.preventDefault();
+    // 강제 이벤트 발생시키는 메서드 trigger
+    $('input').trigger('focusout');
+  }
+  })
