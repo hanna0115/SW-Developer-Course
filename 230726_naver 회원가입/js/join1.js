@@ -80,9 +80,14 @@ document.querySelector('.userpw-chk input').addEventListener('focusout', functio
 
   if(userpwChk.length == 0) {
     pwChkWarn.innerHTML = essenInfo;
+    pwChkImg.src = './images/m_icon_pw_step_02.png';
   } else if(userpwChk == userPw.value) {
     pwchkveri = true;
     pwChkWarn.innerHTML = '';
     pwChkImg.src = './images/m_icon_pw_step_07.png';
+  } else {
+    // 입력은 했는데 .userpw value랑 일치하지 않을 때
+    pwChkWarn.innerHTML = '<span class="text-red">비밀번호가 일치하지 않습니다.</span>';
+    pwChkImg.src = './images/m_icon_pw_step_02.png';
   }
 })
