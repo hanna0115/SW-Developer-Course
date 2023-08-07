@@ -148,3 +148,18 @@ birthList.forEach(function(item, index){
     }
   })
 })
+
+
+// 성별
+let genderInputs = document.querySelectorAll('.gender .inputbox');
+
+genderInputs.forEach(function(input){
+  input.addEventListener('click', function(){
+    genderInputs.forEach(function(input){
+      input.classList.remove('btn-primary');
+      input.querySelector('input[type="radio"]').checked = false;
+    })
+    this.classList.add('btn-primary');
+    this.querySelector('input[type="radio"]').checked = true;
+  })
+})
