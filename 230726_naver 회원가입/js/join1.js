@@ -159,6 +159,8 @@ genderInputs.forEach(function(input){
       input.classList.remove('btn-primary');
       input.querySelector('input[type="radio"]').checked = false;
     })
+
+    genderveri = true;
     this.classList.add('btn-primary');
     this.querySelector('input[type="radio"]').checked = true;
   })
