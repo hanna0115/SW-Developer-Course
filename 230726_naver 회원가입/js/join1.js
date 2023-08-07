@@ -165,3 +165,19 @@ genderInputs.forEach(function(input){
     this.querySelector('input[type="radio"]').checked = true;
   })
 })
+
+
+// 본인 확인 이메일
+document.querySelector('.usermail input').addEventListener('focusout', function(){
+  let userMail = this.value;
+  let mailExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+  let mailWarn = document.querySelector('.usermail .warn');
+
+  if(userMail.length == 0) {
+    mailWarn.innerHTML = '';
+  } else if(!mailExp.test(userMail)) {
+    mailWarn.innerHTML = '<span class="text-red">이메일 주소를 다시 확인해주세요.</span>';
+  } else {
+    mailWarn.innerHTML = '';
+  }
+})
