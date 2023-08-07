@@ -13,7 +13,7 @@ $('input').focusout(function(){
 // 마지막에 필수항목에 해당하는 변수가 모두 true라면 submit
 // 아니라면 제출되지 못하게 막는다.
 // Javascript(폴더) ->  230719_복합연산자.html 파일 참고
-let idveri = pwveri = pwchkveri = nameveri = bithveri = genderveri = phoneveri = addressveri = false;
+let idveri = pwveri = pwchkveri = nameveri = birthveri = genderveri = phoneveri = addressveri = false;
 // 메일은 필수가 아니라 선택사항 이므로 true
 let mailveri = true;
 
@@ -193,7 +193,7 @@ $('#year, #month, #date').focusout(function(){
   } else if(nowStamp < birth) {
     $('.birth .warn').html('<span class="text-red">미래에서 오셨군요^^</span>');
   } else {
-    bithveri = true;
+    birthveri = true;
     $('.birth .warn').empty();
   }
 })
@@ -388,7 +388,7 @@ function sample6_execDaumPostcode() {
 // e.preventDefault() 전송을 막는다.
 // 모든 input에 강제로 focusout 이벤트를 발생시킨다.
 $('#joinbtn').on('click', function(e){
-  if(idveri && pwveri && pwchkveri && nameveri && bithveri && genderveri && phoneveri && addressveri && mailveri) {
+  if(idveri && pwveri && pwchkveri && nameveri && birthveri && genderveri && phoneveri && addressveri && mailveri) {
     $('#join-form').submit();
   } else {
     e.preventDefault();
