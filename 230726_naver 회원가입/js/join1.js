@@ -9,7 +9,7 @@ document.querySelectorAll('input').forEach(function(input){
 })
 
 
-let idveri = pwveri = pwchkveri = nameveri = bithveri = genderveri = phoneveri = addressveri = false;
+let idveri = pwveri = pwchkveri = nameveri = birthveri = genderveri = phoneveri = addressveri = false;
 let mailveri = true;
 // Essential Infomation
 let essenInfo = '<span class="text-red">필수 정보입니다.</span>';
@@ -112,11 +112,39 @@ document.querySelector('.username input').addEventListener('focusout', function(
 
 // 생년월일
 let birthList = document.querySelectorAll('.birth-item');
+function birthWarnTxt (text){
+  document.querySelector('.birth .warn').innerHTML = `<span class="text-red">${text}</span>`;
+}
+
 
 birthList.forEach(function(item, index){
   item.addEventListener('focusout', function(){
     let year = birthList[0].value;
     let month = birthList[1].value;
     let date = birthList[2].value;
+
+    let now = new Date();
+    let nowstamp = now.getTime();
+    now = now.getFullYear();
+    
+    let birth = new Date(year, month, date);
+    birth = birth.getTime();
+    
+    if(year.length != 4) {
+      birthWarnTxt('태어난 년도 4자리를 정확하게 입력하세요.');
+    } else if(month.length == 0) {
+      birthWarnTxt('태어난 월을 선택하세요.');
+    } else if(date.length == 0 || date > 31 || date <= 0) {
+      birthWarnTxt('태어난 일(날짜) 2자리를 정확하게 입력하세요.');
+    } else if(isNaN(year * month * date)) {
+      birthWarnTxt('생년월일을 다시 확인해주세요.');
+    } else if(now - year > 100) {
+      birthWarnTxt('정말이세요?');
+    } else if(nowstamp < birth) {
+      birthWarnTxt('미래에서 오셨군요^^');
+    } else {
+      birthveri = true;
+      birthWarnTxt('');
+    }
   })
 })
