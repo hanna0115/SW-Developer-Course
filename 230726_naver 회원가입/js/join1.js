@@ -185,10 +185,11 @@ document.querySelector('.usermail input').addEventListener('focusout', function(
 
 // 휴대전화
 let numWarn = document.querySelector('.phone .warn');
+let veriText = document.getElementById('veritext');
 
 document.querySelector('.phonenum input').addEventListener('focusout', function(){
   let phoneNum = this.value;
-  
+
   if(phoneNum.length == 0) {
     numWarn.innerHTML = essenInfo;
   } else {
@@ -200,7 +201,6 @@ document.getElementById('veribtn').addEventListener('click', function(){
   let phoneNum = document.querySelector('.phonenum input').value;
   phoneNum = phoneNum.replace(/[^0-9]/g, '');
   document.querySelector('.phonenum input').value = phoneNum;
-  let veriText = document.getElementById('veritext');
 
   let phoneLeng;
   if(phoneNum.length < 10 || phoneNum.length > 11) {
@@ -217,12 +217,26 @@ document.getElementById('veribtn').addEventListener('click', function(){
   }
 
   if(phoneLeng && phoneNaN) {
-    numWarn.innerHTML = '<span class="text-green">인증번호를 발송했습니다.</span>';
+    numWarn.innerHTML = '<span class="text-green">인증번호가 발송되었습니다.</span>';
     veriText.parentNode.classList.remove('disinput');
     veriText.disabled = false;
   } else {
-    numWarn.innerHTML = '<span class="text-red">형식에 맞지 않는 번호입니다.</span>'
+    numWarn.innerHTML = '<span class="text-red">형식에 맞지 않는 번호입니다.</span>';
     veriText.parentNode.classList.add('disinput');
     veriText.disabled = true;
+  }
+})
+
+
+veriText.addEventListener('focusout', function(){
+  if(this.value == '1234') {
+    phoneveri = true;
+    numWarn.innerHTML = '<span class="text-green">인증 되었습니다.</span>';
+    this.nextElementSibling.innerHTML = '';
+    this.parentNode.classList.remove('border-red');
+  } else {
+    numWarn.innerHTML = '<span class="text-red">인증번호를 다시 확인해주세요.</span>';
+    this.nextElementSibling.innerHTML = '<span class="text-red">불일치</span><span class="disagree"></span>';
+    this.parentNode.classList.add('border-red');
   }
 })
