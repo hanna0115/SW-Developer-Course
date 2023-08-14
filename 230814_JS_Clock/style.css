@@ -7,3 +7,196 @@
 body {
   font-family: Orbitron, sans-serif;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./images/bg_morning.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.global-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  z-index: 10;
+}
+
+.logo img {
+  width: 70px;
+}
+
+.gnb-list {
+  display: flex;
+  margin-right: 100px;
+}
+
+.gnb-item {
+  margin: 0 10px;
+}
+
+.gnb-item a {
+  font-size: 14px;
+}
+
+.main-cloud-box .cloud {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+}
+
+.main-cloud-box .cloud1 {
+  animation-name: cloud1;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+}
+
+.main-cloud-box .cloud2 {
+  animation-name: cloud2;
+  animation-duration: 120s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cloud1 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes cloud2 {
+  0% {
+    transform: translateX(-1000px);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.main-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-txt {
+  margin: 200px 100px;
+  z-index: 10;
+}
+
+.main-txt p:first-child {
+  font-size: 40px;
+}
+
+.main-txt p:first-child span {
+  font-weight: 700;
+}
+
+.main-txt p:last-child {
+  font-size: 12px;
+}
+
+.phone-box {
+  position: relative;
+  width: 900px;
+  overflow: hidden;
+}
+
+.phone-cloud-box {
+  position: relative;
+  top: -714px;
+  left: 135px;
+  width: 545px;
+  height: 310px;
+  overflow: hidden;
+}
+
+.phone-cloud-box .cloud {
+  position: absolute;
+  top: 20px;
+  width: 300px;
+}
+
+.phone-cloud-box .cloud1 {
+  animation-name: cloud1;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+}
+
+.phone-cloud-box .cloud2 {
+  animation-name: cloud2-1;
+  animation-duration: 120s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cloud2-1 {
+  0% {
+    transform: translateX(-300px);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.phone-box span {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.btn-box {
+  position: absolute;
+  bottom: 70px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 20;
+}
+
+.btn-box button {
+  margin: 5px;
+  padding: 5px 100px;
+  border: none;
+  text-align: center;
+  color: #000;
+  background-color: rgba(255, 255, 255, .5);
+  transition: 300ms ease-in-out;
+}
+
+.btn-box button:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.btn-box button.on {
+  color: #fff;
+  background-color: #000;
+}
