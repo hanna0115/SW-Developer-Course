@@ -3,11 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JS Clock</title>
   <link rel="stylesheet" href="./style.css">
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="wrapper"></div>
+  <div class="wrapper">
+    <header class="global-header">
+      <h1 class="logo">
+        <a href="">
+          <img src="./images/logo_b.png" alt="logo img">
+        </a>
+      </h1>
+
+      <nav>
+        <ul class="gnb-list">
+          <li class="gnb-item"><a href="">About</a></li>
+          <li class="gnb-item"><a href="">Company</a></li>
+          <li class="gnb-item"><a href="">History</a></li>
+          <li class="gnb-item"><a href="">Community</a></li>
+          <li class="gnb-item"><a href="">Contact us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="main-cloud-box cloud-box">
+      <img class="cloud cloud1" src="./images/cloud1.png" alt="cloud1 img">
+      <img class="cloud cloud2" src="./images/cloud2.png" alt="cloud2 img">
+    </div>
+
+    <main>
+      <section>
+        <div class="main-box">
+          <div class="main-txt">
+            <p><span>Lorem</span> Ipsum</p>
+            <p>Lorem Ipsum is simply dummy text of the printing Materials</p>
+          </div>
+          <div class="phone-box">
+            <img class="phone-img" src="./images/phone_morning.png" alt="">
+            <div class="phone-cloud-box cloud-box">
+              <img class="cloud cloud1" src="./images/cloud1.png" alt="cloud1 img">
+              <img class="cloud cloud2" src="./images/cloud2.png" alt="cloud2 img">
+            </div>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="btn-box">
+          <button type="button" class="morning">morning</button>
+          <button type="button" class="afternoon">afternoon</button>
+          <button type="button" class="evening">evening</button>
+          <button type="button" class="night">night</button>
+        </div>
+
+      </section>
+    </main>
+  </div>
   <script src="./js/script.js"></script>
 </body>
 </html>
