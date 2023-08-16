@@ -56,7 +56,7 @@ body {
   top: 45px;
   left: 15px;
   z-index: -1;
-  width: 800px;
+  width: 1000px;
   opacity: .8;
   animation-name: cloud1;
   animation-duration: 100s;
@@ -69,7 +69,7 @@ body {
   top: 20px;
   left: 0;
   z-index: -1;
-  width: 1000px;
+  width: 1200px;
   opacity: .6;
   /* name | duration | timing-function | iteration-count */
   animation: cloud2 60s linear infinite;
