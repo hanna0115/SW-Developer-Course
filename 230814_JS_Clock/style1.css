@@ -197,3 +197,44 @@ body {
   left: 10px;
   width: 800px;
 }
+
+.btn-wrapper {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+
+.btn-list {
+  display: flex;
+}
+
+.btn-list li {
+  width: 25%;
+  margin-right: 8px;
+}
+
+.btn-list li:last-child {
+  margin-right: 0;
+}
+
+.btn-list li a {
+  display: block;
+  padding: 5px 0;
+  text-align: center;
+  font-weight: 700;
+  background-color: #fff;
+  opacity: .6;
+  /* 자간 : 글자와 글자 사이의 간격 */
+  letter-spacing: 3px;
+  color: #111;
+}
+
+.btn-list li:hover a,
+.btn-wrapper li.on a {
+  color: #ddd;
+  background-color: #111;
+}
+
+/* .wrapper에 night class가 있을 때 화면 */
