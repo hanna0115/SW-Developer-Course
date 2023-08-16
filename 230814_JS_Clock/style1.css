@@ -163,3 +163,37 @@ body {
 .wrapper.night #phone {
   background-image: url('./images/phone_night.png');
 }
+
+#phone div {
+  position: absolute;
+  top: 87px;
+  left: 117px;
+  width: 473px;
+  height: 266px;
+  overflow: hidden;
+}
+
+.phone-time {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  z-index: 10;
+  transform: translateY(-50%);
+  font-size: 55px;
+  font-weight: 700;
+  color: #333;
+}
+
+#phone img:first-of-type {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 360px;
+}
+
+#phone img:last-of-type {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 800px;
+}
