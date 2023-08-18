@@ -4,10 +4,6 @@
   src: url('./fonts/Orbitron-Regular.woff') format('woff');
 }
 
-body {
-  font-family: Orbitron, sans-serif;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -23,15 +19,35 @@ a {
   color: #000;
 }
 
+body {
+  font-family: Orbitron, sans-serif;
+}
+
 .wrapper {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-image: url('./images/bg_morning.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
+}
+
+/* 전체화면 배경 class */
+.wrapper.morning {
+  background-image: url('./images/bg_morning.jpg');
+}
+
+.wrapper.afternoon {
+  background-image: url('./images/bg_afternoon.jpg');
+}
+
+.wrapper.evening {
+  background-image: url('./images/bg_evening.jpg');
+}
+
+.wrapper.night {
+  background-image: url('./images/bg_night.jpg');
 }
 
 .global-header {
@@ -60,6 +76,19 @@ a {
   font-size: 14px;
 }
 
+.gnb-item a::after {
+  content: '';
+  display: block;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #444;
+  transform: scaleX(0);
+  transition: transform 500ms;
+}
+
+.gnb-item a:hover::after {
+  transform: scaleX(1);
+}
+
 .main-cloud-box .cloud {
   position: absolute;
   top: 0;
@@ -76,26 +105,6 @@ a {
   animation-name: cloud2;
   animation-duration: 120s;
   animation-iteration-count: infinite;
-}
-
-@keyframes cloud1 {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes cloud2 {
-  0% {
-    transform: translateX(-1000px);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
 }
 
 .main-box {
@@ -122,16 +131,39 @@ a {
 
 .phone-box {
   position: relative;
-  width: 900px;
+  top: 75px;
+  right: 0;
+  width: 800px;
+  height: 700px;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+}
+
+/* phone background-image 변경 */
+.wrapper.morning .phone-box {
+  background-image: url('./images/phone_morning.png');
+}
+
+.wrapper.afternoon .phone-box {
+  background-image: url('./images/phone_afternoon.png');
+}
+
+.wrapper.evening .phone-box {
+  background-image: url('./images/phone_evening.png');
+}
+
+.wrapper.night .phone-box {
+  background-image: url('./images/phone_night.png');
 }
 
 .phone-cloud-box {
   position: relative;
-  top: -714px;
-  left: 135px;
-  width: 545px;
-  height: 310px;
+  top: 87px;
+  left: 117px;
+  width: 472px;
+  height: 266px;
   overflow: hidden;
 }
 
@@ -143,31 +175,21 @@ a {
 
 .phone-cloud-box .cloud1 {
   animation-name: cloud1;
-  animation-duration: 60s;
+  animation-duration: 30s;
   animation-iteration-count: infinite;
 }
 
 .phone-cloud-box .cloud2 {
   animation-name: cloud2-1;
-  animation-duration: 120s;
+  animation-duration: 60s;
   animation-iteration-count: infinite;
-}
-
-@keyframes cloud2-1 {
-  0% {
-    transform: translateX(-300px);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
 }
 
 .phone-box span {
   position: absolute;
-  top: 200px;
-  left: 200px;
-  font-size: 60px;
+  top: 170px;
+  left: 170px;
+  font-size: 50px;
   font-weight: 700;
 }
 
@@ -199,4 +221,55 @@ a {
 .btn-box button.on {
   color: #fff;
   background-color: #000;
+}
+
+/* .wrapper에 night class가 있을 때 화면 */
+.wrapper.night .gnb-item a {
+  color: #fff;
+}
+
+.wrapper.night .gnb-item a::after {
+  border-bottom-color: #fff;
+}
+
+.wrapper.night .main-txt p {
+  color: #999;
+}
+
+.wrapper.night .main-txt span {
+  color: #fff;
+}
+
+.wrapper.night .phone-box span {
+  color: #fff;
+}
+
+@keyframes cloud1 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes cloud2 {
+  0% {
+    transform: translateX(-1000px);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes cloud2-1 {
+  0% {
+    transform: translateX(-300px);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
