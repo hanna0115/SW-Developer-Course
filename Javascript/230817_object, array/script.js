@@ -17,6 +17,24 @@ let products = [
     title : '나이키 TC 7900',
     price : '97,300 원',
     size : ['225', '230', '235', '240']
+  },
+  {
+    img : 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/23ddfb6f-a522-458c-a0d9-cf678294318b/%EB%8D%B0%EC%9D%B4%EB%B8%8C%EB%A0%88%EC%9D%B4%ED%81%AC-%EC%97%AC%EC%84%B1-%EC%8B%A0%EB%B0%9C-KzwVEwzG.png',
+    title : '나이키 데이브레이크',
+    price : '129,000 원',
+    size : ['220', '225', '230', '235', '240', '245', '250', '255']
+  },
+  {
+    img : 'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/76274d81-023f-4c0e-82bf-25ff919fe399/%EC%9A%B0%EB%A8%BC%EC%8A%A4-%EB%8D%A9%ED%81%AC-%EB%A1%9C%EC%9A%B0-valentine-s-day-fd0803-100-%EC%B6%9C%EC%8B%9C%EC%9D%BC.jpg',
+    title : "우먼스 덩크 로우 Valentine's Day",
+    price : '139,000 원',
+    size : ['230', '235', '240', '245', '250', '255']
+  },
+  {
+    img : 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b3fe91f5-2696-46c6-ab05-5fdef7015a05/%EC%97%90%EC%96%B4%EB%A7%A5%EC%8A%A4-97-%EC%97%AC%EC%84%B1-%EC%8B%A0%EB%B0%9C-rCXkYtQ4.png',
+    title : '나이키 에어맥스 97',
+    price : '142,300 원',
+    size : ['225', '230', '235', '240', '245', '250']
   }
 ]
 
@@ -88,4 +106,12 @@ products.forEach(function(item){
   let boxTitle = document.createElement('h2');
   boxTitle.innerHTML = item.title;
   shoInfo.appendChild(boxTitle);
+
+  let boxPrice = document.createElement('p');
+  boxPrice.innerHTML = item.price;
+  shoInfo.appendChild(boxPrice);
+
+  let boxSize = document.createElement('p');
+  boxSize.innerHTML = item.size;
+  shoInfo.appendChild(boxSize);
 })
