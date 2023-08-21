@@ -39,3 +39,16 @@ boxItems.forEach(function(item, index){
 // 전문용어로 '데이터 바인딩'이라고 한다.
 // 데이터 바인딩을 쉽고 편하게 할 수 있도록 도와주는 도구 (React, Vue, angular)
 // 시작 기호가 대괄호[], 중괄호{}냐에 따라서 Array, object 구분
+
+
+// Javascript로 html 요소 생성
+// createElemen('태그이름)
+let h1Tag = document.createElement('h1');
+h1Tag.innerHTML = '안녕하세요';
+h1Tag.classList.add('hi');
+document.querySelector('.box-list').appendChild(h1Tag);
+
+// box-list 안에 p태그로 생성
+let pTag = document.createElement('p');
+pTag.innerHTML = 'createElement로 p태그 생성'
+document.querySelector('.box-list').appendChild(pTag);
