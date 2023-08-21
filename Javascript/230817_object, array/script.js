@@ -25,13 +25,13 @@ let products = [
 // document.querySelectorAll('.sho-info p')[0].innerHTML = products[0].price;
 // document.querySelectorAll('.sho-info p')[1].innerHTML = products[0].size;
 
-const boxItems = document.querySelectorAll('.box-item');
-boxItems.forEach(function(item, index){
-  item.querySelector('img').src = products[index].img;
-  item.querySelector('.sho-info h2').innerHTML = products[index].title;
-  item.querySelectorAll('.sho-info p')[0].innerHTML = products[index].price;
-  item.querySelectorAll('.sho-info p')[1].innerHTML = products[index].size;
-})
+// const boxItems = document.querySelectorAll('.box-item');
+// boxItems.forEach(function(item, index){
+//   item.querySelector('img').src = products[index].img;
+//   item.querySelector('.sho-info h2').innerHTML = products[index].title;
+//   item.querySelectorAll('.sho-info p')[0].innerHTML = products[index].price;
+//   item.querySelectorAll('.sho-info p')[1].innerHTML = products[index].size;
+// })
 
 
 // 프론트엔드 개발자가 하는 역할
@@ -43,12 +43,49 @@ boxItems.forEach(function(item, index){
 
 // Javascript로 html 요소 생성
 // createElemen('태그이름)
-let h1Tag = document.createElement('h1');
-h1Tag.innerHTML = '안녕하세요';
-h1Tag.classList.add('hi');
-document.querySelector('.box-list').appendChild(h1Tag);
+// let h1Tag = document.createElement('h1');
+// h1Tag.innerHTML = '안녕하세요';
+// h1Tag.classList.add('hi');
+// document.querySelector('.box-list').appendChild(h1Tag);
 
 // box-list 안에 p태그로 생성
-let pTag = document.createElement('p');
-pTag.innerHTML = 'createElement로 p태그 생성'
-document.querySelector('.box-list').appendChild(pTag);
+// let pTag = document.createElement('p');
+// pTag.innerHTML = 'createElement로 p태그 생성'
+// document.querySelector('.box-list').appendChild(pTag);
+
+
+// createElement로 products length만큼 html 생성
+// let pTag = document.createElement('p');
+// pTag.innerHTML = 'createElement로 p 태그 생성';
+// document.querySelector('.box-list').appendChild(pTag);
+
+
+// products length만큼 createElement로 html 생성
+// .box-list 안에 .box-item이라는 class를 가진 div 생성
+// .box-item 안 
+// 1. img tag 생성 src = products.img / alt = products.title
+// 2. .box-list 안에 .sho-info라는 class를 가진 div 생성
+// 3. .sho-info 안에 h2 tag 생성 => innerHTML = products.title
+// 4. .sho-info 안에 p tag 생성 => innerHTML = products.price
+// 5. .sho-info 안에 p tag 생성 => innerHTML = products.size
+
+let boxList = document.querySelector('.box-list');
+
+products.forEach(function(item){
+  let boxItem = document.createElement('div');
+  boxItem.classList.add('box-item');
+  boxList.appendChild(boxItem);
+
+  let boxImg = document.createElement('img');
+  boxImg.src = item.img;
+  boxImg.alt = item.title;
+  boxItem.appendChild(boxImg);
+
+  let shoInfo = document.createElement('div');
+  shoInfo.classList.add('sho-info');
+  boxItem.appendChild(shoInfo);
+
+  let boxTitle = document.createElement('h2');
+  boxTitle.innerHTML = item.title;
+  shoInfo.appendChild(boxTitle);
+})
