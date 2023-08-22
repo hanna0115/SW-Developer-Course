@@ -126,45 +126,41 @@ let products = [
 
 
 // insertAdjacentHTML로 .box-item 완성
-products.forEach(function(item, index){
-  let boxItem = `<div class="box-item"></div>`;
-  document.querySelector('.box-list').insertAdjacentHTML('beforeend', boxItem);
+// products.forEach(function(item, index){
+//   let boxItem = `<div class="box-item"></div>`;
+//   document.querySelector('.box-list').insertAdjacentHTML('beforeend', boxItem);
 
-  let boxImg = `<img src="${item.img}" alt="${item.title}">`;
-  document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', boxImg);
+//   let boxImg = `<img src="${item.img}" alt="${item.title}">`;
+//   document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', boxImg);
 
-  let shoInfo = `<div class="sho-info"></div>`;
-  document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', shoInfo);
+//   let shoInfo = `<div class="sho-info"></div>`;
+//   document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', shoInfo);
 
-  let boxTitle = `<h2>${item.title}</h2>`;
-  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxTitle);
+//   let boxTitle = `<h2>${item.title}</h2>`;
+//   document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxTitle);
 
-  let boxPrice = `<p>${item.price}</p>`;
-  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxPrice);
+//   let boxPrice = `<p>${item.price}</p>`;
+//   document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxPrice);
 
-  let boxSize = `<p>${item.size}</p>`;
-  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxSize);
-  
-  // document.querySelector('.box-list').insertAdjacentHTML('beforeend', '<div class="box-item"></div>');
-
-  // let boxItem = document.querySelectorAll('.box-item');
-
-  // boxItem[index].insertAdjacentHTML('beforeend', `<img src="${item.img}" alt="${item.title}">`);
-  // boxItem[index].insertAdjacentHTML('beforeend', '<div class="sho-info"></div>');
-
-  // let shoInfo =  document.querySelectorAll('.sho-info');
- 
-  // shoInfo[index].insertAdjacentHTML('beforeend', `<h2>${item.title}</h2>`);
-  // shoInfo[index].insertAdjacentHTML('beforeend', `<p>${item.price}</p>`);
-  // shoInfo[index].insertAdjacentHTML('beforeend', `<p>${item.size}</p>`);
-})
-
-// let boxItem = document.querySelectorAll('.box-item')
-// boxItem.forEach(function(item, index){
-//   item.insertAdjacentHTML('beforeend', `<img src="${products[index].img}" alt="${products[index].title}">`);
-
-//   item.insertAdjacentHTML('beforeend', '<div class="sho-info"></div>');
-//   item.querySelector('.sho-info').insertAdjacentHTML('beforeend', `<h2>${products[index].title}</h2>`);
-//   item.querySelector('.sho-info').insertAdjacentHTML('beforeend', `<p>${products[index].price}</p>`);
-//   item.querySelector('.sho-info').insertAdjacentHTML('beforeend', `<p>${products[index].size}</p>`);
+//   let boxSize = `<p>${item.size}</p>`;
+//   document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxSize);
 // })
+
+
+// insertAdjacentHTML 사용 / backtick을 이용해서 코드 축약
+// products라는 배열을 순회하면서 가져온 값 => item parameter
+// item에서 img라는 key값의 value
+products.forEach(function(item){
+  let boxItem = `
+    <div class="box-item">
+      <img src="${item.img}" alt="${item.title}">
+      <div class="sho-info">
+        <h2>${item.title}</h2>
+        <p>${item.price}</p>
+        <p>${item.size}</p>
+      </div>
+    </div>
+  `
+
+  document.querySelector('.box-list').insertAdjacentHTML('beforeend', boxItem);
+})
