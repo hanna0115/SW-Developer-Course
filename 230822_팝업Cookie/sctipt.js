@@ -76,3 +76,27 @@ function getCookie(name){
   }
   // 일치하는 쿠키를 찾지 못했을 때, null 값을 반환해서 쿠키가 존재하지 않는다는 것을 나타낸다.
 }
+
+
+// 문서가 로드될 때 실행될 함수 설정
+document.addEventListener('DOMContentLoaded', function(){
+  let popup = document.querySelector('.popup');
+  let nonePopup = document.getElementById('none-popup');
+  let closeBtn = document.getElementById('close-btn');
+  
+  // getCookie에서 hidePopup이라는 값을 가져왔을 때 null이 아니라면
+  if(getCookie('hidePopup')) {
+    popup.style.display = 'none';
+  }
+
+  closeBtn.addEventListener('click', function(){
+    popup.style.display = 'none';
+
+    // closeBtn 클릭했을 때 nonePopup에 checked 속성이 있다면
+    // setCookie 함수에 name, value, hours 매개변수 값을 전달해서
+    // hours 시간 동안 팝업이 보이지 않게 한다.
+    if(nonePopup.checked) {
+      setCookie('hidePopup', 'true', 24); // 쿠키를 24시간 동안 유지
+    }
+  })
+})
