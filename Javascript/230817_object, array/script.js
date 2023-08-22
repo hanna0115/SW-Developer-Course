@@ -127,18 +127,36 @@ let products = [
 
 // insertAdjacentHTML로 .box-item 완성
 products.forEach(function(item, index){
-  document.querySelector('.box-list').insertAdjacentHTML('beforeend', '<div class="box-item"></div>');
+  let boxItem = `<div class="box-item"></div>`;
+  document.querySelector('.box-list').insertAdjacentHTML('beforeend', boxItem);
 
-  let boxItem = document.querySelectorAll('.box-item');
+  let boxImg = `<img src="${item.img}" alt="${item.title}">`;
+  document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', boxImg);
 
-  boxItem[index].insertAdjacentHTML('beforeend', `<img src="${item.img}" alt="${item.title}">`);
-  boxItem[index].insertAdjacentHTML('beforeend', '<div class="sho-info"></div>');
+  let shoInfo = `<div class="sho-info"></div>`;
+  document.querySelectorAll('.box-item')[index].insertAdjacentHTML('beforeend', shoInfo);
 
-  let shoInfo =  document.querySelectorAll('.sho-info');
+  let boxTitle = `<h2>${item.title}</h2>`;
+  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxTitle);
+
+  let boxPrice = `<p>${item.price}</p>`;
+  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxPrice);
+
+  let boxSize = `<p>${item.size}</p>`;
+  document.querySelectorAll('.sho-info')[index].insertAdjacentHTML('beforeend', boxSize);
+  
+  // document.querySelector('.box-list').insertAdjacentHTML('beforeend', '<div class="box-item"></div>');
+
+  // let boxItem = document.querySelectorAll('.box-item');
+
+  // boxItem[index].insertAdjacentHTML('beforeend', `<img src="${item.img}" alt="${item.title}">`);
+  // boxItem[index].insertAdjacentHTML('beforeend', '<div class="sho-info"></div>');
+
+  // let shoInfo =  document.querySelectorAll('.sho-info');
  
-  shoInfo[index].insertAdjacentHTML('beforeend', `<h2>${products[index].title}</h2>`);
-  shoInfo[index].insertAdjacentHTML('beforeend', `<p>${products[index].price}</p>`);
-  shoInfo[index].insertAdjacentHTML('beforeend', `<p>${products[index].size}</p>`);
+  // shoInfo[index].insertAdjacentHTML('beforeend', `<h2>${item.title}</h2>`);
+  // shoInfo[index].insertAdjacentHTML('beforeend', `<p>${item.price}</p>`);
+  // shoInfo[index].insertAdjacentHTML('beforeend', `<p>${item.size}</p>`);
 })
 
 // let boxItem = document.querySelectorAll('.box-item')
