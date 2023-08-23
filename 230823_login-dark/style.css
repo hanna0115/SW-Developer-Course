@@ -1,0 +1,221 @@
+:root {
+    --body-bg: #fafafa;
+    --box-bg: #fff;
+    --box-border-color: #dbdbdb;
+    --txt-color: #262626;
+    --txt-second-color: #8e8e8e;
+    --btn-bg: #0095f6;
+    --btn-color: #fff;
+    --fb-color: #385185;
+    --a-color: #00376b;
+}
+
+.dark {
+    --body-bg: #151515;
+    --box-bg: #151515;
+    --box-border-color: #262626;
+    --txt-color: #d2d2d2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: var(--body-bg);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.login-box {
+  width: 400px;
+  margin-top: 20px;
+  padding: 0 50px;
+  text-align: center;
+  border: 1px solid var(--box-border-color);
+  border-radius: 5px;
+  background-color: var(--box-bg);
+}
+
+.logo img {
+  width: 200px;
+  margin: 30px 0;
+}
+
+.inputbox {
+  position: relative;
+  width: 100%;
+  transition: 300ms ease-in-out;
+}
+
+.inputbox input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  border: 1px solid var(--box-border-color);
+  border-radius: 3px;
+  color: var(--txt-color);
+  background-color: var(--box-bg);
+}
+
+.inputbox input:focus {
+  outline: none;
+}
+
+.inputbox span {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  color: var(--txt-second-color);
+}
+
+.user-pw p {
+  display: none;
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--txt-color);
+}
+
+.login-box button {
+  width: 100%;
+  height: 35px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--btn-color);
+  background-color: var(--btn-bg);
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.or {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.or div {
+  width: 90px;
+  border-top: 1px solid var(--box-border-color);
+}
+
+.or span {
+  margin-top: -11px;
+  color: var(--txt-second-color);
+}
+
+.facebook-login a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: var(--fb-color);
+}
+
+.facebook-login a img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.find-pw {
+  margin: 20px 0;
+}
+
+.find-pw a {
+  font-size: 14px;
+  color: var(--a-color);
+}
+
+.join-box {
+  width: 400px;
+  margin-top: 10px;
+  padding: 30px 0;
+  text-align: center;
+  border: 1px solid var(--box-border-color);
+  border-radius: 5px;
+  background-color: var(--box-bg);
+}
+
+.join-box p {
+  color: var(--txt-color);
+}
+
+.join-box a {
+  font-weight: 700;
+  color: var(--btn-bg);
+}
+
+.dawnlod-box {
+  width: 400px;
+}
+
+.dawnlod-box p {
+  margin: 30px 0;
+  color: var(--txt-color);
+}
+
+.dawnlod-box div {
+  display: flex;
+  justify-content: center;
+}
+
+.dawnlod-box div img {
+  width: 160px;
+}
+
+.dawnlod-box div img:first-child {
+  margin-right: 10px;
+}
+
+.menu {
+  display: flex;
+  margin-top: 100px;
+}
+
+.menu li a {
+  margin-right: 15px;
+  color: var(--txt-second-color);
+}
+
+.copyright {
+  margin: 30px 0;
+  color: var(--txt-second-color);
+}
+
+/* input창에 txt 입력시 스타일링 */
+.inputbox.txt span {
+  top: 5px;
+  font-size: 12px;
+}
+
+.inputbox.txt input {
+  padding-top: 20px;
+}
+
+.login-box.allow button {
+  opacity: 1;
+  cursor: pointer;
+}
