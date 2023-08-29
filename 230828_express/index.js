@@ -50,6 +50,9 @@ app.listen(7000, function(){
   console.log('7000번 포트')
 })
 
+// 폴더 내 모든 정적 파일 제공(js, css, image, fonts)
+app.use(express.static(__dirname))
+
 
 // 서버에 GET 요청하기
 // localhost:7000으로 접속하면 send, sendFile() 안 내용을 보여준다.
