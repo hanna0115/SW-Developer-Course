@@ -1,8 +1,8 @@
 {
-  "name": "express",
+  "name": "230828_express",
   "version": "1.0.0",
   "description": "",
-  "main": "\u001b[A\u001b[A\u001b[A\u001b[B\u001b[B\u001b[B\u001b[B",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
