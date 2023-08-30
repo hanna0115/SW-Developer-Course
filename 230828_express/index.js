@@ -147,7 +147,8 @@ MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net
 
 app.post('/add', function(requests, response){
   console.log(requests.body)
-  response.send('전송완료!')
+  response.send('전송 완료!')
+
   db.collection('post').insertOne({아이디 : requests.body.id, 비밀번호 : requests.body.pw}, function(error, result){
     console.log('db에 저장완료!')
   })
@@ -163,7 +164,6 @@ app.get('/add', function(requests, response){
   // post라는 collection에 저장된 데이터를 꺼낸다.
   db.collection('post').find().toArray(function(error, result){
     console.log(result)
+    response.render('data.ejs', {log : result})
   })
-
-  response.render('data.ejs', {log : result})
 })
