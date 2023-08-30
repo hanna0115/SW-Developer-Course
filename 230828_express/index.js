@@ -106,10 +106,10 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 // app.post('경로', function(){})
 // input에 작성된 내용은 requests 파라미터가 가지고 있다.
-app.post('/add', function(requests, response){
-  response.send('전송완료!');
-  console.log(requests.body);
-})
+// app.post('/add', function(requests, response){
+//   response.send('전송완료!');
+//   console.log(requests.body);
+// })
 
 // 서버한테 정보를 보내주는 코드
 // 서버에 보낸 정보를 영구 저장하려면 DB(Data Base)에 저장
@@ -122,3 +122,33 @@ app.post('/add', function(requests, response){
 // 4. 띄어쓰기 대신 (-) 사용
 // 5. 자료 하나당 하나의 URL을 사용
 // 6. URL을 봤을 때 어떤 페이지인지 알 수 있어야한다.
+
+// MongoDB
+// npm install mongodb@3.6.4
+const MongoClient = require('mongodb').MongoClient;
+
+// 데이터를 저장할 변수 하나 선언
+let db;
+
+// Database access에서 만든 아이디:비밀번호
+MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net/?retryWrites=true&w=majority', function(error, client){
+  // 커넥션 어러의 99.9%가 url 오타
+  if(error) {
+    return console.log(error);
+  }
+
+  db = client.db('data');
+
+  app.listen('7070', function(){
+    console.log('seccess')
+  } )
+})
+
+
+app.post('/add', function(requests, response){
+  console.log(requests.body)
+  response.send('전송완료!')
+  db.collection('post').insertOne({아이디 : requests.body.id, 비밀번호 : requests.body.pw}, function(error, result){
+    console.log('db에 저장완료!')
+  })
+})
