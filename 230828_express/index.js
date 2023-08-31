@@ -145,6 +145,13 @@ MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net
 })
 
 
+// form에서 /add 경로로 post 요청을 하면,
+// DB에서 total collection을 찾아서
+// 해당 collection에 있는 총 데이터 수를 찾아서
+// totalDataLength라는 변수에 그 값을 저장
+// post라는 collection에 새로운 데이터가 들어올 경우
+// _id 값에 totalDataLength에 1 증가한 값을 넣어주고
+// total collection에 totalData + 1
 app.post('/add', function(requests, response){
   console.log(requests.body)
   response.send('전송 완료!')
