@@ -193,3 +193,16 @@ app.get('/add', function(requests, response){
     response.render('data.ejs', {log : result})
   })
 })
+
+
+app.delete('/delete', function(requests, response){
+  console.log(requests.body._id)
+  requests.body._id = parseInt(requests.body._id)
+
+  db.collection('post').deleteOne({_id : requests.body._id}, function(error, result){
+    if(error) {
+      console.log(error)
+    }
+    console.log('삭제 완료!!')
+  })
+})
