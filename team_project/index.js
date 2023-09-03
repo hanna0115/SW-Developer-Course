@@ -17,6 +17,7 @@ app.get('/', function(requests, response){
 
 // body-parser(요청 데이터 해석을 도와주는 라이브러리) 연결
 const bodyParser = require('body-parser');
+const { Cursor } = require('mongodb/lib/core');
 app.use(bodyParser.urlencoded({extended : true}));
 
 // MongoDB 연결
@@ -37,64 +38,66 @@ MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net
   } )
 })
 
+// Mongodb에 데이터 넣기
+// let url = "https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=785&MobileOS=ect&MobileApp=DDju&_type=json&areaCode=3&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D";
 
-let url = "https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=785&MobileOS=ect&MobileApp=DDju&_type=json&areaCode=3&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D";
-
-fetch(url)
-.then((res) => res.json())
-  .then((myJson) => {
-    let daejeon = myJson.response.body.items.item;
-    daejeon.forEach((item, index) => {
-      db.collection('api').insertOne({'contentid' : item[index].contentid,
-      'title' : item[index].title, 'contenttypeid' : item[index].contenttypeid,
-      'sigungucode' : item[index].sigungucode, 'img' : item[index].firstimage,
-      'addr1' : item[index].addr1, 'addr2' : item[index].addr2, 'tel' : item[index].tel,
-      'zipcode' : item[index].zipcode, 'mapx' : item[index].mapx, 'mapy' : item[index].mapy,
-      'createdtime' : item[index].createdtime}, function(error, result){
-        console.log('db에 저장완료')
-      })
-    });
-    })
+// fetch(url)
+// .then((res) => res.json())
+// .then((myJson) => {
+//   let daejeon = myJson.response.body.items.item;
+  // for(let i = 0; i < daejeon.length; i++) {
+  //   db.collection('api').insert({_id : daejeon[i].contentid,
+  //     'title' : daejeon[i].title, 'contenttypeid' : daejeon[i].contenttypeid,
+  //     'sigungucode' : daejeon[i].sigungucode, 'img' : daejeon[i].firstimage,
+  //     'addr1' : daejeon[i].addr1, 'addr2' : daejeon[i].addr2, 'tel' : daejeon[i].tel,
+  //     'zipcode' : daejeon[i].zipcode, 'mapx' : daejeon[i].mapx, 'mapy' : daejeon[i].mapy,
+  //     'createdtime' : daejeon[i].createdtime}, function(error, result){
+  //     console.log('db에 저장완료!')
+  //   })
+  // }
+// })
 
 
-// // api 가져오는 함수
-// function api(url){
-//   document.querySelector('.place-list').innerHTML = '';
-  
-//   fetch(url)
-//   .then((res) => res.json())
-//   .then((myJson) => {
-//     let daejeon = myJson.response.body.items.item;
-//     daejeon.forEach((item, index) => {
-//       let placeItem = `
-//       <div class="place-item">
-//       <img src = "${item.firstimage}" alt = "${item.title}">
-//       <div class="text-box">
-//       <h3>${item.title}</h3>
-//       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, repellendus.</p>
-//               <ul class="keywords-list">
-//                 <li>#키워드</li>
-//                 <li>#키워드</li>
-//                 <li>#키워드</li>
-//                 <li>#키워드</li>
-//               </ul>
-//             </div>
-//           </div>
-//       `
 
-//       document.querySelector('.place-list').insertAdjacentHTML('beforeend' , placeItem)
-//     });
+// Mongodb에서 데이터 가져와서 일치하는 id 값에 데이터 추가하기
+// 개요, 홈페이지 주소
+// app.get('/add', function(requests, response){
+//   db.collection('api').find().forEach(function(item) {
+//     // console.log(item._id)
+//     let url = 'https://apis.data.go.kr/B551011/KorService1/detailCommon1?MobileOS=ect&MobileApp=DDju&_type=json&contentId=' + item._id + '&overviewYN=Y&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D';
+//     fetch(url)
+//     .then((res) => res.json())
+//     .then((json) => {
+//       let text = json.response.body.items.item;
+      
+//       db.collection('api').update({_id : item._id}, {$set : {'overview' : text[0].overview, 'hmpg' : text[0].hmpg}}, function(){
+//         if(error) {
+//           return console.log(error)
+//         } 
+//         console.log('db에 저장완료!')
+//       })
 //     })
-// }
+//   })
+// })
 
-// api(url);
-
-
-// // '구'를 선택했을 때 해당하는 '구'의 api 가져오는 이벤트 추가
-// document.getElementById('district').addEventListener('change', function(){
-//   let sigunguCode = this.value;
-
-//   url = "https://apis.data.go.kr/B551011/KorService1/areaBasedList1?MobileOS=ect&MobileApp=DDju&_type=json&areaCode=3" + sigunguCode + "&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D";
-  
-//   api(url);
+// 관광지 : 이용시간, 쉬는날
+// app.get('/add', function(requests, response){
+//   db.collection('api').find().forEach(function(item) {
+//     // console.log(item._id)
+//     let url = 'https://apis.data.go.kr/B551011/KorService1/detailIntro1?MobileOS=ect&MobileApp=DDju&_type=json&contentId=' + item._id + '&contentTypeId=39&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D';
+//     fetch(url)
+//     .then((res) => res.json())
+//     .then((json) => {
+//       let text = json.response.body.items.item;
+//       text.forEach(function(item, index){
+//         db.collection('api').update({_id : item.contentid},
+//           {$set : {'opentime' : item[index].opentimefood, 'restdate' : item[index].restdatefood, 'infocenter' : item[index].infocenterfood}}, function(error, result){
+//           if(error) {
+//             return console.log(error)
+//           } 
+//           console.log('db에 저장완료!')
+//         })
+//       })
+//     })
+//   })
 // })
