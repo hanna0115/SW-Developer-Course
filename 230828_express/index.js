@@ -230,3 +230,7 @@ app.get('/info/:id', function(requests, response){
     response.render('info.ejs', {data : result})
   })
 })
+
+app.get('/edit', function(requests, response){
+  response.render('edit.ejs')
+})
