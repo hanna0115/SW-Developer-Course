@@ -99,6 +99,8 @@ app.get('/map', function(requests, response){
 // POST
 // body-parser : 요청 데이터 해석을 도와주는 라이브러리
 // npm install body-parser
+// extended는 중첩된 객체표현을 허용할지 말지를 정하는 것
+// 객체 안에 객체를 파싱할 수 있게하려면 true
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended : true}));
 
