@@ -233,6 +233,10 @@ app.get('/info/:id', function(requests, response){
   })
 })
 
-app.get('/edit', function(requests, response){
-  response.render('edit.ejs')
+
+// /edit 경로로 접속시 edit.ejs 내용 보여주기
+app.get('/edit/:id', function(requests, response){
+  db.collection('post').findOne({_id : parseInt(requests.params.id)}, function(error, result){
+    response.render('edit.ejs', {data : result})
+  })
 })
