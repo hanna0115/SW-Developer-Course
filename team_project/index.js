@@ -133,23 +133,36 @@ MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net
 // for 반복문 -> 200개까지 확인
 app.get('/add', function(requests, response){
   db.collection('test').find({contenttypeid : '39'}).toArray(function(error, result){
-    // console.log(result)
-    for(let i = 0; i < 200; i++) {
-      let url = 'https://apis.data.go.kr/B551011/KorService1/detailIntro1?MobileOS=ect&MobileApp=DDju&_type=json&contentId=' + result[i]._id + '&contentTypeId=39&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D';
-      fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        let text = json.response.body.items.item;
-        console.log(text)
+    // console.log(result.length)
+    // for(let i = 0; i < 200; i++) {
+    //   let url = 'https://apis.data.go.kr/B551011/KorService1/detailIntro1?MobileOS=ect&MobileApp=DDju&_type=json&contentId=' + result[i]._id + '&contentTypeId=39&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D';
+    //   fetch(url)
+    //   .then((res) => res.json())
+    //   .then((json) => {
+    //     let text = json.response.body.items.item;
+    //     // console.log(text)
         
-        db.collection('test').update({_id : result[i]._id},
-          {$set : {'opentime' : text[0].opentimefood, 'restdate' : text[0].restdatefood, 'infocenter' : text[0].infocenterfood}}, function(error, result){
-            if(error) {
-              return console.log(error)
-            } 
-            console.log('db에 저장완료!' + i)
-        })
-      })
-    }
+    //     db.collection('test').update({_id : result[i]._id},
+    //       {$set : {'opentime' : text[0].opentimefood, 'restdate' : text[0].restdatefood, 'infocenter' : text[0].infocenterfood}}, function(error, result){
+    //         if(error) {
+    //           return console.log(error)
+    //         } 
+    //         console.log('db에 저장완료!' + i)
+    //     })
+    //   })
+    // }
   })
 })
+
+
+// contenttypeid -> find, url 값 같게 설정
+// result.length 확인 후 i 설정
+// 데이터 한개 먼저 시범으로 확인 후 update 시작
+// 12 : {$set : {'usetime' : text[0].usetime, 'restdate' : text[0].restdate, 'infocenter' : text[0].infocenter}}
+// 14 : {$set : {'usetime' : text[0].usetimeculture, 'restdate' : text[0].restdateculture, 'infocenter' : text[0].infocenterculture}}
+// 행사 홈페이지 정보 필요한지 확인
+// 15 : {$set : {'startdate' : text[0].eventstartdate, 'enddate' : text[0].eventenddate, 'eventplace' : text[0].eventplace}}
+// 28 : {$set : {'usetime' : text[0].usetimeleports, 'restdate' : text[0].restdateleports, 'infocenter' : text[0].infocenterleports}}
+// 38 : {$set : {'opentime' : text[0].opentime, 'restdate' : text[0].restdateshopping, 'infocenter' : text[0].infocentershopping}}
+// 39 : {$set : {'opentime' : text[0].opentimefood, 'restdate' : text[0].restdatefood, 'infocenter' : text[0].infocenterfood}}
+
