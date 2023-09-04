@@ -6,7 +6,13 @@
 
 a {
   text-decoration: none;
-  color: #000;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: #fff;
 }
 
 body {
@@ -34,4 +40,12 @@ body {
 
 .info-box h3 {
   margin-right: 10px;
+}
+
+.edit {
+  background-color: dodgerblue;
+}
+
+.delete {
+  background-color: rgb(211, 32, 32);
 }
