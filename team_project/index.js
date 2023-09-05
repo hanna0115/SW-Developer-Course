@@ -49,12 +49,23 @@ MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net
 //     db.collection('test').insert({_id : daejeon[i].contentid,
 //       'title' : daejeon[i].title, 'contenttypeid' : daejeon[i].contenttypeid,
 //       'sigungucode' : daejeon[i].sigungucode, 'img' : daejeon[i].firstimage,
-//       'addr1' : daejeon[i].addr1, 'addr2' : daejeon[i].addr2, 'tel' : daejeon[i].tel,
+//       'addr1' : daejeon[i].addr1, 'addr2' : daejeon[i].addr2,
 //       'zipcode' : daejeon[i].zipcode, 'mapx' : daejeon[i].mapx, 'mapy' : daejeon[i].mapy,
 //       'createdtime' : daejeon[i].createdtime}, function(error, result){
 //       console.log('db에 저장완료!')
 //     })
 //   }
+// })
+
+
+// contenttypeid가 32(숙소)인 데이터 삭제하기
+// app.get('/add', function(){
+//   db.collection('api').deleteMany({'contenttypeid' : '32'}, function(error, result){
+//     console.log('삭제 완료!!')
+//     if(error) {
+//       console.log(error)
+//     }
+//   })
 // })
 
 
@@ -131,28 +142,28 @@ MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net
 
 // 이용시간, 쉬는날, 문의 및 안내 등 
 // for 반복문 -> 200개까지 확인
-app.get('/add', function(requests, response){
-  db.collection('test').find({contenttypeid : '39'}).toArray(function(error, result){
-    // console.log(result.length)
-    // for(let i = 0; i < 200; i++) {
-    //   let url = 'https://apis.data.go.kr/B551011/KorService1/detailIntro1?MobileOS=ect&MobileApp=DDju&_type=json&contentId=' + result[i]._id + '&contentTypeId=39&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D';
-    //   fetch(url)
-    //   .then((res) => res.json())
-    //   .then((json) => {
-    //     let text = json.response.body.items.item;
-    //     // console.log(text)
+// app.get('/add', function(requests, response){
+//   db.collection('test').find({contenttypeid : '39'}).toArray(function(error, result){
+//     // console.log(result.length)
+//     // for(let i = 0; i < 200; i++) {
+//     //   let url = 'https://apis.data.go.kr/B551011/KorService1/detailIntro1?MobileOS=ect&MobileApp=DDju&_type=json&contentId=' + result[i]._id + '&contentTypeId=39&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D';
+//     //   fetch(url)
+//     //   .then((res) => res.json())
+//     //   .then((json) => {
+//     //     let text = json.response.body.items.item;
+//     //     // console.log(text)
         
-    //     db.collection('test').update({_id : result[i]._id},
-    //       {$set : {'opentime' : text[0].opentimefood, 'restdate' : text[0].restdatefood, 'infocenter' : text[0].infocenterfood}}, function(error, result){
-    //         if(error) {
-    //           return console.log(error)
-    //         } 
-    //         console.log('db에 저장완료!' + i)
-    //     })
-    //   })
-    // }
-  })
-})
+//     //     db.collection('test').update({_id : result[i]._id},
+//     //       {$set : {'opentime' : text[0].opentimefood, 'restdate' : text[0].restdatefood, 'infocenter' : text[0].infocenterfood}}, function(error, result){
+//     //         if(error) {
+//     //           return console.log(error)
+//     //         } 
+//     //         console.log('db에 저장완료!' + i)
+//     //     })
+//     //   })
+//     // }
+//   })
+// })
 
 
 // contenttypeid -> find, url 값 같게 설정
