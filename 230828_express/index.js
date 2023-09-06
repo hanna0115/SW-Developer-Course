@@ -311,3 +311,7 @@ const session = require('express-session');
 app.use(session({secret : 'secret', resave : true, saveUninitialized : false}));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.get('/login', function(requests, response){
+  response.render('login.ejs')
+})
