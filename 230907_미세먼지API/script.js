@@ -2,7 +2,7 @@ var xhr = new XMLHttpRequest();
 var url = 'http://apis.data.go.kr/B552584/ArpltnStatsSvc/getCtprvnMesureSidoLIst'; /*URL*/
 var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D'; /*Service Key*/
 queryParams += '&' + encodeURIComponent('returnType') + '=' + encodeURIComponent('json'); /* 응답 데이터 타입 설정 */
-queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /* 한 페이지 결과 수 */
+queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('5'); /* 한 페이지 결과 수 */
 queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /* 페이지 번호 설정 */
 queryParams += '&' + encodeURIComponent('sidoName') + '=' + encodeURIComponent('대전'); /* 조회할 데이터 시도 이름 설정*/
 queryParams += '&' + encodeURIComponent('searchCondition') + '=' + encodeURIComponent('DAILY'); /* 데이터 기간 */
@@ -23,10 +23,12 @@ xhr.onreadystatechange = function () {
         for(let i = 0; i < items.length; i++) {
           let item = items[i];
 
-          let dataItem = document.createElement('div')
-          dataItem.innerHTML = item.cityName + ' 미세먼지 : ' + item.pm10Value;
-
-          dataDisplay.appendChild(dataItem)
+          if(item.cityName == '서구') {
+            let dataItem = document.createElement('div')
+            dataItem.innerHTML = item.cityName + ' 미세먼지 : ' + item.pm10Value;
+  
+            dataDisplay.appendChild(dataItem)
+          }
         }
       }
     } else {
