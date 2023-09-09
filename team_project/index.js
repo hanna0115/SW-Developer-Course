@@ -38,6 +38,24 @@ MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net
   } )
 })
 
+// app.get('/place-details/:id', function(requests, response){
+//   db.collection('api').findOne({_id : requests.params.id}, function(error, result){
+//     response.render('place-details.ejs', {api : result});
+//   })
+
+//   db.collection('review').find({name : requests.params.id}).toArray(function(error, result){
+//     // response.render('place-details.ejs', {review : result});
+//     console.log(result)
+//   })
+// })
+// app.post('/place-details/:id', function(requests, response){
+//   db.collection('review').insertOne({name : requests.params.id, 'star-rating' : parseInt(requests.body.star), 'review-txt' : requests.body.reviewTxt}, function(error, result){
+//     console.log('review DB에 저장 완료!')
+//     response.redirect('/place-details/:id')
+//   })
+
+// })
+
 // Mongodb에 데이터 넣기
 // let url = "https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=785&MobileOS=ect&MobileApp=DDju&_type=json&areaCode=3&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D";
 
@@ -94,6 +112,30 @@ MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net
 //   })
 // })
 
+// app.get('/api', function(requests, response){
+//   db.collection('api').find().toArray(function(error, result){
+//     // console.log(result.length)
+//     for(let i = 0; i < 1; i++) {
+//       let url = 'https://apis.data.go.kr/B551011/KorService1/detailCommon1?MobileOS=ect&MobileApp=DDju&_type=json&contentId=' + result[i]._id + '&defaultYN=Y&overviewYN=Y&serviceKey=K3ffxC1oIoWzYskEUMHmA3hfplXmJTt08QidPS9Br4fcnakaukocNyaP5ADWFtSMQUivJzOwjmKlnqVUEADYXQ%3D%3D';
+
+//       fetch(url)
+//       .then((res) => res.json())
+//       .then((json) => {
+//         let text = json.response.body.items.item;
+//         let overview = text[0].overview.replace('<br />', ' ')
+//         let newOverview = overview.replace('<br>', ' ')
+//         console.log(newOverview, text[0].hmpg)
+        
+//         db.collection('api').update({_id : result[i]._id}, {$set : {'overview' : newOverview}}, function(error, result){
+//           if(error) {
+//             return console.log(error)
+//           } 
+//           console.log('db에 저장완료!' + i)
+//         })
+//       })
+//     }
+//   })
+// })
 
 // foreach 반복문 : 실패
 // app.get('/add', function(requests, response){
@@ -176,4 +218,24 @@ MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net
 // 28 : {$set : {'usetime' : text[0].usetimeleports, 'restdate' : text[0].restdateleports, 'infocenter' : text[0].infocenterleports}}
 // 38 : {$set : {'opentime' : text[0].opentime, 'restdate' : text[0].restdateshopping, 'infocenter' : text[0].infocentershopping}}
 // 39 : {$set : {'opentime' : text[0].opentimefood, 'restdate' : text[0].restdatefood, 'infocenter' : text[0].infocenterfood}}
+// app.get('/api', function(requests, response){
+//   db.collection('api').find({contenttypeid : '39'}).toArray(function(error, result){
+//     console.log(result.length)
+//     // for(let i = 200; i < 417; i++) {
+//     //   let url = 'https://apis.data.go.kr/B551011/KorService1/detailIntro1?MobileOS=ect&MobileApp=DDju&_type=json&contentId=' + result[i]._id + '&contentTypeId=39&serviceKey=SLJe0Elsk0DOYqHIPeUB7PP2WOW3J0LjCct3gZhtNfafIAU7cyzRTDGocxAQWuLvgm2cRPKIAJPkJmUJnWO%2FrA%3D%3D';
+//     //   fetch(url)
+//     //   .then((res) => res.json())
+//     //   .then((json) => {
+//     //     let text = json.response.body.items.item;
 
+//     //     db.collection('api').update({_id : result[i]._id},
+//     //       {$set : {'opentime' : text[0].opentimefood, 'restdate' : text[0].restdatefood, 'infocenter' : text[0].infocenterfood}}, function(error, result){
+//     //         if(error) {
+//     //           return console.log(error)
+//     //         } 
+//     //         console.log('db에 저장완료!' + i)
+//     //     })
+//       // })
+//     // }
+//   })
+// })
