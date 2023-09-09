@@ -86,9 +86,9 @@ app.get('/test', function(requests, response){
 
 
 // localhost:7000/login 으로 접속시 보여줄 화면 => login.html
-app.get('/login', function(requests, response){
-  response.sendFile(__dirname + '/login.html')
-})
+// app.get('/login', function(requests, response){
+//   response.sendFile(__dirname + '/login.html')
+// })
 
 // localhost:7000/map 으로 접속시 보여줄 화면 => map.html
 // map.html : 카카오 지도 OPEN API
@@ -267,3 +267,130 @@ app.put('/edit', function(requests, response){
 // 1. views 폴더 안 join.ejs 파일 생성
 // 2. 회원가입 폼 작성
 // 3. db.collection('login')에 join.ejs 파일에 있는 input value 값 저장
+app.get('/join', function(requests, response){
+  response.render('join.ejs')
+})
+
+app.post('/join', function(requests, response){
+  db.collection('total').findOne({name : 'dataLength'}, function(error, result){
+    console.log(result.totalData);
+    let totalDataLength = result.totalData;
+
+    db.collection('login').insertOne({_id : totalDataLength + 1, name : requests.body.name, id : requests.body.id, pw : requests.body.pw}, function(error, result){
+      console.log('login collection에 저장 완료!')
+    })
+  })
+
+  db.collection('total').updateOne({name : 'dataLength'}, { $inc : { totalData : 1}},function(error, result){
+    if(error) {
+      return console.log(error)
+    }
+    response.redirect('/login')
+  })
+})
+
+
+// 회원가입, 로그인을 구현할 수 있는 여러가지 방법 중
+// Session을 사용해서 기능 구현(가장 많이 사용)
+// 유저가 로그인 하면 Session ID 하나 발급
+// 서버측도 가지고 있고, 유저도 컴퓨터에 그 값을 가진다.
+// Session ID : 유저가 로그인 할 때 작성한 정보
+
+// 라이브러리 설치
+// npm install passport 
+// npm install passport-local 
+// npm install express-session
+
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+
+// app.use(미들웨어)
+// 서버와 요청 사이에서 실행하고 싶은 코드가 있을 때 사용
+// passport 라이브러리 : 미들웨어 제공
+app.use(session({secret : 'secret', resave : true, saveUninitialized : false}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/login', function(requests, response){
+  response.render('login.ejs')
+})
+
+// 유저가 로그인 페이지에서 로그인 했을 때
+// 데이터를 비교해서 일치하면 응답
+// 응답하기 전에(중간에) 일치하지 않는다면 /fail이라는 경로로 이동
+app.post('/login', passport.authenticate('local', {
+  failureRedirect : '/fail'
+}), function(requests, response){
+  response.redirect('/')
+})
+
+// 로그인 실패했을 때 /fail 경로에서 보여줄 화면
+app.get('/fail', function(requests, response){
+  response.send('로그인 실패~!')
+})
+
+// 로컬스트레트지(LocalStrategy)로 아이디, 비밀번호 값 일치 여부
+passport.use(new LocalStrategy({
+  // 유저가 입력한 아이디, 비밀번호 필드 이름 설정
+  usernameField : 'id',
+  passwordField : 'pw',
+  // 사용자의 로그인 세션을 유지 여부
+  session : true,
+  // 아이디, 비밀번호 외에 다른 정보를 추가로 검증하고 싶을 때
+  passReqToCallback : false,
+
+  // 콜백함수에서 유저 아이디 / 비밀번호 검증
+}, function(userID, userPW, done){
+  db.collection('login').findOne({id : userID}, function(error, result){
+    // result가 없을 경우 = 유저가 입력한 userID값과 db에 일치하는 값이 없는 경우
+    // done() => 파라미터 3개 받는다
+    // done(서버에러, db데이터, 에러메세지)
+    if(!result) {
+      return done(null, false, {message : '없는 아이디임'})
+    }
+
+    if(userPW == result.pw) {
+      return done(null, result)
+    } else {
+      return done(null, false, {message : '비밀번호 불일치'})
+    }
+  })
+}))
+
+
+// 로그인 성공 -> 세션정보 만들고,
+// 씨리얼라이즈유저(serializeUser) : 유저 정보를 암호화
+passport.serializeUser(function(user, done){
+  done(null, user.id)
+})
+
+
+// 해당 세션 데이터를 login collection에서 찾는다
+passport.deserializeUser(function(id, done){
+  db.collection('login').findOne({id : id}, function(error, result){
+    done(null, result)
+  })
+})
+
+
+// 로그인 한 사람만 접속할 수 있는 경로 /mypage
+app.get('/mypage', getLogin, function(requests, response){
+  console.log(requests.user)
+  response.render('mypage.ejs', {info : requests.user})
+})
+
+// 로그인 여부를 판단하는 미들웨어
+function getLogin(requests, response, next){
+  if(requests.user) {
+    next()
+  } else {
+    response.send('로그인 하세요!')
+  }
+}
+
+app.post('/logout', function(requests, response){
+  requests.session.destroy();
+  console.log('로그아웃!')
+  response.redirect('/login')
+})
