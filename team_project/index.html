@@ -1,18 +1,326 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <p id="data"></p>
-    <script>
-    console.log(log)
+<html lang="ko">
+<head>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="데이트는 대전이쥬~">
+  <meta name="keywords" content="대전, 여행, 맛집, 데이트, 기념일, 관광">
+  <meta name="author" content="꼬타비, 서우, 한나, Kai">
 
-    </script>
-  </body>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+  <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/6105f934ac.js" crossorigin="anonymous"></script>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+  <title>DDju</title>
+
+  <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="stylesheet" href="./CSS/header.css">
+  <link rel="stylesheet" href="./CSS/index.css">
+  <link rel="stylesheet" href="./CSS/footer.css">
+  <link rel="stylesheet" href="./CSS/aside.css">
+  <link rel="stylesheet" href="./CSS/weather.css">
+
+</head>
+<body>
+  <div class="wrapper" id="top">
+    <header class="global-header">
+      <h1 class="logo">
+        <a href="/index">DDju
+          <span>date deajeon is U</span>
+        </a>
+      </h1>
+      
+      <nav>
+        <h2 class="visually-hidden">메뉴</h2>
+        <ul class="gnb-list lg-only">
+          <li class="gnb-item"><a href="/about">ABOUT</a></li>
+          <li class="gnb-item"><a href="/course-daejeon">코스 대전</a></li>
+          <li class="gnb-item">
+            <a href="/today-all">대전의 모든 것</a>
+            <ul class="sub">
+              <li><a href="/today-do">오늘 뭐하지</a></li>
+              <li><a href="/today-eat">오늘 뭐먹지</a></li>
+              <li><a href="/today-see">오늘 뭐보지</a></li>
+            </ul>
+          </li>
+          <li class="gnb-item"><a href="/contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      
+      <div class="user-menu-btn">
+        <button type="button" class="lg-hidden gnb-icon-button is-menu" aria-label="메뉴 열기 버튼">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <button type="button" class="login-btn">
+          <a href="/login">
+            <i class="fa-regular fa-user"></i>
+          </a>
+        </button>
+        <div class="mymenu hidden">
+          <button type="button" class="logout-btn">
+            <a href="/logout">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+          </button>
+          <button type="button" class="like-btn">
+            <a href="/zzim">
+              <i class="fa-solid fa-heart"></i>
+            </a>
+          </button>
+          <button type="button" class="mymenu-btn">
+            <a href="/mypage">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </button>
+        </div>
+      </div>
+    </header>
+    
+
+
+    <main>
+      <section>
+        <!-- section1. 날씨, 미세먼지 API -->
+        <div id="data">
+          <div class="location">
+           <div class="data-item sidoname">
+             <i class="fa-solid fa-location-dot"></i>대전
+           </div>
+           <div class="data-item cityname">
+             유성구
+           </div>
+          </div>
+           <div class="data-item weather">
+             <div class="we">
+               <i class="fa-regular fa-face-smile"></i>
+               <div class="info-text">
+                 <p>날씨</p>
+               </div>
+             </div>
+             <div class="we">
+               <i class="fa-regular fa-face-smile"></i>
+               <div class="info-text">
+                 <p>온도</p>
+               </div>
+             </div>
+           </div>
+           <div class="data-item mise">
+             미세먼지 좋음<i class="fa-regular fa-face-smile"></i>
+           </div>
+        </div>
+        <!-- section1. search box -->
+        <div class="search">
+          <div class="search-txt">
+            <h3>대전 데이트</h3>
+            <p>어디로 가지?</p>
+          </div>
+          <div class="search-box">
+            <form id="search" action="/search" method="post">
+              <div>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input name="search" type="text" placeholder="검색어를 입력하세요.">
+              </div>
+              <button type="submit">검색</button>
+            </form>
+            <ul class="keywords-list">
+              <li>#맛집</li>
+              <li>#데이트 코스 추천</li>
+              <li>#대전 핫플</li>
+              <li>#놀거리</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- section2. slide -->
+      <section>
+        <div class="slide-wrapper">
+          <div class="section-text">
+            <h1 class="section-title">오늘 '대전'이 책임질게</h1>
+            <p class="section-content">데이트 코스 추천</p>
+          </div>
+          <div class="slide-container">
+            <div class="slide-list">
+              <div class="slide-item">
+                <img src="./images/데이트코스1.jpg" alt="엑스포">                            
+                <div class="slide-item-text">
+                  <h2 class="slide-title">밤에 갈만한 코스</h2>
+                  <p class="slide-content">대전 유성구 야경을 사진으로 <br>담을 수 있는 최적의 장소를 <br>소개해 드리겠습니다.<br>대전 명소를 찾는 사람들이 <br>장소마다 다채로운 느낌을 <br>받을 수 있고, <br>다양한 추억을 쌓을 수 있습니다.</p>
+                  <ul>
+                    <li><i class="fa-solid fa-location-dot"></i>신세계 아트앤사이언스</li>
+                    <li><i class="fa-solid fa-location-dot"></i>한빛탑 전망대</li>
+                    <li><i class="fa-solid fa-location-dot"></i>엑스포 음악분수</li>
+                    <li><i class="fa-solid fa-location-dot"></i>엑스포 다리</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slide-item">
+                <img src="./images/데이트코스2.jpg" alt="산">                
+                <div class="slide-item-text">
+                    <h2 class="slide-title">title</h2>
+                    <p class="slide-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos in ullam repellendus nobis porro error possimus tenetur illum praesentium deleniti provident autem qui neque vitae numquam dolorem esse, nisi iste?</p>
+                    <ul>
+                      <li><i class="fa-solid fa-location-dot"></i>장소1</li>
+                      <li><i class="fa-solid fa-location-dot"></i>장소2</li>
+                      <li><i class="fa-solid fa-location-dot"></i>장소3</li>
+                      <li><i class="fa-solid fa-location-dot"></i>장소4</li>
+                    </ul>
+                </div>
+              </div>
+              <div class="slide-item">
+                <img src="./images/데이트코스3.jpg" alt="배">                     
+                <div class="slide-item-text">
+                  <h2 class="slide-title">title</h2>
+                  <p class="slide-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos in ullam repellendus nobis porro error possimus tenetur illum praesentium deleniti provident autem qui neque vitae numquam dolorem esse, nisi iste?</p>
+                  <ul>
+                    <li><i class="fa-solid fa-location-dot"></i>장소1</li>
+                    <li><i class="fa-solid fa-location-dot"></i>장소2</li>
+                    <li><i class="fa-solid fa-location-dot"></i>장소3</li>
+                    <li><i class="fa-solid fa-location-dot"></i>장소4</li>
+                  </ul>
+                </div>
+              </div>
+            </div>  
+          </div>
+
+          <button class="slide-btn" id="prev" type="button">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="slide-btn" id="next" type="button">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+        </div>
+      </section>
+
+
+      <!-- section3. hover menu -->
+      <section>
+        <div class="section-text">
+          <h1 class="section-title">유잼 도시 '대전'</h1>
+          <p class="section-content">먹거리, 놀거리, 볼거리 다 있는 대전!</p>
+        </div>
+        <div class="menu-box-list">
+          <a href="/today-do" class="menu-box-item">
+            <p class="menu-title">오늘<br>뭐하지</p>
+            <img src="./images/travel.jpg" alt="여행">
+          </a>
+          <a href="/today-eat" class="menu-box-item">          
+            <img src="./images/Food.jpg" alt="음식">
+            <p class="menu-title">오늘<br>뭐먹지</p>
+          </a>
+          <a href="/today-see" class="menu-box-item">
+            <p class="menu-title">오늘<br>뭐보지</p>          
+            <img src="./images/Expo.jpg" alt="엑스포">
+          </a>
+          <a href="/today-all" class="menu-box-item">        
+            <img src="./images/kumdori .jpg" alt="꿈돌이">
+            <p class="menu-title">대전의<br>모든것</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- aside menu -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <h2 class="visually-hidden">메뉴</h2>
+          <div class="drawer-menu">
+            <a href="./about.html">
+              <button class="drawer-menu-button"  type="button">
+                ABOUT
+              </button>
+            </a>
+          </div>
+          <div class="drawer-menu">
+            <a href="./course-daejeon.html">
+              <button class="drawer-menu-button" type="button">
+                코스대전
+              </button>
+            </a>
+          </div>
+          <div class="drawer-menu is-info">
+            <button class="drawer-menu-button" type="button">
+              대전의 모든 것
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            
+            <div class="drawer-menu-content">
+              <ul class="drawer-menu-list">
+                <li class="drawer-menu-item"><a href="/">오늘 뭐하지</a></li>
+                <li class="drawer-menu-item"><a href="/">오늘 뭐먹지</a></li>
+                <li class="drawer-menu-item"><a href="/">오늘 뭐보지</a></li>
+                <li class="drawer-menu-item"><a href="/">대전의 모든 것</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="drawer-menu">
+            <a href="./contact.html">
+              <button class="drawer-menu-button"  type="button">
+                CONTACT
+              </button>
+            </a>
+          </div>
+        </nav>
+      </aside>
+    
+    <div class="overlay"></div>
+
+    <footer>
+      <div class="global-footer">
+        <ul class="footer-link-list">
+          <li class="footer-link-item"><a href="/about">About</a></li>
+          <li class="footer-link-item"><a href="/privacy">개인정보 처리방침</a></li>
+          <li class="footer-link-item"><a href="/policy">위치정보 이용약관</a></li>
+          <li class="footer-link-item"><a href="/sitemap">사이트맵</a></li>
+        </ul>
+        <ul class="footer-info-list">
+          <li><a href="/index">DDju</a></li>
+          <li>대표이사: 꼬타비, 서우, 한나, Kai</li>
+          <li>사업자등록번호: 123-456-7890</li>
+          <li>고객센터: 1234-1234</li>
+        </ul>
+        <ul class="footer-icon-list">
+          <li><a href="https://github.com/Ji2unKo"><img src="https://avatars.githubusercontent.com/u/132882429?v=4" alt="꼬타비"></a></li>
+          <li><a href="https://github.com/choiseowu"><img src="https://avatars.githubusercontent.com/u/132882346?v=4" alt="서우"></a></li>
+          <li><a href="https://github.com/hanna0115"><img src="https://avatars.githubusercontent.com/u/132882278?v=4" alt="한나"></a></li>
+          <li><a href="https://github.com/biabamroi"><img src="https://avatars.githubusercontent.com/u/132882475?v=4" alt="Kai"></a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <div class="top-btn">
+      <a href="#top">
+        <i class="fa-solid fa-circle-arrow-up"></i>
+      </a>
+    </div>
+    
+  </div>
+
+  <script src="./JS/header.js"></script>
+  <script src="./JS/slide.js"></script>
+  <script src="./JS/footer.js"></script>
+  <script src="./JS/sidebar.js"></script>
+  <script src="./JS/index.js"></script>
+</body>
 </html>
-
-
