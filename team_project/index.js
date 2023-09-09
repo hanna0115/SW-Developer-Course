@@ -239,3 +239,37 @@ MongoClient.connect('mongodb+srv://admin:wearegoing@cluster0.xq3uv5b.mongodb.net
 //     // }
 //   })
 // })
+
+app.post('/search', function(requests, response){
+  console.log(requests.body.placeMenu)
+  let creatIndex = [
+    {
+      $search: {
+        index: "search",
+        text: {
+          query: requests.body.search,
+          path: {
+            wildcard: "*"
+          }
+        }
+      }
+    }
+  ]
+  db.collection('api').aggregate(creatIndex).toArray(function(error, result){
+    let placeMenu = requests.body.placeMenu
+    let district = requests.body.district
+    
+    if(placeMenu == undefined || (placeMenu == '' && district == '')) {
+      response.render('search.ejs', {search : result})
+    } else if(placeMenu && !district) {
+      let search = result.filter((item) => item.contenttypeid == placeMenu)  
+      response.render('search.ejs', {search : search})
+    } else if(!placeMenu && district) {
+      let search = result.filter((item) => item.sigungucode == district)
+      response.render('search.ejs', {search : search})
+    } else {
+      let search = result.filter((item) => item.contenttypeid == placeMenu && item.sigungucode == district)
+      response.render('search.ejs', {search : search})
+    }
+  })
+})
