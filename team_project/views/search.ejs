@@ -100,7 +100,7 @@
             <div class="search-bar">
               <div>
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input name="search" type="text" placeholder="검색어를 입력하세요." value="<%= search.search %>">
+                <input name="search" type="text" placeholder="검색어를 입력하세요." value="<%= searchWord %>">
               </div>
               <button type="submit">검색</button>
             </div>
@@ -181,6 +181,8 @@
               </a>
           <% } %>
         </div>
+        
+        <button type="button" class="place-item-btn">+ 더보기</button>
       </section>
     </main>
 
@@ -295,7 +297,17 @@
         })
       }
     })
-
+    
+    $('.place-item').parent().hide();
+    $('.place-item').parent().slice(0, 3).show();
+    
+    $(".place-item-btn").click(function(e){ // Load More를 위한 클릭 이벤트e
+      e.preventDefault();
+      $('.place-item').parent('a:hidden').slice(0, 5).show(); // 숨김 설정된 다음 n개 표시
+        if($('.place-item').parent('a:hidden').length == 0){ // 숨겨진 DIV가 있는지 체크해서 없으면 more 버튼 숨기기
+        $('.place-item-btn').hide();
+      }
+    })
   </script>
   
   <script src="../JS/header.js"></script>
