@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="데이트는 대전이쥬~">
+  <meta name="keywords" content="대전, 여행, 맛집, 데이트, 기념일, 관광">
+  <meta name="author" content="꼬타비, 서우, 한나, Kai">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+  <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/6105f934ac.js" crossorigin="anonymous"></script>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+  <title>DDju</title>
+
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/header.css">
+  <link rel="stylesheet" href="../CSS/search.css">
+  <link rel="stylesheet" href="../CSS/today.css">
+  <link rel="stylesheet" href="../CSS/course-daejeon.css">
+  <link rel="stylesheet" href="../CSS/footer.css">
+  <link rel="stylesheet" href="../CSS/aside.css">
+
+</head>
+<body>
+  <div class="wrapper" id="top">
+    <header class="global-header">
+      <h1 class="logo">
+        <a href="/index">DDju
+          <span>date deajeon is U</span>
+        </a>
+      </h1>
+      
+      <nav>
+        <h2 class="visually-hidden">메뉴</h2>
+        <ul class="gnb-list">
+          <li class="gnb-item"><a href="/about">ABOUT</a></li>
+          <li class="gnb-item"><a href="/course-daejeon">코스 대전</a></li>
+          <li class="gnb-item">
+            <a href="/today-all">대전의 모든 것</a>
+            <ul class="sub">
+              <li><a href="/today-do">오늘 뭐하지</a></li>
+              <li><a href="/today-eat">오늘 뭐먹지</a></li>
+              <li><a href="/today-see">오늘 뭐보지</a></li>
+            </ul>
+          </li>
+          <li class="gnb-item"><a href="/contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <div class="user-menu-btn">
+        <button type="button" class="login-btn">
+          <a href="/login">
+            <i class="fa-regular fa-user"></i>
+          </a>
+        </button>
+        <div class="mymenu hidden">
+          <button type="button" class="logout-btn">
+            <a href="/logout">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+          </button>
+          <button type="button" class="like-btn">
+            <a href="/zzim">
+              <i class="fa-solid fa-heart"></i>
+            </a>
+          </button>
+          <button type="button" class="mymenu-btn">
+            <a href="/mypage">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </button>
+        </div>
+      </div>
+    </header>
+    
+
+
+    <main>
+      <!-- search bar -->
+      <section>
+          <form id="search" action="/search" method="post">
+            <div class="search-bar">
+              <div>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input name="search" type="text" placeholder="검색어를 입력하세요." value="<%= search.search %>">
+              </div>
+              <button type="submit">검색</button>
+            </div>
+            <div class="search-details-box">
+              <p>상세 검색</p>
+              <div class="search-details">
+                <div class="place">
+                  <div class="place-menu inputbox selected">
+                    <p>전체</p>
+                    <input type="radio" name="placeMenu" value="" checked>
+                  </div>
+                  <div class="place-menu inputbox">
+                    <p>관광지</p>
+                    <input type="radio" name="placeMenu" value="12">
+                  </div>
+                  <div class="place-menu inputbox">
+                    <p>맛집</p>
+                    <input type="radio" name="placeMenu" value="39">
+                  </div>
+                  <div class="place-menu inputbox">
+                    <p>축제/공연</p>
+                    <input type="radio" name="placeMenu" value="15">
+                  </div>
+                </div>
+              
+                <div class="inputbox">
+                  <select name="district" id="district">
+                    <option value="">전체(구)</option>
+                    <option value="1">대덕구</option>
+                    <option value="2">동구</option>
+                    <option value="3">서구</option>
+                    <option value="4">유성구</option>
+                    <option value="5">중구</option>
+                  </select>
+                </div>
+                <div class="order">
+                  <div class="order-menu inputbox selected">
+                    <p>제목순</p>
+                    <input type="radio" name="title" value="title" checked>
+                  </div>
+                  <div class="order-menu inputbox">
+                    <p>등록일순</p>
+                    <input type="radio" name="createdtime" value="createdtime">
+                  </div>
+                  <div class="order-menu inputbox">
+                    <p>인기순</p>
+                    <input type="radio" name="title" value="0">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+      </section>
+
+      <!-- date place 검색 결과 -->
+      <section>
+        <div class="place-header">
+          <h2 class="title">데이트 장소</h2>
+          <hr>
+        </div>
+
+        <div class="place-list">
+          <% for(let i = 0; i < search.length; i++) { %>
+              <a href="/place-details/<%= search[i]._id %>">
+                <div class="place-item">
+                  <img src = "<%= search[i].img %>" alt = "<%= search[i].title %>">
+                  <div class="text-box">
+                    <h3><%= search[i].title %></h3>
+                    <p><%= search[i].overview %></p>
+                    <ul class="keywords-list">
+                      <li>#키워드</li>
+                      <li>#키워드</li>
+                      <li>#키워드</li>
+                      <li>#키워드</li>
+                    </ul>    
+                  </div>
+                </div>
+              </a>
+          <% } %>
+        </div>
+      </section>
+    </main>
+
+
+
+    <footer>
+      <div class="global-footer">
+        <ul class="footer-link-list">
+          <li class="footer-link-item"><a href="/about">About</a></li>
+          <li class="footer-link-item"><a href="/privacy">개인정보 처리방침</a></li>
+          <li class="footer-link-item"><a href="/policy">위치정보 이용약관</a></li>
+          <li class="footer-link-item"><a href="/sitemap">사이트맵</a></li>
+        </ul>
+        <ul class="footer-info-list">
+          <li><a href="/index">DDju</a></li>
+          <li>대표이사: 꼬타비, 서우, 한나, Kai</li>
+          <li>사업자등록번호: 123-456-7890</li>
+          <li>고객센터: 1234-1234</li>
+        </ul>
+        <ul class="footer-icon-list">
+          <li><a href="https://github.com/Ji2unKo"><img src="https://avatars.githubusercontent.com/u/132882429?v=4" alt="꼬타비"></a></li>
+          <li><a href="https://github.com/choiseowu"><img src="https://avatars.githubusercontent.com/u/132882346?v=4" alt="서우"></a></li>
+          <li><a href="https://github.com/hanna0115"><img src="https://avatars.githubusercontent.com/u/132882278?v=4" alt="한나"></a></li>
+          <li><a href="https://github.com/biabamroi"><img src="https://avatars.githubusercontent.com/u/132882475?v=4" alt="Kai"></a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <div class="top-btn">
+      <a href="#top">
+        <i class="fa-solid fa-circle-arrow-up"></i>
+      </a>
+    </div>
+    
+  </div>
+
+  <script>
+    // place-menu를 눌렀을 때 this에 p태그 색 바꾸기, inputbox checked 속성 주기
+    $('.place .inputbox').on('click', function(e){
+      $('.place .inputbox').removeClass('selected');
+      $('.place .inputbox input[type="radio"]').prop('checked', false);
+      $(this).addClass('selected');
+      $(this).children('input[type="radio"]').prop('checked', true);
+    })
+
+    // order-menu를 눌렀을 때 this에 p태그 색 바꾸기, inputbox checked 속성 주기
+    $('.order .inputbox').on('click', function(e){
+      $('.order .inputbox').removeClass('selected');
+      $('.order .inputbox input[type="radio"]').prop('checked', false);
+      $(this).addClass('selected');
+      $(this).children('input[type="radio"]').prop('checked', true);
+
+      let searchArray = <%- JSON.stringify(search) %>;
+      let orderValue = $(this).children('input[type="radio"]').val();
+      
+      // this가 '제목순'일 때
+      if(orderValue == 'title') {
+        let orderArrray = searchArray.sort((a,b) => {
+          if(a.title > b.title) return 1;
+          if(a.title < b.title) return -1;
+          return 0;
+        });
+
+        $('.place-list').empty();
+        orderArrray.forEach(function(item, index){
+          let placeItem = `
+            <a href="/place-details/${item._id}">
+                    <div class="place-item">
+                      <img src = "${item.img}" alt = "${item.title}">
+                      <div class="text-box">
+                        <h3>${item.title}</h3>
+                        <p>${item.overview}</p>
+                        <ul class="keywords-list">
+                          <li>#키워드</li>
+                          <li>#키워드</li>
+                          <li>#키워드</li>
+                          <li>#키워드</li>
+                        </ul>    
+                      </div>
+                    </div>
+                  </a>
+            `
+
+            $('.place-list').append(placeItem);
+        })
+      
+      // this가 '등록일순'일 때
+      } else {
+        let orderArrray = searchArray.sort((a,b) => (b.createdtime - a.createdtime));
+        
+        $('.place-list').empty();
+        orderArrray.forEach(function(item, index){
+          let placeItem = `
+            <a href="/place-details/${item._id}">
+                    <div class="place-item">
+                      <img src = "${item.img}" alt = "${item.title}">
+                      <div class="text-box">
+                        <h3>${item.title}</h3>
+                        <p>${item.overview}</p>
+                        <ul class="keywords-list">
+                          <li>#키워드</li>
+                          <li>#키워드</li>
+                          <li>#키워드</li>
+                          <li>#키워드</li>
+                        </ul>    
+                      </div>
+                    </div>
+                  </a>
+            `
+
+            $('.place-list').append(placeItem);
+        })
+      }
+    })
+
+  </script>
+  
+  <script src="../JS/header.js"></script>
+  <script src="../JS/slide.js"></script>
+  <script src="../JS/search.js"></script>
+  <script src="../JS/footer.js"></script>
+
+</body>
+</html>
