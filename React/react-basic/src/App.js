@@ -1,12 +1,10 @@
 import './App.css';
-import Nav from './component/Header/Nav';
-import Back from './component/Main/Back';
+import CommentList from './component/CommentList';
 
 function App() {
   return (
     <div className="App">
-      <Nav/>
-      <Back/>
+      <CommentList/>
     </div>
   );
 }

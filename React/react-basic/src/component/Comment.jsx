@@ -23,6 +23,7 @@ let styles = {
 }
 
 const Comment = (props) => {
+
   return (
     <div style={styles.wrapper} key={props.key}>
       <div>
@@ -34,7 +35,7 @@ const Comment = (props) => {
         <p>{props.text}</p>
       </div>
 
-      <button type='button'>X</button>
+      <button type='button' onClick={props.delete}>X</button>
     </div>
   );
 };
