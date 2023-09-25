@@ -24,8 +24,8 @@ function App() {
   let [result, setResult] = useState('');
 
   // 유저랑 컴퓨터가 선택한 값 업데이트
-  let play = (userChoice) => {
-    let userChoice = choice[userChoice];
+  let play = (usersele) => {
+    let userChoice = choice[usersele];
     setUserSelect(userChoice);
 
     let comChoice = randomChoice();
