@@ -24,8 +24,14 @@ function App() {
   let [result, setResult] = useState('');
 
   // 유저랑 컴퓨터가 선택한 값 업데이트
-  let play = () => {
-    randomChoice()
+  let play = (userChoice) => {
+    let userChoice = choice[userChoice];
+    setUserSelect(userChoice);
+
+    let comChoice = randomChoice();
+    setComSelect(comChoice);
+
+    setResult(judgment(userChoice, comChoice));
   }
 
   // 컴퓨터 랜덤 값 선택
@@ -37,16 +43,24 @@ function App() {
     // 0부터 2 사이에 있는 랜덤 값
     // Math.floor 소수점 이하를 버리는 함수
     let randomItem = Math.floor(Math.random() * itemArr.length);
-    let final = itemArr[randomItem]
+    let final = itemArr[randomItem];
 
     // 해당 함수가 호출 됐을 때 반환할 값
     return choice[final]
   }
-  randomChoice()
 
   // 조건문으로 유저, 컴퓨터 중 누가 이겼는지 판단
-  let judgment = () => {
-
+  let judgment = (user, computer) => {
+    // user가 이겼는지, computer가 이겼는지
+    // 어떤 값을 이용해서 판단할건지 결정
+    // 사용자가 rock 컴퓨터가 scissors 사용자 win com lose
+    // 사용자가 scissors 
+    // 사용자가 선택한 값, 컴퓨터가 선택한 값 비교
+    if(user.name == computer.name) {
+      return 'tie'
+    } else if(user.name == 'Rock') return computer.name == 'Scissors' ? 'win' : 'lose'
+    else if(user.name == 'Paper') return computer.name == 'Rock' ? 'win' : 'lose'
+    else if(user.name == 'Scissors') return computer.name == 'Paper' ? 'win' : 'lose'
   }
   
 
@@ -57,15 +71,9 @@ function App() {
         <Box title='Computer'/>
       </div>
       <div className="btn-list">
-        <button type='button' onClick={() => {
-          setUserSelect('scissors')
-          }}>가위</button>
-        <button type='button' onClick={() => {
-          setUserSelect('rock')
-          }}>바위</button>
-        <button type='button' onClick={() => {
-          setUserSelect('paper')
-          }}>보</button>
+        <button onClick={() => play('scissors')} type='button'>가위</button>
+        <button onClick={() => play('rock')} type='button'>바위</button>
+        <button onClick={() => play('paper')} type='button'>보</button>
       </div>
     </div>
   );
